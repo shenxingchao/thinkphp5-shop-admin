@@ -33,6 +33,12 @@ return [
             'action_name'=>'编辑商品',
         ],
         [
+            'control'=>'goods',
+            'action'=>'goods_brand_lst',
+            'control_name'=>'品牌',
+            'action_name'=>'品牌列表',
+        ],
+        [
             'control'=>'system',
             'action'=>'setting',
             'control_name'=>'系统',

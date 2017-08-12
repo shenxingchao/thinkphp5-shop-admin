@@ -243,4 +243,11 @@ class Goods extends Base{
             $this->error('商品不存在');
         }
     }
+
+    /**
+     * 品牌列表
+     */
+    public function goods_brand_lst(){
+        return $this->fetch();
+    }
 }

@@ -42,6 +42,13 @@ return [
                     'targetType'=>'iframe-tab',
                     'icon'=>'fa fa-list-alt'
                 ],
+                [
+                    'id'=>'100013',
+                    'text'=>'品牌列表',
+                    'url'=>'/admin/goods/goods_brand_lst',
+                    'targetType'=>'iframe-tab',
+                    'icon'=>'fa fa-list-alt'
+                ],
             ],
         ],
         [

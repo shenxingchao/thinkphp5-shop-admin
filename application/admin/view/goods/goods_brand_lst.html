@@ -1,0 +1,41 @@
+{include file="public/header" /}
+{include file="public/menu"}
+<section class="content">
+    <div id="toolbar" class="btn-group col-sm-12">
+        <button id="btn_add" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+        </button>
+    </div>
+    <div class="table-scrollable">
+        <table class="table-striped table-hover" data-toggle="table" >
+            <thead>
+            <tr>
+                <th></th>
+                <th data-sortable="true">商品编号</th>
+                <th data-sortable="true">缩略图</th>
+                <th data-sortable="true">商品名称</th>
+                <th data-sortable="true">价格</th>
+                <th data-sortable="true">库存</th>
+                <th >操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="fixed-table-pagination" align="center">
+
+        </div>
+    </div>
+</section>
+
+{include file="public/footer" /}
+<script type="text/javascript">
+    $(function () {
+        $('#btn_add').on('click',function () {
+            window.location.href = '/admin/goods/goods_brand_add';
+        });
+        $('.btn_delete').on('click',function () {
+            return confirm('确定要删除吗?');
+        });
+    });
+</script>
