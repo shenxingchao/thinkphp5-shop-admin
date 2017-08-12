@@ -1,0 +1,99 @@
+{include file="public/header" /}
+{include file="public/menu"}
+<style type="text/css">
+    #privilege_src td{
+        border: 1px solid #ccc;
+        line-height: 30px;
+    }
+    .privilege_checkbox,.privilege_span{
+        vertical-align: middle;
+        margin: 0 !important;
+    }
+    table label{
+        font-weight: normal;
+    }
+</style>
+<form class="form-horizontal col-sm-8 col-sm-offset-2" action="/admin/admin/admin_role_edit" method="post" enctype="multipart/form-data">
+    <div class="box-body">
+        <div class="form-group">
+            <label for="role_name" class="col-sm-2 control-label">角色名称</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="role_name" id="role_name" value="{$admin_role.role_name}" placeholder="角色名称">
+            </div>
+            <div class="col-sm-1 red">*</div>
+        </div>
+        <div class="form-group">
+            <label for="privilege_src" class="col-sm-2 control-label">分配权限</label>
+            <!--分组显示权限checkbox-->
+            <table id="privilege_src" class="col-sm-10">
+                {volist name="privilege_lst" id="data"}
+                <tr>
+                    <td class="col-sm-2 col-xs-2 group_name"><label><input class="privilege_checkbox" type="checkbox"><span class="privilege_span">{$key}</span></label> </td>
+                    <td class="col-sm-10 col-xs-10 group_content">
+                        {volist name="data" id="sub_data"}
+                            <label><input class="privilege_checkbox" type="checkbox" name="privilege_id[]" value="{$sub_data.id}" {in name="$sub_data['id']" value="$admin_role['privilege_id']"}checked="checked"{/in} ><span class="privilege_span">{$sub_data.privilege_name}</span></label>&nbsp;&nbsp;
+                        {/volist}
+                    </td>
+                </tr>
+                {/volist}
+            </table>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-3 col-sm-offset-2">
+                <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
+            </div>
+            <div class="col-sm-3">
+                <input type="hidden" name="id" value="{$admin_role.id}">
+                <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
+            </div>
+        </div>
+    </div>
+</form>
+{include file="public/footer" /}
+<script type="text/javascript">
+    $(function () {
+        /*判断一组checkbox是否全部选中 是则选中前面的标签*/
+        for(var i=0;i<$('.group_name').length;i++){
+            for(var j=0;j<$('.group_name').eq(i).next().find('.privilege_checkbox').length;j++){
+                if($('.group_name').eq(i).next().find('.privilege_checkbox').eq(j).prop('checked')===false){
+                    //若有一个不选中，则跳出
+                    break;
+                }
+                if(j==$('.group_name').eq(i).next().find('.privilege_checkbox').length-1){
+                    //全部选中，则选中组checkbox
+                    $('.group_name').eq(i).find('.privilege_checkbox').prop("checked", true);
+                }
+            }
+        }
+
+        //改变组checkbox选中
+        $('.group_name input').change(function () {
+            if($(this).prop('checked')){
+                $(this).parent().parent().next().find('.privilege_checkbox').prop("checked", true);
+            }
+            else{
+                $(this).parent().parent().next().find('.privilege_checkbox').prop("checked", false);
+            }
+        });
+        $('.add_btn').on('click',function () {
+            //1.提交前验证
+            if($.trim($('#role_name').val()) ==''){
+                showMsg('角色名称不能为空','role_name',1000);
+            }
+            else{
+                var flag = false;
+                for(var i=0;i<$('input[name="privilege_id[]"]').length;i++){
+                    if($('input[name="privilege_id[]"]').eq(i).prop('checked')){
+                        flag=true;
+                        break;
+                    }
+                }
+                if(!flag)
+                    showMsg('请先分配权限');
+                else{
+                    $(this).attr('type','submit');
+                }
+            }
+        });
+    });
+</script>

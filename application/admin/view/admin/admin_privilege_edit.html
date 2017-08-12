@@ -1,0 +1,52 @@
+{include file="public/header" /}
+{include file="public/menu"}
+<form class="form-horizontal col-sm-8 col-sm-offset-2" action="/admin/admin/admin_privilege_edit" method="post" enctype="multipart/form-data">
+    <div class="box-body">
+        <div class="form-group">
+            <label for="privilege_name" class="col-sm-2 control-label">权限名称</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="privilege_name" name="privilege_name" value="{$privilege.privilege_name}">
+            </div>
+            <div class="col-sm-1 red">*</div>
+        </div>
+        <div class="form-group">
+            <label for="controller_name" class="col-sm-2 control-label">控制器</label>
+            <div class="col-sm-6">
+                <select id="controller_name" class="form-control">
+                    <option value="{$privilege.controller_name}">{$privilege.controller_name}</option>
+                </select>
+            </div>
+            <div class="col-sm-1 red">*</div>
+        </div>
+        <div class="form-group">
+            <label for="action_name" class="col-sm-2 control-label">操作</label>
+            <div class="col-sm-6">
+                <select id="action_name" class="form-control">
+                    <option value="{$privilege.action_name}">{$privilege.action_name}</option>
+                </select>
+            </div>
+            <div class="col-sm-1 red">*</div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-3 col-sm-offset-2">
+                <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
+            </div>
+            <div class="col-sm-3">
+                <input type="hidden" value="{$privilege.id}"  name="id">
+                <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
+            </div>
+        </div>
+    </div>
+</form>
+{include file="public/footer" /}
+<script type="text/javascript">
+    $(function () {
+        $('.add_btn').on('click',function () {
+            //1.提交前验证
+            if($('input[name="privilege_name"]').val() =='')
+                showMsg("权限名称不能为空",'privilege_name',1000);
+            else
+                $(this).attr('type','submit');
+        });
+    });
+</script>

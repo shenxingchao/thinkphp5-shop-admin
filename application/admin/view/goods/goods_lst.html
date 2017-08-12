@@ -1,0 +1,55 @@
+{include file="public/header" /}
+{include file="public/menu"}
+<section class="content">
+    <div id="toolbar" class="btn-group col-sm-12">
+        <button id="btn_add" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+        </button>
+    </div>
+    <div class="table-scrollable">
+        <table class="table-striped table-hover" data-toggle="table" >
+            <thead>
+            <tr>
+                <th></th>
+                <th data-sortable="true">商品编号</th>
+                <th data-sortable="true">缩略图</th>
+                <th data-sortable="true">商品名称</th>
+                <th data-sortable="true">价格</th>
+                <th data-sortable="true">库存</th>
+                <th >操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {volist name='list' id='data'}
+            <tr>
+                <td><input type="checkbox"  attr-id="{$data.goods_id}"></td>
+                <td>{$data.goods_id}</td>
+            <td><img src="{$data.goods_thumb_img}" alt="{$data.goods_name}" title="{$data.goods_name}" width="50"  height="50"></td>
+                <td>{$data.goods_name}</td>
+                <td>{$data.goods_price}</td>
+                <td>{$data.goods_number}</td>
+                <td>
+                    <a href="/admin/goods/goods_edit/goods_id/{$data.goods_id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                    <a href="/admin/goods/goods_delete/goods_id/{$data.goods_id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
+                </td>
+            </tr>
+            {/volist}
+            </tbody>
+        </table>
+        <div class="fixed-table-pagination" align="center">
+            {$list->render()}
+        </div>
+    </div>
+</section>
+
+{include file="public/footer" /}
+<script type="text/javascript">
+    $(function () {
+        $('#btn_add').on('click',function () {
+           window.location.href = '/admin/goods/goods_add';
+        });
+        $('.btn_delete').on('click',function () {
+           return confirm('确定要删除吗?');
+        });
+    });
+</script>

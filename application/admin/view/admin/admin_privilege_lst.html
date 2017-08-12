@@ -1,0 +1,57 @@
+{include file="public/header" /}
+{include file="public/menu"}
+<section class="content">
+    <div id="toolbar" class="btn-group col-sm-12">
+        <button id="btn_add" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+        </button>
+    </div>
+    <div class="table-scrollable">
+        <table class="table-striped table-hover" data-toggle="table" >
+            <thead>
+            <tr>
+                <th data-sortable="true">分组</th>
+                <th data-sortable="true">菜单名</th>
+                <th data-sortable="true">控制器名</th>
+                <th data-sortable="true">方法名</th>
+                <th >操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {volist name="privilege_lst" id="data"}
+                <tr>
+                    <td>{$key}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                {volist name="data" id="sub_data"}
+                <tr>
+                    <td></td>
+                    <td>{$sub_data.privilege_name}</td>
+                    <td>{$sub_data.controller_name}</td>
+                    <td>{$sub_data.action_name}</td>
+                    <td> <a href="/admin/admin/admin_privilege_edit/id/{$sub_data.id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                        <a href="/admin/admin/admin_privilege_delete/id/{$sub_data.id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a></td>
+                </tr>
+                {/volist}
+            {/volist}
+            </tbody>
+        </table>
+        <div class="fixed-table-pagination" align="center">
+        </div>
+    </div>
+</section>
+
+{include file="public/footer" /}
+<script type="text/javascript">
+    $(function () {
+        $('#btn_add').on('click',function () {
+            window.location.href = '/admin/admin/admin_privilege_add';
+        });
+        $('.btn_delete').on('click',function () {
+            return confirm('确定要删除吗?');
+        });
+    });
+</script>

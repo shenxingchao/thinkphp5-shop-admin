@@ -1,0 +1,63 @@
+{include file="public/header" /}
+{include file="public/menu"}
+<form class="form-horizontal col-sm-8 col-sm-offset-2" action="/admin/admin/admin_add" method="post" enctype="multipart/form-data">
+    <div class="box-body">
+        <div class="form-group">
+            <label for="username" class="col-sm-2 control-label">管理员账号</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="username" id="username" placeholder="管理员账号">
+            </div>
+            <div class="col-sm-1 red">*</div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">设置密码</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="password" id="password" placeholder="设置密码">
+            </div>
+            <div class="col-sm-1 red">*</div>
+        </div>
+        <div class="form-group">
+            <label for="role_id" class="col-sm-2 control-label">选择角色类型</label>
+            <div class="col-sm-6">
+                <select name="role_id" id="role_id" class="form-control">
+                    <option value="0">请选择</option>
+                    {volist name="admin_role" id="data"}
+                        <option value="{$data.id}">{$data.role_name}</option>
+                    {/volist}
+                </select>
+            </div>
+            <div class="col-sm-1 red">*</div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-3 col-sm-offset-2">
+                <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
+            </div>
+            <div class="col-sm-3">
+                <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
+            </div>
+        </div>
+    </div>
+</form>
+{include file="public/footer" /}
+<script type="text/javascript">
+    $(function () {
+        $('.add_btn').on('click',function () {
+            //1.提交前验证
+            if($('#username').val() == ""){
+                showMsg("管理员账号不能为空","username",1000);
+                return false;
+            }
+            else if($('#password').val() == ""){
+                showMsg("密码不能为空","password",1000);
+                return false;
+            }
+            else if($('#role_id').val() == 0){
+                showMsg("请选择角色类型","role_id",1000);
+                return false;
+            }
+            else{
+                $(this).attr('type','submit');
+            }
+        });
+    });
+</script>

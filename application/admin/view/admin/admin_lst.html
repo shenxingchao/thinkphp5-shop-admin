@@ -1,0 +1,55 @@
+{include file="public/header" /}
+{include file="public/menu"}
+<section class="content">
+    <div id="toolbar" class="btn-group col-sm-12">
+        <button id="btn_add" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+        </button>
+    </div>
+    <div class="table-scrollable">
+        <table class="table-striped table-hover" data-toggle="table" >
+            <thead>
+            <tr>
+                <th data-sortable="true">id</th>
+                <th data-sortable="true">账号</th>
+                <th data-sortable="true">注册时间</th>
+                <th data-sortable="true">最后一次登录时间</th>
+                <th data-sortable="true">ip</th>
+                <th data-sortable="true">角色</th>
+                <th >操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {volist name="admin" id="data"}
+                <tr>
+                    <td>{$data.id}</td>
+                    <td>{$data.username}</td>
+                    <td>{$data.add_time|date='Y-m-d H:i:s',###}</td>
+                    <td>{if $data['login_time'] neq 0}{$data.login_time|date='Y-m-d H:i:s',###}{/if}</td>
+                    <td>{$data.ip}</td>
+                    <td>{$data.role_name}</td>
+                    <td>
+                        <a href="/admin/admin/admin_edit/id/{$data.id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                        <a href="/admin/admin/admin_delete/id/{$data.id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
+                    </td>
+                </tr>
+            {/volist}
+            </tbody>
+        </table>
+        <div class="fixed-table-pagination" align="center">
+
+        </div>
+    </div>
+</section>
+
+{include file="public/footer" /}
+<script type="text/javascript">
+    $(function () {
+        $('#btn_add').on('click',function () {
+            window.location.href = '/admin/admin/admin_add';
+        });
+        $('.btn_delete').on('click',function () {
+            return confirm('确定要删除吗?');
+        });
+    });
+</script>

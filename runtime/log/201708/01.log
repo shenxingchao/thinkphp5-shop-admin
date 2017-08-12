@@ -1,0 +1,133 @@
+---------------------------------------------------------------
+[ 2017-08-01T08:29:06+08:00 ] ::1 ::1 GET /Mobile/
+[ info ] localhost/Mobile/ [运行时间：0.359321s][吞吐率：2.78req/s] [内存消耗：1,015.88kb] [文件加载：30]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'Mobile',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'UM_distinctid=15d8d691c20bea-00a1079e304212-36624308-1fa400-15d8d691c211e4; CNZZDATA4223994=cnzz_eid%3D1252451195-1501315490-http%253A%252F%252Flocalhost%252F%26ntime%3D1501315490; workspaceParam=goodsList%7CGoods',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-08-01T08:29:19+08:00 ] ::1 ::1 GET /Mobile/
+[ info ] localhost/Mobile/ [运行时间：0.015165s][吞吐率：65.94req/s] [内存消耗：1,016.04kb] [文件加载：30]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'Mobile',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'UM_distinctid=15d8d691c20bea-00a1079e304212-36624308-1fa400-15d8d691c211e4; CNZZDATA4223994=cnzz_eid%3D1252451195-1501315490-http%253A%252F%252Flocalhost%252F%26ntime%3D1501315490; workspaceParam=goodsList%7CGoods',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-08-01T08:29:20+08:00 ] ::1 ::1 GET /index.php
+[ info ] localhost/index.php [运行时间：0.015894s][吞吐率：62.92req/s] [内存消耗：1,012.73kb] [文件加载：30]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'accept-encoding' => 'compress,gzip',
+  'connection' => 'Close',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-08-01T08:29:25+08:00 ] ::1 ::1 GET /admin/
+[ info ] localhost/admin/ [运行时间：0.142625s][吞吐率：7.01req/s] [内存消耗：1,271.80kb] [文件加载：37]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'UM_distinctid=15d8d691c20bea-00a1079e304212-36624308-1fa400-15d8d691c211e4; CNZZDATA4223994=cnzz_eid%3D1252451195-1501315490-http%253A%252F%252Flocalhost%252F%26ntime%3D1501315490; workspaceParam=goodsList%7CGoods',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpStudy\admin\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-08-01T08:29:25+08:00 ] ::1 ::1 GET //admin/index/welcome
+[ info ] localhost//admin/index/welcome [运行时间：0.024716s][吞吐率：40.46req/s] [内存消耗：1,272.48kb] [文件加载：37]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/admin/',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'UM_distinctid=15d8d691c20bea-00a1079e304212-36624308-1fa400-15d8d691c211e4; CNZZDATA4223994=cnzz_eid%3D1252451195-1501315490-http%253A%252F%252Flocalhost%252F%26ntime%3D1501315490; workspaceParam=goodsList%7CGoods; currentmoduleName=%E6%AC%A2%E8%BF%8E%E9%A1%B5; currentmoduleId=10008',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Index->welcome[ D:\phpStudy\admin\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\index\welcome.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
