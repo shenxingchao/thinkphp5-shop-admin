@@ -46,21 +46,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="goods_brand_lst.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="goods_brand_lst.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/view/goods/goods_brand_lst.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+            <state relative-caret-position="155">
+              <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Goods.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Goods.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Goods.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="716">
-              <caret line="250" column="15" lean-forward="false" selection-start-line="250" selection-start-column="15" selection-end-line="250" selection-end-column="15" />
+              <caret line="251" column="5" lean-forward="true" selection-start-line="251" selection-start-column="5" selection-end-line="251" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -619,12 +619,12 @@
       <workItem from="1502353939587" duration="342000" />
       <workItem from="1502409403702" duration="523000" />
       <workItem from="1502409946118" duration="2198000" />
-      <workItem from="1502498468433" duration="1683000" />
+      <workItem from="1502498468433" duration="1953000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152860000" />
+    <option name="totallyTimeSpent" value="153130000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1029,14 +1029,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/goods/goods_brand_lst.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/conf/breadcrumb.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
@@ -1048,7 +1040,15 @@
     <entry file="file://$PROJECT_DIR$/application/admin/controller/Goods.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="716">
-          <caret line="250" column="15" lean-forward="false" selection-start-line="250" selection-start-column="15" selection-end-line="250" selection-end-column="15" />
+          <caret line="251" column="5" lean-forward="true" selection-start-line="251" selection-start-column="5" selection-end-line="251" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/goods/goods_brand_lst.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
           <folding />
         </state>
       </provider>
