@@ -1,0 +1,44 @@
+{include file="public/header" /}
+{include file="public/menu"}
+<form class="form-horizontal col-sm-8 col-sm-offset-2" action="/admin/goods/goods_brand_edit" method="post" enctype="multipart/form-data">
+    <div class="box-body">
+        <div class="form-group">
+            <label for="brand_name" class="col-sm-2 control-label">品牌名称</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="brand_name" id="brand_name" placeholder="品牌名称" value="{$brand_info.brand_name}">
+            </div>
+            <div class="col-sm-1 red">*</div>
+        </div>
+        <div class="form-group">
+            <label for="brand_img" class="col-sm-2 control-label">品牌图片</label>
+            <div class="col-sm-6">
+                <input type="file" class="form-control" name="brand_img" id="brand_img" onchange="change_file_name(this)">
+            </div>
+            <div class="col-sm-1 red">*</div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-3 col-sm-offset-2">
+                <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
+            </div>
+            <div class="col-sm-3">
+                <input type="hidden" value="{$brand_info.id}" name="id">
+                <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
+            </div>
+        </div>
+    </div>
+</form>
+{include file="public/footer" /}
+<script type="text/javascript">
+    $(function () {
+        $('.add_btn').on('click',function () {
+            //1.提交前验证
+            if($('#brand_name').val() == ""){
+                showMsg('品牌名称不能为空','brand_name',1000);
+                return false;
+            }
+            else{
+                $(this).attr('type','submit');
+            }
+        });
+    });
+</script>

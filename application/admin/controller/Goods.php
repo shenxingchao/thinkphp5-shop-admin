@@ -115,6 +115,7 @@ class Goods extends Base{
                         'goods_name'=>$request->param('goods_name'),
                         'goods_price'=>$request->param('goods_price'),
                         'cat_id'=>$request->param('cat_id'),
+                        'brand_id'=>$request->param('brand_id'),
                         'goods_number'=>$request->param('goods_number')?$request->param('goods_number'):(Setting('goods_number')?Setting('goods_number'):0),
                         'goods_img'=>$file_path,
                         'goods_thumb_img'=>$file_thumb_path,
@@ -139,6 +140,10 @@ class Goods extends Base{
         $cat_info = Db::name('goods_cat')->select();
         $cat_info = getTree($cat_info);
         $this->assign('cat_info',$cat_info);
+        //获取所有品牌
+        $brand_info = Db::name('goods_brand')->select();
+        $this->assign('brand_info',$brand_info);
+
         return $this->fetch('goods_add');
     }
 
@@ -233,6 +238,7 @@ class Goods extends Base{
                 //3.删除商品图片 释放资源
                 @unlink(ROOT_PATH . $goods_info['goods_img']);
                 @unlink(ROOT_PATH . $goods_info['goods_thumb_img']);
+                //3.2删除详情图片资源
                 $this->success('删除成功', '/admin/goods/goods_lst');
             }
             else{
@@ -246,8 +252,132 @@ class Goods extends Base{
 
     /**
      * 品牌列表
+     * @return mixed
      */
     public function goods_brand_lst(){
+        //1.获取品牌信息，分页输出
+        $pagesize = Setting('admin_pagesize')?Setting('admin_pagesize'):8;
+        $list = Db::name('goods_brand')->paginate($pagesize,false,['path'=>'/admin/goods/goods_brand_lst']);
+        $this->assign('list',$list);
         return $this->fetch();
+    }
+
+    /**
+     * 添加品牌
+     * @return mixed
+     */
+    public function goods_brand_add(){
+        $request= Request::instance();
+        if ($request->isPost()){
+            //添加商品
+            //1.上传文件
+            $file = $request->file('brand_img');
+            if($file){
+                $info = $file->move(ROOT_PATH .'/public/upload/brand');
+                if($info){
+                    $file_name =  $info->getSaveName();
+                    $file_path = '/public/upload/brand/'.$file_name;
+
+                    //3.组装数据
+                    $insert = [
+                        'brand_name'=>$request->param('brand_name'),
+                        'brand_img'=>$file_path,
+                    ];
+                    //4.添加
+                    $res = Db::name('goods_brand')->insert($insert);
+                    //5.返回
+                    if($res)
+                        $this->success('添加成功','/admin/goods/goods_brand_lst');
+                    else
+                        $this->error('添加失败');
+                }
+                else{
+                    $this->error($file->getError());
+                }
+            }
+
+
+        }
+        return $this->fetch();
+    }
+
+    /**
+     * 编辑品牌
+     * @return mixed
+     */
+    public function goods_brand_edit(){
+        $request= Request::instance();
+        if ($request->isPost()){
+            $where = [
+                'id'=>intval($request->param('id')),
+            ];
+            //0.获取当前商品信息
+            $brand_info = Db::name('goods_brand')->where($where)->find();
+            $file_path_old = $brand_info['brand_img'];
+
+            //1.如果有图片上传，则上传图片，删除原图
+            $file = $request->file('brand_img');
+            if($file) {
+                $info = $file->move(ROOT_PATH . '/public/upload/brand');
+                if ($info) {
+                    $file_name = $info->getSaveName();
+                    $file_path = '/public/upload/brand/' . $file_name;
+                    //3.删除原图
+                    @unlink(ROOT_PATH.$file_path_old);
+                } else {
+                    $this->error($file->getError());
+                }
+            }
+            //3.组装数据
+            $update = [
+                'brand_name'=>$request->param('brand_name'),
+                'brand_img' => isset($file_path)?$file_path:$file_path_old,
+            ];
+            //4.保存
+            $res = Db::name('goods_brand')->where($where)->update($update);
+            //5.返回
+            if ($res)
+                $this->success('编辑成功', '/admin/goods/goods_brand_lst');
+            else
+                $this->error('更新失败');
+        }else{
+            $where = [
+                'id'=>intval($request->param('id'))
+            ];
+            //1.获取当前品牌信息
+            $brand_info = Db::name('goods_brand')->where($where)->find();
+            if(empty($brand_info))
+                $this->error('品牌不存在');
+            $this->assign('brand_info',$brand_info);
+            return $this->fetch();
+        }
+    }
+
+    /**
+     *  删除品牌
+     */
+    public function goods_brand_delete(){
+        $request = Request::instance();
+        if ($request->param('id')){
+            //1.获取商品信息
+            $where = [
+                'id'=>intval($request->param('id')),
+            ];
+            //1.获取当前商品信息
+            $brand_info = Db::name('goods_brand')->where($where)->find();
+            //2.删除商品记录
+            $res = Db::name('goods_brand')->where($where)->delete();
+            if($res){
+                //3.删除商品图片 释放资源
+                @unlink(ROOT_PATH . $brand_info['brand_img']);
+                $this->success('删除成功', '/admin/goods/goods_brand_lst');
+            }
+            else{
+                $this->error('删除失败');
+            }
+        }
+        else{
+            $this->error('品牌不存在');
+        }
     }
 }

@@ -1,0 +1,84 @@
+{include file="public/header" /}
+{include file="public/menu"}
+<form class="form-horizontal col-sm-8 col-sm-offset-2" action="/admin/goods/goods_brand_add" method="post" enctype="multipart/form-data">
+    <div class="box-body">
+        <div class="form-group">
+            <label for="brand_name" class="col-sm-2 control-label">品牌名称</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="brand_name" id="brand_name" placeholder="品牌名称">
+            </div>
+            <div class="col-sm-1 red">*</div>
+        </div>
+        <div class="form-group">
+            <label for="brand_img" class="col-sm-2 control-label">品牌图片</label>
+            <div class="col-sm-6">
+                <input type="file" class="form-control" name="brand_img" id="brand_img" onchange="change_file_name(this)">
+            </div>
+            <div class="col-sm-1 red">*</div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-3 col-sm-offset-2">
+                <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
+            </div>
+            <div class="col-sm-3">
+                <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
+            </div>
+        </div>
+    </div>
+</form>
+{include file="public/footer" /}
+<script type="text/javascript">
+    $(function () {
+        $('.add_btn').on('click',function () {
+            //1.提交前验证
+            if($('#brand_name').val() == ""){
+                showMsg('品牌名称不能为空','brand_name',1000);
+                return false;
+            }
+            else if(defualt_pic_name ==''){
+                showMsg('图片未选择或格式不正确','brand_img',1000);
+                return false;
+            }
+            else{
+                $(this).attr('type','submit');
+            }
+        });
+    });
+
+
+    /*判断图片是否选择*/
+    var defualt_pic_name = '';
+    function change_file_name(file){
+        var str = file.files[0].name;
+        if( checkFileExt(str)){
+            defualt_pic_name = str;
+        }else{
+            defualt_pic_name = '';
+        }
+    }
+    function checkFileExt(filename)
+    {
+        var flag = false; //状态
+        var arr = ["jpg","png","gif","jpeg"];
+        //取出上传文件的扩展名
+        var index = filename.lastIndexOf(".");
+        var ext = filename.substr(index+1);
+        //循环比较
+        for(var i=0;i<arr.length;i++)
+        {
+            if(ext == arr[i])
+            {
+                flag = true; //一旦找到合适的，立即退出循环
+                break;
+            }
+        }
+        //条件判断
+        if(flag)
+        {
+            return true;
+        }else
+        {
+            return false;
+        }
+    }
+</script>

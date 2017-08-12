@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"D:\phpStudy\admin/application/admin\view\goods\goods_add.html";i:1501481959;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1501481280;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1501831777;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"D:\phpStudy\admin/application/admin\view\goods\goods_add.html";i:1502506747;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1502091869;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1501831777;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/skins/_all-skins.css">
     <link href="__SUP__/content/min/css/supershopui.common.min.css" rel="stylesheet" />
     <link href="__SUP__/content/plugins/bootstrap-table/bootstrap-table.css" rel="stylesheet" />
-    <link rel="stylesheet" href="__CSS__/style.css">
+    <link rel="stylesheet" href="__ADMIN__/css/style.css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -56,6 +56,17 @@
                 </select>
             </div>
             <div class="col-sm-1 red">*</div>
+        </div>
+        <div class="form-group">
+            <label for="brand_id" class="col-sm-2 control-label">选择品牌</label>
+            <div class="col-sm-6">
+                <select name="brand_id" id="brand_id" class="form-control">
+                    <option value="">请选择</option>
+                    <?php if(is_array($brand_info) || $brand_info instanceof \think\Collection || $brand_info instanceof \think\Paginator): $i = 0; $__LIST__ = $brand_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
+                        <option value="<?php echo $data['id']; ?>"><?php echo $data['brand_name']; ?></option>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </select>
+            </div>
         </div>
         <div class="form-group">
             <label for="goods_img" class="col-sm-2 control-label">商品图片</label>

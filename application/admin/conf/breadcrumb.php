@@ -39,6 +39,18 @@ return [
             'action_name'=>'品牌列表',
         ],
         [
+            'control'=>'goods',
+            'action'=>'goods_brand_add',
+            'control_name'=>'品牌',
+            'action_name'=>'添加品牌',
+        ],
+        [
+            'control'=>'goods',
+            'action'=>'goods_brand_edit',
+            'control_name'=>'品牌',
+            'action_name'=>'编辑品牌',
+        ],
+        [
             'control'=>'system',
             'action'=>'setting',
             'control_name'=>'系统',

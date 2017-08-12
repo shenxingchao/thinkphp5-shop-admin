@@ -10,20 +10,28 @@
         <table class="table-striped table-hover" data-toggle="table" >
             <thead>
             <tr>
-                <th></th>
-                <th data-sortable="true">商品编号</th>
-                <th data-sortable="true">缩略图</th>
-                <th data-sortable="true">商品名称</th>
-                <th data-sortable="true">价格</th>
-                <th data-sortable="true">库存</th>
+                <th data-sortable="true">品牌id</th>
+                <th data-sortable="true">品牌名称</th>
+                <th data-sortable="true">品牌图片</th>
                 <th >操作</th>
             </tr>
             </thead>
             <tbody>
+                {volist name='list' id='data'}
+                <tr>
+                    <td>{$data.id}</td>
+                    <td>{$data.brand_name}</td>
+                    <td><img src="{$data.brand_img}" width="100" height="50"></td>
+                    <td>
+                        <a href="/admin/goods/goods_brand_edit/id/{$data.id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                        <a href="/admin/goods/goods_brand_delete/id/{$data.id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
+                    </td>
+                </tr>
+                {/volist}
             </tbody>
         </table>
         <div class="fixed-table-pagination" align="center">
-
+            {$list->render()}
         </div>
     </div>
 </section>

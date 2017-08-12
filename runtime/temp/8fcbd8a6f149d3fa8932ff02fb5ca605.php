@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\phpStudy\admin/application/admin\view\goods\goods_brand_lst.html";i:1502500088;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1502091869;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1501831777;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\phpStudy\admin/application/admin\view\goods\goods_brand_lst.html";i:1502504508;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1502091869;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1501831777;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,20 +40,28 @@
         <table class="table-striped table-hover" data-toggle="table" >
             <thead>
             <tr>
-                <th></th>
-                <th data-sortable="true">商品编号</th>
-                <th data-sortable="true">缩略图</th>
-                <th data-sortable="true">商品名称</th>
-                <th data-sortable="true">价格</th>
-                <th data-sortable="true">库存</th>
+                <th data-sortable="true">品牌id</th>
+                <th data-sortable="true">品牌名称</th>
+                <th data-sortable="true">品牌图片</th>
                 <th >操作</th>
             </tr>
             </thead>
             <tbody>
+                <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
+                <tr>
+                    <td><?php echo $data['id']; ?></td>
+                    <td><?php echo $data['brand_name']; ?></td>
+                    <td><img src="<?php echo $data['brand_img']; ?>" width="100" height="50"></td>
+                    <td>
+                        <a href="/admin/goods/goods_brand_edit/id/<?php echo $data['id']; ?>" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                        <a href="/admin/goods/goods_brand_delete/id/<?php echo $data['id']; ?>" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
+                    </td>
+                </tr>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
             </tbody>
         </table>
         <div class="fixed-table-pagination" align="center">
-
+            <?php echo $list->render(); ?>
         </div>
     </div>
 </section>
