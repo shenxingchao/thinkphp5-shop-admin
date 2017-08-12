@@ -25,6 +25,17 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="brand_id" class="col-sm-2 control-label">选择品牌</label>
+            <div class="col-sm-6">
+                <select name="brand_id" id="brand_id" class="form-control">
+                    <option value="">请选择</option>
+                    {volist name="brand_info" id="data"}
+                    <option value="{$data.id}" {if condition="$goods_info.brand_id eq $data.id"}selected="selected"{/if}>{$data.brand_name}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
             <label for="goods_img" class="col-sm-2 control-label">商品图片</label>
             <div class="col-sm-6">
                 <input type="file" class="form-control" name="goods_img" id="goods_img" onchange="change_file_name(this)">

@@ -115,7 +115,7 @@ class Goods extends Base{
                         'goods_name'=>$request->param('goods_name'),
                         'goods_price'=>$request->param('goods_price'),
                         'cat_id'=>$request->param('cat_id'),
-                        'brand_id'=>$request->param('brand_id'),
+                        'brand_id'=>$request->param('brand_id')!=''?$request->param('brand_id'):null,
                         'goods_number'=>$request->param('goods_number')?$request->param('goods_number'):(Setting('goods_number')?Setting('goods_number'):0),
                         'goods_img'=>$file_path,
                         'goods_thumb_img'=>$file_thumb_path,
@@ -188,6 +188,7 @@ class Goods extends Base{
                 'goods_name' => $request->param('goods_name'),
                 'goods_price' => $request->param('goods_price'),
                 'cat_id' => $request->param('cat_id'),
+                'brand_id'=>$request->param('brand_id')!=''?$request->param('brand_id'):null,
                 'goods_number'=>$request->param('goods_number')?$request->param('goods_number'):(Setting('goods_number')?Setting('goods_number'):0),
                 'goods_img' => isset($file_path)?$file_path:$file_path_old,
                 'goods_thumb_img' => isset($file_thumb_path)?$file_thumb_path:$file_thumb_path_old,
@@ -215,6 +216,9 @@ class Goods extends Base{
             $cat_info = Db::name('goods_cat')->select();
             $cat_info = getTree($cat_info);
             $this->assign('cat_info',$cat_info);
+            //获取所有品牌
+            $brand_info = Db::name('goods_brand')->select();
+            $this->assign('brand_info',$brand_info);
             return $this->fetch('goods_edit');
         }
     }

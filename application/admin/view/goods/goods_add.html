@@ -31,7 +31,7 @@
             <label for="brand_id" class="col-sm-2 control-label">选择品牌</label>
             <div class="col-sm-6">
                 <select name="brand_id" id="brand_id" class="form-control">
-                    <option value="0">请选择</option>
+                    <option value="">请选择</option>
                     {volist name="brand_info" id="data"}
                         <option value="{$data.id}">{$data.brand_name}</option>
                     {/volist}

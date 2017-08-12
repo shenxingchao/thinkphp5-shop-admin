@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"D:\phpStudy\admin/application/admin\view\goods\goods_edit.html";i:1501487259;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1502091869;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1501831777;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"D:\phpStudy\admin/application/admin\view\goods\goods_edit.html";i:1502510873;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1502091869;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1501831777;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,6 +50,17 @@
                 <select name="cat_id" id="cat_id" class="form-control">
                     <?php if(is_array($cat_info) || $cat_info instanceof \think\Collection || $cat_info instanceof \think\Paginator): $i = 0; $__LIST__ = $cat_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
                     <option value="<?php echo $data['cat_id']; ?>" <?php if($goods_info['cat_id'] == $data['cat_id']): ?>selected="selected"<?php endif; ?>><?php echo str_repeat("&nbsp;",5*$data["level"]); ?><?php echo $data['cat_name']; ?></option>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="brand_id" class="col-sm-2 control-label">选择品牌</label>
+            <div class="col-sm-6">
+                <select name="brand_id" id="brand_id" class="form-control">
+                    <option value="">请选择</option>
+                    <?php if(is_array($brand_info) || $brand_info instanceof \think\Collection || $brand_info instanceof \think\Paginator): $i = 0; $__LIST__ = $brand_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
+                    <option value="<?php echo $data['id']; ?>" <?php if($goods_info['brand_id'] == $data['id']): ?>selected="selected"<?php endif; ?>><?php echo $data['brand_name']; ?></option>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                 </select>
             </div>
