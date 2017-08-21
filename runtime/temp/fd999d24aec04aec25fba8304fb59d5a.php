@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\admin\admin_role_add.html";i:1502070508;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1501481280;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1501831777;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\admin\admin_role_add.html";i:1502070508;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1502091869;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1501831777;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/skins/_all-skins.css">
     <link href="__SUP__/content/min/css/supershopui.common.min.css" rel="stylesheet" />
     <link href="__SUP__/content/plugins/bootstrap-table/bootstrap-table.css" rel="stylesheet" />
-    <link rel="stylesheet" href="__CSS__/style.css">
+    <link rel="stylesheet" href="__ADMIN__/css/style.css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>

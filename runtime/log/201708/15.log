@@ -1,0 +1,1226 @@
+---------------------------------------------------------------
+[ 2017-08-15T13:40:32+08:00 ] 127.0.0.1 127.0.0.1 GET /admin
+[ info ] win.admin.com/admin [运行时间：0.035291s][吞吐率：28.34req/s] [内存消耗：1,363.56kb] [文件加载：38]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\admin\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-08-15T13:40:33+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/user/login.html
+[ info ] win.admin.com/admin/user/login.html [运行时间：0.018326s][吞吐率：54.57req/s] [内存消耗：1,274.03kb] [文件加载：35]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\User->login[ D:\phpStudy\admin\application\admin\controller\User.php ]
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\user\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-08-15T13:40:33+08:00 ] 127.0.0.1 127.0.0.1 GET /public/static/css/style.css
+[ info ] win.admin.com/public/static/css/style.css [运行时间：0.021582s][吞吐率：46.34req/s] [内存消耗：1,021.20kb] [文件加载：30]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'static',
+    2 => 'css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/css,*/*;q=0.1',
+  'referer' => 'http://win.admin.com/admin/user/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-08-15T13:40:40+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/user/login.html
+[ info ] win.admin.com/admin/user/login.html [运行时间：0.048294s][吞吐率：20.71req/s] [内存消耗：2,323.21kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'content-length' => '30',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://win.admin.com',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/user/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => '111111',
+)
+[ info ] [ RUN ] app\admin\controller\User->login[ D:\phpStudy\admin\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\admin\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000709s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_admin_user` [ RunTime:0.011710s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_admin_user` WHERE  `username` = 'admin'  AND `password` = '96e79218965eb72c92a549dd5a330112' LIMIT 1 [ RunTime:0.000531s ]
+[ sql ] [ SQL ] UPDATE `sys_admin_user`  SET `login_time`=1502775640,`ip`='127.0.0.1'  WHERE  `id` = 2 [ RunTime:0.000445s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:40:42+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ info ] win.admin.com/admin/index/index.html [运行时间：0.060623s][吞吐率：16.50req/s] [内存消耗：2,092.10kb] [文件加载：44]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/user/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpStudy\admin\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010041s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_admin_role` [ RunTime:0.012200s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_admin_role` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000440s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_privilege_src` [ RunTime:0.011420s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_privilege_src` WHERE  `id` IN (1,2,3,4,5,6,7,21,22,26,27,28,29,30,8,9,10,11,12,13,14,15,31,32,33,34,16,17,25,19,20) [ RunTime:0.001021s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:40:42+08:00 ] 127.0.0.1 127.0.0.1 GET //admin/index/welcome
+[ info ] win.admin.com//admin/index/welcome [运行时间：0.020384s][吞吐率：49.06req/s] [内存消耗：1,329.37kb] [文件加载：37]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E6%AC%A2%E8%BF%8E%E9%A1%B5; currentmoduleId=10008',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->welcome[ D:\phpStudy\admin\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\index\welcome.html [ array (
+  0 => 'server',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-08-15T13:40:42+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/index/menu
+[ info ] win.admin.com/admin/index/menu [运行时间：0.021226s][吞吐率：47.11req/s] [内存消耗：1,342.83kb] [文件加载：38]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'menu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://win.admin.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'referer' => 'http://win.admin.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E6%AC%A2%E8%BF%8E%E9%A1%B5; currentmoduleId=10008',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->menu[ D:\phpStudy\admin\application\admin\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-08-15T13:40:54+08:00 ] 127.0.0.1 127.0.0.1 GET //admin/index/welcome
+[ info ] win.admin.com//admin/index/welcome [运行时间：0.018505s][吞吐率：54.04req/s] [内存消耗：1,329.60kb] [文件加载：37]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E6%AC%A2%E8%BF%8E%E9%A1%B5; currentmoduleId=10008',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->welcome[ D:\phpStudy\admin\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\index\welcome.html [ array (
+  0 => 'server',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-08-15T13:46:37+08:00 ] 127.0.0.1 127.0.0.1 GET //admin/admin/admin_lst
+[ info ] win.admin.com//admin/admin/admin_lst [运行时间：0.044447s][吞吐率：22.50req/s] [内存消耗：2,119.64kb] [文件加载：44]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8; currentmoduleId=100021',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->admin_lst[ D:\phpStudy\admin\application\admin\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\admin\admin_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'admin',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000920s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_admin_user` [ RunTime:0.011185s ]
+[ sql ] [ SQL ] SELECT `u`.*,`r`.`role_name` FROM sys_admin_user u LEFT JOIN `sys_admin_role` `r` ON `u`.`role_id`=`r`.`id` [ RunTime:0.000583s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:46:42+08:00 ] 127.0.0.1 127.0.0.1 GET //admin/goods/goods_brand_lst
+[ info ] win.admin.com//admin/goods/goods_brand_lst [运行时间：0.061987s][吞吐率：16.13req/s] [内存消耗：2,241.23kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_brand_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%93%81%E7%89%8C%E5%88%97%E8%A1%A8; currentmoduleId=100013',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_brand_lst[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_brand_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000823s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_setting` [ RunTime:0.012018s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods_brand` [ RunTime:0.012329s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sys_goods_brand` LIMIT 1 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods_brand` LIMIT 0,8 [ RunTime:0.000520s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:46:46+08:00 ] 127.0.0.1 127.0.0.1 GET //admin/goods/goods_lst
+[ info ] win.admin.com//admin/goods/goods_lst [运行时间：0.065466s][吞吐率：15.28req/s] [内存消耗：2,256.11kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8; currentmoduleId=100012',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_lst[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010755s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_setting` [ RunTime:0.010151s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000398s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000346s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods` [ RunTime:0.012154s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sys_goods` LIMIT 1 [ RunTime:0.000344s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods` LIMIT 0,8 [ RunTime:0.000800s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:46:49+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/goods/goods_edit/goods_id/2
+[ info ] win.admin.com/admin/goods/goods_edit/goods_id/2 [运行时间：0.070996s][吞吐率：14.09req/s] [内存消耗：2,152.24kb] [文件加载：44]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com//admin/goods/goods_lst',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8; currentmoduleId=100012',
+)
+[ info ] [ PARAM ] array (
+  'goods_id' => '2',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_edit[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_edit.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'goods_info',
+  3 => 'cat_info',
+  4 => 'brand_info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010865s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods` [ RunTime:0.010433s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods` WHERE  `goods_id` = 2 LIMIT 1 [ RunTime:0.000408s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods_cat` [ RunTime:0.011252s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods_cat` [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods_brand` [ RunTime:0.011049s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods_brand` [ RunTime:0.000362s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:46:58+08:00 ] 127.0.0.1 127.0.0.1 GET //admin/goods/goods_lst
+[ info ] win.admin.com//admin/goods/goods_lst [运行时间：0.059465s][吞吐率：16.82req/s] [内存消耗：2,256.11kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8; currentmoduleId=100012',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_lst[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009694s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_setting` [ RunTime:0.011283s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000406s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods` [ RunTime:0.010246s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sys_goods` LIMIT 1 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods` LIMIT 0,8 [ RunTime:0.000352s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:47:01+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/goods/goods_lst?page=2
+[ info ] win.admin.com/admin/goods/goods_lst?page=2 [运行时间：0.055623s][吞吐率：17.98req/s] [内存消耗：2,247.67kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com//admin/goods/goods_lst',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8; currentmoduleId=100012',
+)
+[ info ] [ PARAM ] array (
+  'page' => '2',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_lst[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010179s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_setting` [ RunTime:0.009279s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000385s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000321s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods` [ RunTime:0.009373s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sys_goods` LIMIT 1 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods` LIMIT 8,8 [ RunTime:0.000341s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:47:03+08:00 ] 127.0.0.1 127.0.0.1 GET //admin/goods/goods_brand_lst
+[ info ] win.admin.com//admin/goods/goods_brand_lst [运行时间：0.059437s][吞吐率：16.82req/s] [内存消耗：2,241.23kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_brand_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%93%81%E7%89%8C%E5%88%97%E8%A1%A8; currentmoduleId=100013',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_brand_lst[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_brand_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011124s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_setting` [ RunTime:0.009059s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000383s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods_brand` [ RunTime:0.009880s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sys_goods_brand` LIMIT 1 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods_brand` LIMIT 0,8 [ RunTime:0.000337s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:47:07+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/goods/goods_lst?page=1
+[ info ] win.admin.com/admin/goods/goods_lst?page=1 [运行时间：0.057693s][吞吐率：17.33req/s] [内存消耗：2,256.55kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/goods/goods_lst?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%93%81%E7%89%8C%E5%88%97%E8%A1%A8; currentmoduleId=100013',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_lst[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010674s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_setting` [ RunTime:0.009515s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000409s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods` [ RunTime:0.009633s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sys_goods` LIMIT 1 [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods` LIMIT 0,8 [ RunTime:0.000324s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:47:09+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/goods/goods_edit/goods_id/2
+[ info ] win.admin.com/admin/goods/goods_edit/goods_id/2 [运行时间：0.065034s][吞吐率：15.38req/s] [内存消耗：2,152.23kb] [文件加载：44]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/goods/goods_lst?page=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%93%81%E7%89%8C%E5%88%97%E8%A1%A8; currentmoduleId=100013',
+)
+[ info ] [ PARAM ] array (
+  'goods_id' => '2',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_edit[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_edit.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'goods_info',
+  3 => 'cat_info',
+  4 => 'brand_info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010027s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods` [ RunTime:0.010073s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods` WHERE  `goods_id` = 2 LIMIT 1 [ RunTime:0.000411s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods_cat` [ RunTime:0.008594s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods_cat` [ RunTime:0.000373s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods_brand` [ RunTime:0.010018s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods_brand` [ RunTime:0.000343s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:47:13+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/goods/goods_lst?page=1
+[ info ] win.admin.com/admin/goods/goods_lst?page=1 [运行时间：0.056711s][吞吐率：17.63req/s] [内存消耗：2,256.55kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/goods/goods_lst?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%93%81%E7%89%8C%E5%88%97%E8%A1%A8; currentmoduleId=100013',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_lst[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009699s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_setting` [ RunTime:0.009780s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000366s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods` [ RunTime:0.009754s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sys_goods` LIMIT 1 [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods` LIMIT 0,8 [ RunTime:0.000455s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:47:15+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/goods/goods_lst?page=2
+[ info ] win.admin.com/admin/goods/goods_lst?page=2 [运行时间：0.057899s][吞吐率：17.27req/s] [内存消耗：2,247.73kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/goods/goods_lst?page=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%93%81%E7%89%8C%E5%88%97%E8%A1%A8; currentmoduleId=100013',
+)
+[ info ] [ PARAM ] array (
+  'page' => '2',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_lst[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010067s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_setting` [ RunTime:0.010245s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000375s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods` [ RunTime:0.010045s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sys_goods` LIMIT 1 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods` LIMIT 8,8 [ RunTime:0.000328s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:47:16+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/goods/goods_edit/goods_id/12
+[ info ] win.admin.com/admin/goods/goods_edit/goods_id/12 [运行时间：0.067004s][吞吐率：14.92req/s] [内存消耗：2,152.23kb] [文件加载：44]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/goods/goods_lst?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%93%81%E7%89%8C%E5%88%97%E8%A1%A8; currentmoduleId=100013',
+)
+[ info ] [ PARAM ] array (
+  'goods_id' => '12',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_edit[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_edit.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'goods_info',
+  3 => 'cat_info',
+  4 => 'brand_info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010752s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods` [ RunTime:0.009872s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods` WHERE  `goods_id` = 12 LIMIT 1 [ RunTime:0.000398s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods_cat` [ RunTime:0.010010s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods_cat` [ RunTime:0.000360s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods_brand` [ RunTime:0.009955s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods_brand` [ RunTime:0.000344s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:47:20+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/goods/goods_lst?page=2
+[ info ] win.admin.com/admin/goods/goods_lst?page=2 [运行时间：0.059265s][吞吐率：16.87req/s] [内存消耗：2,247.73kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/goods/goods_lst?page=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%93%81%E7%89%8C%E5%88%97%E8%A1%A8; currentmoduleId=100013',
+)
+[ info ] [ PARAM ] array (
+  'page' => '2',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_lst[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010711s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_setting` [ RunTime:0.010122s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000437s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000344s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods` [ RunTime:0.010072s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sys_goods` LIMIT 1 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods` LIMIT 8,8 [ RunTime:0.000347s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:47:23+08:00 ] 127.0.0.1 127.0.0.1 GET //admin/goods/goods_brand_lst
+[ info ] win.admin.com//admin/goods/goods_brand_lst [运行时间：0.062530s][吞吐率：15.99req/s] [内存消耗：2,241.23kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_brand_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%93%81%E7%89%8C%E5%88%97%E8%A1%A8; currentmoduleId=100013',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_brand_lst[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_brand_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010728s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_setting` [ RunTime:0.012520s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000421s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods_brand` [ RunTime:0.009389s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sys_goods_brand` LIMIT 1 [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods_brand` LIMIT 0,8 [ RunTime:0.000476s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:47:30+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/goods/goods_lst?page=1
+[ info ] win.admin.com/admin/goods/goods_lst?page=1 [运行时间：0.058052s][吞吐率：17.23req/s] [内存消耗：2,256.55kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/goods/goods_lst?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%93%81%E7%89%8C%E5%88%97%E8%A1%A8; currentmoduleId=100013',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_lst[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009885s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_setting` [ RunTime:0.009526s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000380s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods` [ RunTime:0.010211s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sys_goods` LIMIT 1 [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods` LIMIT 0,8 [ RunTime:0.000347s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:47:38+08:00 ] 127.0.0.1 127.0.0.1 GET //admin/goods/goods_brand_lst
+[ info ] win.admin.com//admin/goods/goods_brand_lst [运行时间：0.052542s][吞吐率：19.03req/s] [内存消耗：2,241.23kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_brand_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%93%81%E7%89%8C%E5%88%97%E8%A1%A8; currentmoduleId=100013',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_brand_lst[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_brand_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000758s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_setting` [ RunTime:0.009721s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000368s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods_brand` [ RunTime:0.011964s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sys_goods_brand` LIMIT 1 [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods_brand` LIMIT 0,8 [ RunTime:0.000369s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:47:43+08:00 ] 127.0.0.1 127.0.0.1 GET //admin/goods/goods_brand_lst
+[ info ] win.admin.com//admin/goods/goods_brand_lst [运行时间：0.054120s][吞吐率：18.48req/s] [内存消耗：2,241.55kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'goods',
+    2 => 'goods_brand_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E5%93%81%E7%89%8C%E5%88%97%E8%A1%A8; currentmoduleId=100013',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goods_brand_lst[ D:\phpStudy\admin\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\goods\goods_brand_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010359s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_setting` [ RunTime:0.009966s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000508s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_setting` WHERE  `name` = 'admin_pagesize' LIMIT 1 [ RunTime:0.000462s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_goods_brand` [ RunTime:0.009640s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sys_goods_brand` LIMIT 1 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_goods_brand` LIMIT 0,8 [ RunTime:0.000312s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:47:46+08:00 ] 127.0.0.1 127.0.0.1 GET //admin/admin/admin_role_lst
+[ info ] win.admin.com//admin/admin/admin_role_lst [运行时间：0.056401s][吞吐率：17.73req/s] [内存消耗：2,162.09kb] [文件加载：44]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin_role_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86; currentmoduleId=100022',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->admin_role_lst[ D:\phpStudy\admin\application\admin\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\admin\admin_role_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'admin_role',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010400s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_admin_role` [ RunTime:0.010005s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_admin_role` [ RunTime:0.000418s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_privilege_src` [ RunTime:0.011097s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_privilege_src` WHERE  `id` IN (1,2,3,4,5,6,7,21,22,26,27,28,29,30,8,9,10,11,12,13,14,15,31,32,33,34,16,17,25,19,20) [ RunTime:0.000488s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_privilege_src` WHERE  `id` IN (8,9,10,11,12,13,14,15,31,32,33,34,16,17,25,19) [ RunTime:0.000348s ]
+[ sql ] [ SQL ] SELECT * FROM `sys_privilege_src` WHERE  `id` IN (16,17,25,19,20) [ RunTime:0.000267s ]
+---------------------------------------------------------------
+[ 2017-08-15T13:47:46+08:00 ] 127.0.0.1 127.0.0.1 GET //admin/admin/admin_lst
+[ info ] win.admin.com//admin/admin/admin_lst [运行时间：0.044255s][吞吐率：22.60req/s] [内存消耗：2,119.61kb] [文件加载：44]
+[ info ] [ LANG ] D:\phpStudy\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin_lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'win.admin.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://win.admin.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=ak43teo14ubopopg161b3gcaq1; currentmoduleName=%E7%AE%A1%E7%90%86%E5%91%98%E5%88%97%E8%A1%A8; currentmoduleId=100021',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->admin_lst[ D:\phpStudy\admin\application\admin\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\admin/application/admin\view\admin\admin_lst.html [ array (
+  0 => 'control',
+  1 => 'action',
+  2 => 'admin',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009880s ] mysql:dbname=admin;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sys_admin_user` [ RunTime:0.011582s ]
+[ sql ] [ SQL ] SELECT `u`.*,`r`.`role_name` FROM sys_admin_user u LEFT JOIN `sys_admin_role` `r` ON `u`.`role_id`=`r`.`id` [ RunTime:0.000491s ]
