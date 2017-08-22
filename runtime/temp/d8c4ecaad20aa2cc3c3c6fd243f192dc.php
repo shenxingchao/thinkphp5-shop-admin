@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"D:\phpStudy\admin/application/admin\view\goods\goods_add.html";i:1502510291;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1502091869;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1501831777;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"D:\phpStudy\admin/application/admin\view\goods\goods_add.html";i:1503390304;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503389726;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503389681;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/skins/_all-skins.css">
     <link href="__SUP__/content/min/css/supershopui.common.min.css" rel="stylesheet" />
     <link href="__SUP__/content/plugins/bootstrap-table/bootstrap-table.css" rel="stylesheet" />
+    <link rel="stylesheet" href="__CSS__/sweetalert.css">
     <link rel="stylesheet" href="__ADMIN__/css/style.css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -105,6 +106,7 @@
 <script src="__SUP__/content/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
 <script src="__SUP__/content/min/js/supershopui.common.js"></script>
 <script src="__JS__/dialog.js"></script>
+<script src="__JS__/sweetalert.min.js"></script>
 <script src="__JS__/global.js"></script>
 </body>
 </html>
@@ -118,15 +120,15 @@
         $('.add_btn').on('click',function () {
             //1.提交前验证
             if($('#goods_name').val() == ""){
-                alert("商品名称不能为空");
+                showMsg('商品名称不能为空','goods_name',1000);
                 return false;
             }
             else if($('#goods_price').val() == ""){
-                alert("商品价格不能为空");
+                showMsg('商品价格不能为空','goods_price',1000);
                 return false;
             }
             else if(defualt_pic_name ==''){
-                alert("图片未选择或格式不正确");
+                showMsg('图片未选择或格式不正确','',1000);
             }
             else{
                 $(this).attr('type','submit');

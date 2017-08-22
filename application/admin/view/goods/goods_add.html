@@ -79,15 +79,15 @@
         $('.add_btn').on('click',function () {
             //1.提交前验证
             if($('#goods_name').val() == ""){
-                alert("商品名称不能为空");
+                showMsg('商品名称不能为空','goods_name',1000);
                 return false;
             }
             else if($('#goods_price').val() == ""){
-                alert("商品价格不能为空");
+                showMsg('商品价格不能为空','goods_price',1000);
                 return false;
             }
             else if(defualt_pic_name ==''){
-                alert("图片未选择或格式不正确");
+                showMsg('图片未选择或格式不正确','',1000);
             }
             else{
                 $(this).attr('type','submit');
