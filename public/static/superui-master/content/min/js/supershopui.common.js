@@ -1943,10 +1943,10 @@ var addTabs = function(options) {
     }
     var refreshTab = function() {
         var currentId = $('.page-tabs-content').find('.active').attr('data-id');
-        var target = $('#iframe_' + currentId);
-        var url = target.attr('src');
-
-        target.attr('src', url);
+        //var target = $('#iframe_' + currentId);
+        //var url = target.attr('src');
+        //target.attr('src', url);
+        document.getElementById('iframe_' + currentId).contentWindow.location.reload(true);//新增bysxc
     }
 
     var closeOtherTabs = function(isAll) {

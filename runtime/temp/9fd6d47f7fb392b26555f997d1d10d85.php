@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"D:\phpStudy\admin/application/admin\view\goods\goods_edit.html";i:1502510873;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1502091869;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1501831777;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"D:\phpStudy\admin/application/admin\view\goods\goods_edit.html";i:1503390335;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503449791;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,7 +68,7 @@
         <div class="form-group">
             <label for="goods_img" class="col-sm-2 control-label">商品图片</label>
             <div class="col-sm-6">
-                <input type="file" class="form-control" name="goods_img" id="goods_img" onchange="change_file_name(this)">
+                <input type="file" class="form-control" name="goods_img" id="goods_img">
             </div>
         </div>
         <div class="form-group">
@@ -120,11 +120,11 @@
         $('.add_btn').on('click',function () {
             //1.提交前验证
             if($('#goods_name').val() == ""){
-                alert("商品名称不能为空");
+                showMsg('商品名称不能为空','goods_name',1000);
                 return false;
             }
             else if($('#goods_price').val() == ""){
-                alert("商品价格不能为空");
+                showMsg('商品价格不能为空','goods_price',1000);
                 return false;
             }
             else{
