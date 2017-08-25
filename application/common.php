@@ -87,3 +87,24 @@ function getIP(){
     else
         return '';
 }
+
+/**
+ * 管理员操作记录
+ * @param $log_info 写入的信息
+ */
+function adminLog($log_info){
+    $file_content = [];
+    $file_content['login_time'] = time();
+    $file_content['id']         = session('admin.id');
+    $file_content['log_info']   = $log_info;
+    $file_content['log_ip']     = getIP();
+    $file_content['log_url']    = request()->baseUrl();
+    $content = implode('$',$file_content);
+    //写入文件
+    $file_name = APP_PATH."admin/log/".$file_content['id'].".txt";
+    $file = fopen($file_name,'a');
+    if(filesize($file_name)>0)
+        $content = "\r\n".$content;
+    fwrite($file,$content);
+    fclose($file);exit;
+}
