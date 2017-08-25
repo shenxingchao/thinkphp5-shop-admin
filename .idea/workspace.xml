@@ -244,7 +244,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/public/static/superui-master/tables/managetable.html" />
         <option value="$PROJECT_DIR$/application/admin/view/Public/footer.html" />
         <option value="$PROJECT_DIR$/application/admin/view/Public/header.html" />
@@ -295,6 +294,7 @@
         <option value="$PROJECT_DIR$/application/admin/view/public/header.html" />
         <option value="$PROJECT_DIR$/public/static/superui-master/content/min/js/supershopui.common.js" />
         <option value="$PROJECT_DIR$/application/admin/controller/Base.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -511,12 +511,12 @@
       <workItem from="1503477164372" duration="1000" />
       <workItem from="1503477173707" duration="1701000" />
       <workItem from="1503532203903" duration="2054000" />
-      <workItem from="1503642526424" duration="5000" />
+      <workItem from="1503642526424" duration="693000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184198000" />
+    <option name="totallyTimeSpent" value="184886000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -577,13 +577,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/admin/view/admin/admin_role_lst.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="46" column="32" lean-forward="false" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/admin/admin_role_edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
@@ -901,6 +894,17 @@
             <element signature="e#6#86#0#PHP" expanded="true" />
             <element signature="e#120#137#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="23">
+            <caret line="1" column="36" lean-forward="true" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
