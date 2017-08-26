@@ -35,20 +35,44 @@ return [
         [
             'control'=>'goods',
             'action'=>'goods_brand_lst',
-            'control_name'=>'品牌',
+            'control_name'=>'商品',
             'action_name'=>'品牌列表',
         ],
         [
             'control'=>'goods',
             'action'=>'goods_brand_add',
-            'control_name'=>'品牌',
+            'control_name'=>'商品',
             'action_name'=>'添加品牌',
         ],
         [
             'control'=>'goods',
             'action'=>'goods_brand_edit',
-            'control_name'=>'品牌',
+            'control_name'=>'商品',
             'action_name'=>'编辑品牌',
+        ],
+        [
+            'control'=>'goods',
+            'action'=>'goods_type_lst',
+            'control_name'=>'商品',
+            'action_name'=>'类型列表',
+        ],
+        [
+            'control'=>'goods',
+            'action'=>'goods_type_add',
+            'control_name'=>'商品',
+            'action_name'=>'添加类型',
+        ],
+        [
+            'control'=>'goods',
+            'action'=>'goods_type_edit',
+            'control_name'=>'商品',
+            'action_name'=>'编辑类型',
+        ],
+        [
+            'control'=>'goods',
+            'action'=>'goods_attr_lst',
+            'control_name'=>'商品',
+            'action_name'=>'属性列表',
         ],
         [
             'control'=>'system',

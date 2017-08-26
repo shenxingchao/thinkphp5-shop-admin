@@ -1749,9 +1749,9 @@ $(function () {
                     a = $('<a></a>');
                 }
 
-                var icon = $('<i></i>');
-
-                icon.addClass(item.icon);
+                //var icon = $('<i></i>');
+                var icon = $(item.icon);
+                //icon.addClass(item.icon);
                 var isOpen = item.isOpen;
 
                 var text = $(' <span class="title"></span>');

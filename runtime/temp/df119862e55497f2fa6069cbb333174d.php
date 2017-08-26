@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:57:"D:\phpStudy\admin/application/admin\view\index\index.html";i:1502092302;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:57:"D:\phpStudy\admin/application/admin\view\index\index.html";i:1503729126;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +8,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="__SUP__/content/ui/global/bootstrap/css/bootstrap.min.css">
     <link href="__SUP__/content/ui/global/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="__CSS__/iconfont/iconfont.css" rel="stylesheet" />
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/AdminLTE.css">
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/skins/_all-skins.css">
     <link href="__SUP__/content/min/css/supershopui.common.min.css" rel="stylesheet" />
@@ -153,7 +154,7 @@
 <script src="__SUP__/content/ui/global/jQuery/jquery.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="__SUP__/content/ui/global/bootstrap/js/bootstrap.min.js"></script>
-<script src="__SUP__/content/min/js/supershopui.common.js?444"></script>
+<script src="__SUP__/content/min/js/supershopui.common.js?555"></script>
 <script type="text/javascript">
     $(function() {
         addTabs(({ id: '10008', title: '欢迎页', close: false, url: '/admin/index/welcome' }));

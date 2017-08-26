@@ -1,0 +1,38 @@
+{include file="public/header" /}
+{include file="public/menu"}
+<section class="content">
+    <div id="toolbar" class="btn-group col-sm-12">
+        <button id="btn_add" type="button" class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+        </button>
+    </div>
+    <div class="table-scrollable">
+        <table class="table-hover" data-toggle="table" >
+            <thead>
+            <tr>
+                <th></th>
+                <th data-sortable="true">1</th>
+                <th data-sortable="true">2</th>
+                <th data-sortable="true">3</th>
+                <th >操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="fixed-table-pagination" align="center">
+        </div>
+    </div>
+</section>
+
+{include file="public/footer" /}
+<script type="text/javascript">
+    $(function () {
+        $('#btn_add').on('click',function () {
+            window.location.href = '/admin/goods/goods_add';
+        });
+        $('.btn_delete').on('click',function () {
+            return confirm('确定要删除吗?');
+        });
+    });
+</script>

@@ -281,7 +281,6 @@ class Goods extends Base{
     public function goods_brand_add(){
         $request= Request::instance();
         if ($request->isPost()){
-            //添加商品
             //1.上传文件
             $file = $request->file('brand_img');
             if($file){
@@ -391,5 +390,105 @@ class Goods extends Base{
         else{
             $this->error('品牌不存在');
         }
+    }
+
+    /**
+     * 商品类型列表
+     * @return mixed
+     */
+    public function goods_type_lst(){
+        //1.获取品牌信息，分页输出
+        $pagesize = Setting('admin_pagesize')?Setting('admin_pagesize'):8;
+        $list = Db::name('goods_type')->paginate($pagesize,false,['path'=>'/admin/goods/goods_type_lst']);
+        $this->assign('list',$list);
+        return $this->fetch();
+    }
+
+    /**
+     * 添加商品类型
+     * @return mixed
+     */
+    public function goods_type_add(){
+        $request= Request::instance();
+        if ($request->isPost()){
+            //1.组装数据
+            $insert = [
+                'type_name'=>$request->param('type_name'),
+            ];
+            //2.添加
+            $res = Db::name('goods_type')->insert($insert);
+            //3.返回
+            if($res){
+                adminLog("添加商品类型".$insert['type_name']);
+                $this->success('添加成功','/admin/goods/goods_type_lst');
+            }
+            else
+                $this->error('添加失败');
+        }
+        return $this->fetch();
+    }
+
+    /**
+     * 编辑商品类型
+     * @return mixed
+     */
+    public function goods_type_edit(){
+        $request= Request::instance();
+        if ($request->isPost()){
+            $where = [
+                'id'=>intval($request->param('id')),
+            ];
+            //1.组装数据
+            $update = [
+                'type_name'=>$request->param('type_name'),
+            ];
+            //2.添加
+            $res = Db::name('goods_type')->where($where)->update($update);
+            //3.返回
+            if($res){
+                adminLog("编辑商品类型".$update['type_name']);
+                $this->success('编辑成功','/admin/goods/goods_type_lst');
+            }
+            else
+                $this->error('编辑失败');
+        }
+        else if($request->isGet()){
+            $where = [
+                'id'=>intval($request->param('id'))
+            ];
+            //1.获取当前品牌信息
+            $type_info = Db::name('goods_type')->where($where)->find();
+            if(empty($type_info))
+                $this->error('类型不存在');
+            $this->assign('type_info',$type_info);
+            return $this->fetch();
+        }
+    }
+
+    /**
+     * 删除商品类型
+     */
+    public function goods_type_delete(){
+        //查找该类型下属性和规格是为空，为空才能删除
+        $request = Request::instance();
+        if ($request->param('id')){
+            $where = [
+                'id'=>intval($request->param('id')),
+            ];
+            $res = Db::name('goods_type')->where($where)->delete();
+            if($res){
+                $this->success('删除成功', '/admin/goods/goods_type_lst');
+            }
+            else{
+                $this->error('删除失败');
+            }
+        }
+        else{
+            $this->error('类型不存在');
+        }
+    }
+
+    public function goods_attr_lst(){
+        return $this->fetch();
     }
 }

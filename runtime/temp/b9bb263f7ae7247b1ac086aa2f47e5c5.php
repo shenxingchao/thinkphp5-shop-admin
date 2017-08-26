@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:65:"D:\phpStudy\admin/application/admin\view\admin\admin_log_lst.html";i:1503724302;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503728480;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\goods\goods_attr_lst.html";i:1503730824;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503728480;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,44 +30,27 @@
         <li class="active"><?php echo $action; ?></li>
     </ol>
 </section>
-<style type="text/css">
-    tr{height: 50px;}
-</style>
 <section class="content">
     <div id="toolbar" class="btn-group col-sm-12">
-        <button id="btn_refresh" type="button" class="btn btn-primary">
-            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>更新日志
+        <button id="btn_add" type="button" class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
         </button>
     </div>
     <div class="table-scrollable">
         <table class="table-hover" data-toggle="table" >
             <thead>
             <tr>
-                <th ></th>
-                <th data-sortable="true">id</th>
-                <th data-sortable="true">账号名</th>
-                <th data-sortable="true">操作时间</th>
-                <th data-sortable="true">操作内容</th>
-                <th data-sortable="true">ip</th>
-                <th data-sortable="true">url</th>
+                <th></th>
+                <th data-sortable="true">1</th>
+                <th data-sortable="true">2</th>
+                <th data-sortable="true">3</th>
+                <th >操作</th>
             </tr>
             </thead>
             <tbody>
-            <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
-            <tr>
-                <td><input type="checkbox"  attr-id="<?php echo $data['id']; ?>"></td>
-                <td><?php echo $data['id']; ?></td>
-                <td><?php echo $data['username']; ?></td>
-                <td><?php echo date('Y-m-d H:i:s',$data['log_time']); ?></td>
-                <td><?php echo $data['log_info']; ?></td>
-                <td><?php echo $data['log_ip']; ?></td>
-                <td><?php echo $data['log_url']; ?></td>
-            </tr>
-            <?php endforeach; endif; else: echo "" ;endif; ?>
             </tbody>
         </table>
         <div class="fixed-table-pagination" align="center">
-            <?php echo $list->render(); ?>
         </div>
     </div>
 </section>
@@ -84,8 +67,11 @@
 </html>
 <script type="text/javascript">
     $(function () {
-        $('#btn_refresh').on('click',function () {
-            window.location.href = '/admin/admin/admin_log_update';
+        $('#btn_add').on('click',function () {
+            window.location.href = '/admin/goods/goods_add';
+        });
+        $('.btn_delete').on('click',function () {
+            return confirm('确定要删除吗?');
         });
     });
 </script>

@@ -11,12 +11,12 @@
         else {
             if (!options.url) return;
             $.getJSON(options.url, options.param, function (data) {
-               
+
                 init(target, data,level);
             });
         }
 
-     
+
 
         function init(target, data,level) {
             $.each(data, function (i, item) {
@@ -39,10 +39,10 @@
                 }
 
                 var icon = $('<i></i>');
-               
+
                 icon.addClass(item.icon);
                 var isOpen = item.isOpen;
-              
+
                 var text = $(' <span class="title"></span>');
                 text.addClass('menu-text').text(item.text);
                 a.append(icon);
@@ -58,7 +58,7 @@
                     pullSpan.append(pullIcon);
                     a.append(pullSpan);
                     li.append(a);
-                    
+
                     var menus = $('<ul></ul>');
                     menus.addClass('treeview-menu');
                     if (isOpen===true) {
@@ -107,8 +107,8 @@
                 target.append(li);
             });
         }
-     
-      
+
+
     }
 
     $.fn.sidebarMenu.defaults = {
