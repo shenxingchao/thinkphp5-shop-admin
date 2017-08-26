@@ -40,6 +40,7 @@ class Admin extends Base{
             $res = Db::name('admin_user')->insert($insert);
             if(!$res)
                 $this->error("添加失败");
+            adminLog('添加管理员账号'.$insert['username']);
             $this->success("添加成功",'/admin/admin/admin_lst');
         }
         //获取角色列表
@@ -71,6 +72,7 @@ class Admin extends Base{
             $res = Db::name('admin_user')->update($update);
             if(!$res)
                 $this->error("保存失败");
+            adminLog('管理员编辑'.$update['username']);
             $this->success("保存成功",'/admin/admin/admin_lst');
         }
         $admin = Db::name('admin_user')->where(['id'=>$id])->find();
@@ -140,6 +142,7 @@ class Admin extends Base{
             $res = Db::name('admin_role')->insert($insert);
             if(!$res)
                 $this->error("添加失败");
+            adminLog('添加角色'.$insert['role_name']);
             $this->success("添加成功",'/admin/admin/admin_role_lst');
         }
         //获取所有权限资源 分组输出

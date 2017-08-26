@@ -35,8 +35,10 @@ class Goods extends Base{
         $insert['cat_name'] = $request->param('cat_name');
         $insert['parent_id'] = $request->param('parent_id');
         $res = Db::name('goods_cat')->insert($insert);
-        if($res)
+        if($res){
+            adminLog('添加商品分类'.$insert['cat_name']);
             $this->success('添加成功');
+        }
         else
             $this->error("添加失败");
     }
@@ -52,8 +54,10 @@ class Goods extends Base{
         $update['cat_name'] = $request->param('cat_name');
         $update['parent_id'] = $request->param('parent_id');
         $res = Db::name('goods_cat')->where($where)->update($update);
-        if($res)
+        if($res){
+            adminLog('编辑商品分类'.$update['cat_name']);
             $this->success('更改成功');
+        }
         else
             $this->error("更改失败");
     }
@@ -115,7 +119,7 @@ class Goods extends Base{
                         'goods_name'=>$request->param('goods_name'),
                         'goods_price'=>$request->param('goods_price'),
                         'cat_id'=>$request->param('cat_id'),
-                        'brand_id'=>$request->param('brand_id')!=''?$request->param('brand_id'):null,
+                        'brand_id'=>$request->param('brand_id')!=''?$request->param('brand_id'):0,
                         'goods_number'=>$request->param('goods_number')?$request->param('goods_number'):(Setting('goods_number')?Setting('goods_number'):0),
                         'goods_img'=>$file_path,
                         'goods_thumb_img'=>$file_thumb_path,
@@ -124,8 +128,10 @@ class Goods extends Base{
                     //4.添加
                     $res = Db::name('goods')->insert($insert);
                     //5.返回
-                    if($res)
+                    if($res){
+                        adminLog('添加商品'.$insert['goods_name']);
                         $this->success('添加成功','/admin/goods/goods_lst');
+                    }
                     else
                         $this->error('添加失败');
                 }
@@ -188,7 +194,7 @@ class Goods extends Base{
                 'goods_name' => $request->param('goods_name'),
                 'goods_price' => $request->param('goods_price'),
                 'cat_id' => $request->param('cat_id'),
-                'brand_id'=>$request->param('brand_id')!=''?$request->param('brand_id'):null,
+                'brand_id'=>$request->param('brand_id')!=''?$request->param('brand_id'):0,
                 'goods_number'=>$request->param('goods_number')?$request->param('goods_number'):(Setting('goods_number')?Setting('goods_number'):0),
                 'goods_img' => isset($file_path)?$file_path:$file_path_old,
                 'goods_thumb_img' => isset($file_thumb_path)?$file_thumb_path:$file_thumb_path_old,
@@ -197,8 +203,10 @@ class Goods extends Base{
             //4.保存
             $res = Db::name('goods')->where($where)->update($update);
             //5.返回
-            if ($res)
+            if ($res){
+                adminLog('编辑商品'.$update['goods_name']);
                 $this->success('编辑成功', '/admin/goods/goods_lst');
+            }
             else
                 $this->error('更新失败');
         }

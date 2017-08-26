@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\admin\admin_role_lst.html";i:1502079815;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503449791;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\admin\admin_role_lst.html";i:1503724480;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503449791;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,12 +37,12 @@
 </style>
 <section class="content">
     <div id="toolbar" class="btn-group col-sm-12">
-        <button id="btn_add" type="button" class="btn btn-default">
+        <button id="btn_add" type="button" class="btn btn-primary">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
         </button>
     </div>
     <div class="table-scrollable">
-        <table class="table-striped table-hover" data-toggle="table" >
+        <table class="table-hover" data-toggle="table" >
             <thead>
             <tr>
                 <th data-sortable="true">id</th>

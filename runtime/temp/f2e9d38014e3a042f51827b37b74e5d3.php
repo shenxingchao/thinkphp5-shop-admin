@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:65:"D:\phpStudy\admin/application/admin\view\admin\admin_log_lst.html";i:1503720081;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503449791;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:65:"D:\phpStudy\admin/application/admin\view\admin\admin_log_lst.html";i:1503724302;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503449791;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,15 +35,15 @@
 </style>
 <section class="content">
     <div id="toolbar" class="btn-group col-sm-12">
-        <button id="btn_refresh" type="button" class="btn btn-default">
+        <button id="btn_refresh" type="button" class="btn btn-primary">
             <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>更新日志
         </button>
     </div>
     <div class="table-scrollable">
-        <table class="table-striped table-hover" data-toggle="table" >
+        <table class="table-hover" data-toggle="table" >
             <thead>
             <tr>
-                <th></th>
+                <th ></th>
                 <th data-sortable="true">id</th>
                 <th data-sortable="true">账号名</th>
                 <th data-sortable="true">操作时间</th>
