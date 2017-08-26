@@ -77,6 +77,13 @@ return [
                     'targetType'=>'iframe-tab',
                     'icon'=>'fa fa-wrench'
                 ],
+                [
+                    'id'=>'100024',
+                    'text'=>'管理员日志',
+                    'url'=>'/admin/admin/admin_log_lst',
+                    'targetType'=>'iframe-tab',
+                    'icon'=>'fa fa-file-text'
+                ],
             ],
         ],
         [

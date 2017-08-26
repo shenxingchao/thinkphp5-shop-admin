@@ -110,6 +110,12 @@ return [
             'control_name'=>'管理员',
             'action_name'=>'编辑权限'
         ],
+        [
+            'control'=>'admin',
+            'action'=>'admin_log_lst',
+            'control_name'=>'管理员',
+            'action_name'=>'管理员日志 '
+        ],
 
     ]
 ];

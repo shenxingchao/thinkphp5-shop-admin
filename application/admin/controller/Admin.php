@@ -379,4 +379,67 @@ class Admin extends Base{
         else
             return ['code'=>1,'msg'=>''];
     }
+
+    /**
+     * 日志
+     */
+    public function admin_log_lst(){
+        $pagesize = Setting('admin_pagesize')?Setting('admin_pagesize'):8;
+        $list = Db::name('admin_log')->alias('l')->join('admin_user a','l.admin_id = a.id','left')
+            ->field('l.*,a.username')->order('l.id desc')->paginate($pagesize,false,['path'=>'/admin/admin/admin_log_lst']);
+        $this->assign('list',$list);
+        return $this->fetch();
+    }
+
+    /**
+     * 更新日志
+     */
+    public function admin_log_update(){
+        ini_set("max_execution_time",  "300");//执行时间上限
+        @ini_set('implicit_flush',1);
+        ob_implicit_flush(1);
+        @ob_end_clean();//执行的时候输出提示
+
+        $file_path = APP_PATH."admin/log";
+        if(is_dir($file_path)){
+            $file_name_list = scandir($file_path);
+            foreach ($file_name_list as $key=>$value){
+                if( $value != "." && $value != ".."){
+                    $file_name = APP_PATH."admin/log/".$value;
+                    echo "<div style='width: 50%;text-align: left;margin: 2px auto;'>导入日志文件" . $file_name . "中</div>";
+                    $file = fopen($file_name,'r');
+                    Db::startTrans();
+                    $i = 1;//循环变量
+                    try{
+                        while(!feof($file)) {
+                            $itemStr = fgets($file); //fgets()函数从文件指针中读取一行
+                            $itemArray = explode("$",$itemStr); // 将$分割的各部分内容提取出来
+                            if($itemArray){
+                                $insert = [
+                                    'admin_id'  =>$itemArray[0],
+                                    'log_time'  =>$itemArray[1],
+                                    'log_info'  =>$itemArray[2],
+                                    'log_ip'    =>$itemArray[3],
+                                    'log_url'   =>$itemArray[4],
+                                ];
+                                Db::name('admin_log')->insert($insert);
+                            }
+                            if($i%500==0){
+                                Db::commit();
+                            }
+                            $i++;
+                        }
+                    }catch (\Exception $e) {
+                        // 回滚事务
+                        Db::rollback();
+                    }
+                    fclose($file);
+                    @unlink($file_name);
+                }
+            }
+            echo "<div style='width: 50%;text-align: left;margin: 2px auto;'>导入成功 <a href='/admin/admin/admin_log_lst'>
+            <button style='width: 80px;height: 30px;line-height: 30px;background: #3792bf;color: #fff;border: none;cursor: pointer;border-radius: 4px;'>返回</button>
+            </a></div>";
+        }
+    }
 }

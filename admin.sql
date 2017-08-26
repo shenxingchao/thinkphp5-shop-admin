@@ -10,10 +10,29 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-08-21 17:00:19
+Date: 2017-08-26 12:13:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for sys_admin_log
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_admin_log`;
+CREATE TABLE `sys_admin_log` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `admin_id` int(11) unsigned NOT NULL COMMENT '管理员id',
+  `log_time` int(10) unsigned NOT NULL COMMENT '操作时间',
+  `log_info` varchar(255) NOT NULL COMMENT '操作内容',
+  `log_ip` varchar(12) NOT NULL COMMENT 'ip',
+  `log_url` varchar(255) NOT NULL COMMENT 'url',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_admin_log
+-- ----------------------------
+INSERT INTO `sys_admin_log` VALUES ('1', '1', '1503719764', '登录', '127.0.0.1', '/admin/user/login.html');
 
 -- ----------------------------
 -- Table structure for sys_admin_role
@@ -29,7 +48,7 @@ CREATE TABLE `sys_admin_role` (
 -- ----------------------------
 -- Records of sys_admin_role
 -- ----------------------------
-INSERT INTO `sys_admin_role` VALUES ('6', '超级管理员', '1,2,3,4,5,6,7,21,22,26,27,28,29,30,8,9,10,11,12,13,14,15,31,32,33,34,16,17,25,19,20');
+INSERT INTO `sys_admin_role` VALUES ('6', '超级管理员', '1,2,3,4,5,6,7,21,22,26,27,28,29,30,35,36,8,9,10,11,12,13,14,15,31,32,33,34,16,17,25,19,20');
 INSERT INTO `sys_admin_role` VALUES ('4', '商品管理员', '8,9,10,11,12,13,14,15,31,32,33,34,16,17,25,19');
 INSERT INTO `sys_admin_role` VALUES ('5', '系统管理员', '16,17,25,19,20');
 
@@ -38,7 +57,7 @@ INSERT INTO `sys_admin_role` VALUES ('5', '系统管理员', '16,17,25,19,20');
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_admin_user`;
 CREATE TABLE `sys_admin_user` (
-  `id` mediumint(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL COMMENT '账号名',
   `password` varchar(32) NOT NULL COMMENT '密码',
   `add_time` int(10) unsigned NOT NULL COMMENT '注册时间',
@@ -46,14 +65,14 @@ CREATE TABLE `sys_admin_user` (
   `ip` varchar(15) NOT NULL DEFAULT '' COMMENT '最后登录ip',
   `role_id` smallint(4) unsigned NOT NULL COMMENT '角色id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_admin_user
 -- ----------------------------
-INSERT INTO `sys_admin_user` VALUES ('2', 'admin', '96e79218965eb72c92a549dd5a330112', '1502080145', '1503305431', '127.0.0.1', '6');
-INSERT INTO `sys_admin_user` VALUES ('4', 'admin2', '96e79218965eb72c92a549dd5a330112', '1502090186', '1502257930', '127.0.0.1', '4');
-INSERT INTO `sys_admin_user` VALUES ('5', 'admin3', '96e79218965eb72c92a549dd5a330112', '1502090201', '1502258874', '127.0.0.1', '5');
+INSERT INTO `sys_admin_user` VALUES ('1', 'admin', '96e79218965eb72c92a549dd5a330112', '1503718502', '1503719764', '127.0.0.1', '6');
+INSERT INTO `sys_admin_user` VALUES ('2', 'admin2', '96e79218965eb72c92a549dd5a330112', '1503718517', '1503718601', '127.0.0.1', '4');
+INSERT INTO `sys_admin_user` VALUES ('3', 'admin3', '96e79218965eb72c92a549dd5a330112', '1503718526', '1503718625', '127.0.0.1', '5');
 
 -- ----------------------------
 -- Table structure for sys_goods
@@ -159,7 +178,7 @@ CREATE TABLE `sys_privilege_src` (
   `controller_name` varchar(255) NOT NULL COMMENT '控制器名',
   `action_name` varchar(255) NOT NULL COMMENT '方法名',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_privilege_src
@@ -195,6 +214,8 @@ INSERT INTO `sys_privilege_src` VALUES ('31', '品牌列表', 'Goods', 'goods_br
 INSERT INTO `sys_privilege_src` VALUES ('32', '添加品牌', 'Goods', 'goods_brand_add');
 INSERT INTO `sys_privilege_src` VALUES ('33', '编辑品牌', 'Goods', 'goods_brand_edit');
 INSERT INTO `sys_privilege_src` VALUES ('34', '删除品牌', 'Goods', 'goods_brand_delete');
+INSERT INTO `sys_privilege_src` VALUES ('35', '管理员日志', 'Admin', 'admin_log_lst');
+INSERT INTO `sys_privilege_src` VALUES ('36', '管理员日志更新', 'Admin', 'admin_log_update');
 
 -- ----------------------------
 -- Table structure for sys_setting

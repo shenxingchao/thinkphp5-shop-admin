@@ -94,17 +94,19 @@ function getIP(){
  */
 function adminLog($log_info){
     $file_content = [];
-    $file_content['login_time'] = time();
-    $file_content['id']         = session('admin.id');
+    $file_content['admin_id']         = session('admin.id');
+    $file_content['log_time'] = time();
     $file_content['log_info']   = $log_info;
     $file_content['log_ip']     = getIP();
     $file_content['log_url']    = request()->baseUrl();
     $content = implode('$',$file_content);
+    if(!is_dir(APP_PATH."admin/log"))
+        mkdir(APP_PATH."admin/log");
     //写入文件
-    $file_name = APP_PATH."admin/log/".$file_content['id'].".txt";
+    $file_name = APP_PATH."admin/log/".$file_content['admin_id'].".txt";
     $file = fopen($file_name,'a');
     if(filesize($file_name)>0)
         $content = "\r\n".$content;
-    fwrite($file,$content);
-    fclose($file);exit;
+        fwrite($file,$content);
+    fclose($file);
 }

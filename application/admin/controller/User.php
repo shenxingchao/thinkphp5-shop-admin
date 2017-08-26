@@ -54,6 +54,7 @@ class User extends Controller{
                     ];
                     Db::name('admin_user')->update($update);
                     Session::set('admin',$res);
+                    adminLog('登录');
                     $this->success("登录成功",'admin/Index/index');
                 }
             }

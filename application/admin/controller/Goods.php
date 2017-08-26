@@ -83,7 +83,7 @@ class Goods extends Base{
     public function goods_lst(){
         //1.获取商品信息，分页输出
         $pagesize = Setting('admin_pagesize')?Setting('admin_pagesize'):8;
-        $list = Db::name('goods')->paginate($pagesize,false,['path'=>'/admin/goods/goods_lst']);
+        $list = Db::name('goods')->order('goods_id desc')->paginate($pagesize,false,['path'=>'/admin/goods/goods_lst']);
         $this->assign('list',$list);
         return $this->fetch('goods_lst');
     }
