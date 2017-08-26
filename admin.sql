@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-08-26 12:13:57
+Date: 2017-08-26 16:56:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,12 +27,32 @@ CREATE TABLE `sys_admin_log` (
   `log_ip` varchar(12) NOT NULL COMMENT 'ip',
   `log_url` varchar(255) NOT NULL COMMENT 'url',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_admin_log
 -- ----------------------------
 INSERT INTO `sys_admin_log` VALUES ('1', '1', '1503719764', '登录', '127.0.0.1', '/admin/user/login.html');
+INSERT INTO `sys_admin_log` VALUES ('2', '1', '1503720839', '登录', '10.3.9.50', '/admin/user/login.html');
+INSERT INTO `sys_admin_log` VALUES ('3', '1', '1503722691', '添加管理员账号admin4', '127.0.0.1', '/admin/admin/admin_add');
+INSERT INTO `sys_admin_log` VALUES ('4', '1', '1503722819', '添加角色访客', '127.0.0.1', '/admin/admin/admin_role_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('5', '1', '1503722951', '管理员编辑admin4', '127.0.0.1', '/admin/admin/admin_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('6', '1', '1503722955', '管理员编辑admin4', '127.0.0.1', '/admin/admin/admin_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('7', '1', '1503722960', '管理员编辑admin4', '127.0.0.1', '/admin/admin/admin_edit');
+INSERT INTO `sys_admin_log` VALUES ('8', '1', '1503723138', '添加商品分类水晶葡萄', '127.0.0.1', '/admin/goods/goods_cat_add');
+INSERT INTO `sys_admin_log` VALUES ('9', '1', '1503723196', '编辑商品分类8424西瓜', '127.0.0.1', '/admin/goods/goods_cat_edit');
+INSERT INTO `sys_admin_log` VALUES ('10', '1', '1503723603', '添加商品测试商品001', '127.0.0.1', '/admin/goods/goods_add');
+INSERT INTO `sys_admin_log` VALUES ('11', '1', '1503723672', '编辑商品测试商品001', '127.0.0.1', '/admin/goods/goods_edit');
+INSERT INTO `sys_admin_log` VALUES ('12', '1', '1503727474', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('13', '1', '1503728229', '登录', '127.0.0.1', '/admin/user/login.html');
+INSERT INTO `sys_admin_log` VALUES ('14', '1', '1503730400', '登录', '10.3.9.50', '/admin/user/login.html');
+INSERT INTO `sys_admin_log` VALUES ('15', '1', '1503730758', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('16', '1', '1503732365', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('17', '1', '1503732615', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('18', '1', '1503735111', '添加商品类型电器', '127.0.0.1', '/admin/goods/goods_type_add');
+INSERT INTO `sys_admin_log` VALUES ('19', '1', '1503736003', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('20', '1', '1503736114', '编辑商品类型水果1', '127.0.0.1', '/admin/goods/goods_type_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('21', '1', '1503736122', '编辑商品类型水果', '127.0.0.1', '/admin/goods/goods_type_edit');
 
 -- ----------------------------
 -- Table structure for sys_admin_role
@@ -43,14 +63,15 @@ CREATE TABLE `sys_admin_role` (
   `role_name` varchar(255) NOT NULL COMMENT '角色id',
   `privilege_id` varchar(255) NOT NULL COMMENT '权限id字符串',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_admin_role
 -- ----------------------------
-INSERT INTO `sys_admin_role` VALUES ('6', '超级管理员', '1,2,3,4,5,6,7,21,22,26,27,28,29,30,35,36,8,9,10,11,12,13,14,15,31,32,33,34,16,17,25,19,20');
+INSERT INTO `sys_admin_role` VALUES ('6', '超级管理员', '1,2,3,4,5,6,7,21,22,26,27,28,29,30,35,36,8,9,10,11,12,13,14,15,31,32,33,34,37,38,39,40,41,16,17,25,19,20');
 INSERT INTO `sys_admin_role` VALUES ('4', '商品管理员', '8,9,10,11,12,13,14,15,31,32,33,34,16,17,25,19');
 INSERT INTO `sys_admin_role` VALUES ('5', '系统管理员', '16,17,25,19,20');
+INSERT INTO `sys_admin_role` VALUES ('7', '访客', '1,3,5,35,8,12,31,16,17,25,19,20');
 
 -- ----------------------------
 -- Table structure for sys_admin_user
@@ -65,14 +86,15 @@ CREATE TABLE `sys_admin_user` (
   `ip` varchar(15) NOT NULL DEFAULT '' COMMENT '最后登录ip',
   `role_id` smallint(4) unsigned NOT NULL COMMENT '角色id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_admin_user
 -- ----------------------------
-INSERT INTO `sys_admin_user` VALUES ('1', 'admin', '96e79218965eb72c92a549dd5a330112', '1503718502', '1503719764', '127.0.0.1', '6');
+INSERT INTO `sys_admin_user` VALUES ('1', 'admin', '96e79218965eb72c92a549dd5a330112', '1503718502', '1503736003', '127.0.0.1', '6');
 INSERT INTO `sys_admin_user` VALUES ('2', 'admin2', '96e79218965eb72c92a549dd5a330112', '1503718517', '1503718601', '127.0.0.1', '4');
 INSERT INTO `sys_admin_user` VALUES ('3', 'admin3', '96e79218965eb72c92a549dd5a330112', '1503718526', '1503718625', '127.0.0.1', '5');
+INSERT INTO `sys_admin_user` VALUES ('4', 'admin4', '96e79218965eb72c92a549dd5a330112', '1503722691', '0', '', '4');
 
 -- ----------------------------
 -- Table structure for sys_goods
@@ -89,7 +111,7 @@ CREATE TABLE `sys_goods` (
   `goods_thumb_img` varchar(255) NOT NULL COMMENT '商品缩略图',
   `goods_detail` text NOT NULL COMMENT '商品详情',
   PRIMARY KEY (`goods_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_goods
@@ -105,6 +127,7 @@ INSERT INTO `sys_goods` VALUES ('9', '331', '333.00', '28', '0', '535', '/public
 INSERT INTO `sys_goods` VALUES ('10', '441', '333.00', '22', '0', '535', '/public/upload/goods/20170731\\d0f64ffbeca9bff68d4f79e2fa966f8b.png', '/public/upload/goods/20170731\\d0f64ffbeca9bff68d4f79e2fa966f8b_thumb.png', '&lt;p&gt;444&lt;/p&gt;');
 INSERT INTO `sys_goods` VALUES ('11', 'fsfd', '3.00', '22', '0', '535', '/public/upload/goods/20170731\\7ce70f2e7bf7f01d1b31a497d5fb9e9c.png', '/public/upload/goods/20170731\\7ce70f2e7bf7f01d1b31a497d5fb9e9c_thumb.png', '&lt;p&gt;dd&lt;/p&gt;');
 INSERT INTO `sys_goods` VALUES ('12', '是大大大为', '11.00', '28', '1', '534', '/public/upload/goods/20170812\\d7482788f4aefbc319357e7fc48cc04c.png', '/public/upload/goods/20170812\\d7482788f4aefbc319357e7fc48cc04c_thumb.png', '');
+INSERT INTO `sys_goods` VALUES ('13', '测试商品001', '99.00', '26', '5', '534', '/public/upload/goods/20170826\\ada3bf9ec7da2566affdf2355c251e35.png', '/public/upload/goods/20170826\\ada3bf9ec7da2566affdf2355c251e35_thumb.png', '&lt;p&gt;&lt;img src=&quot;http://img.baidu.com/hi/jx2/j_0003.gif&quot;/&gt;&lt;img src=&quot;http://img.baidu.com/hi/jx2/j_0004.gif&quot;/&gt;狗锅锅鼓&lt;/p&gt;');
 
 -- ----------------------------
 -- Table structure for sys_goods_brand
@@ -136,7 +159,7 @@ CREATE TABLE `sys_goods_cat` (
   `cat_name` varchar(30) NOT NULL COMMENT '商品名称',
   `parent_id` int(8) unsigned NOT NULL COMMENT '父id',
   PRIMARY KEY (`cat_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_goods_cat
@@ -157,7 +180,7 @@ INSERT INTO `sys_goods_cat` VALUES ('15', '水蜜桃', '10');
 INSERT INTO `sys_goods_cat` VALUES ('16', '毛桃', '10');
 INSERT INTO `sys_goods_cat` VALUES ('17', '国产香蕉', '11');
 INSERT INTO `sys_goods_cat` VALUES ('18', '进口香蕉', '11');
-INSERT INTO `sys_goods_cat` VALUES ('19', '8421西瓜', '13');
+INSERT INTO `sys_goods_cat` VALUES ('19', '8424西瓜', '13');
 INSERT INTO `sys_goods_cat` VALUES ('20', '冰箱', '4');
 INSERT INTO `sys_goods_cat` VALUES ('21', '洗衣机', '4');
 INSERT INTO `sys_goods_cat` VALUES ('22', '床', '5');
@@ -167,6 +190,24 @@ INSERT INTO `sys_goods_cat` VALUES ('25', '进口零食', '7');
 INSERT INTO `sys_goods_cat` VALUES ('26', '卫生用品', '8');
 INSERT INTO `sys_goods_cat` VALUES ('27', '桌子', '5');
 INSERT INTO `sys_goods_cat` VALUES ('28', '海尔冰箱', '20');
+INSERT INTO `sys_goods_cat` VALUES ('31', '水晶葡萄', '12');
+
+-- ----------------------------
+-- Table structure for sys_goods_type
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_goods_type`;
+CREATE TABLE `sys_goods_type` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `type_name` varchar(50) NOT NULL COMMENT '类型名称',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_goods_type
+-- ----------------------------
+INSERT INTO `sys_goods_type` VALUES ('1', '水果');
+INSERT INTO `sys_goods_type` VALUES ('4', '手机');
+INSERT INTO `sys_goods_type` VALUES ('3', '电器');
 
 -- ----------------------------
 -- Table structure for sys_privilege_src
@@ -178,7 +219,7 @@ CREATE TABLE `sys_privilege_src` (
   `controller_name` varchar(255) NOT NULL COMMENT '控制器名',
   `action_name` varchar(255) NOT NULL COMMENT '方法名',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_privilege_src
@@ -216,6 +257,11 @@ INSERT INTO `sys_privilege_src` VALUES ('33', '编辑品牌', 'Goods', 'goods_br
 INSERT INTO `sys_privilege_src` VALUES ('34', '删除品牌', 'Goods', 'goods_brand_delete');
 INSERT INTO `sys_privilege_src` VALUES ('35', '管理员日志', 'Admin', 'admin_log_lst');
 INSERT INTO `sys_privilege_src` VALUES ('36', '管理员日志更新', 'Admin', 'admin_log_update');
+INSERT INTO `sys_privilege_src` VALUES ('37', '属性列表', 'Goods', 'goods_attr_lst');
+INSERT INTO `sys_privilege_src` VALUES ('38', '类型列表', 'Goods', 'goods_type_lst');
+INSERT INTO `sys_privilege_src` VALUES ('39', '添加类型', 'Goods', 'goods_type_add');
+INSERT INTO `sys_privilege_src` VALUES ('40', '编辑商品类型', 'Goods', 'goods_type_edit');
+INSERT INTO `sys_privilege_src` VALUES ('41', '删除商品类型', 'Goods', 'goods_type_delete');
 
 -- ----------------------------
 -- Table structure for sys_setting

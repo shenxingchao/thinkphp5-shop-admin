@@ -672,9 +672,9 @@
       <recent name="D:\phpStudy\admin\application\admin\view\Goods" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\phpStudy\admin" />
       <recent name="D:\phpStudy\admin\public\static\css\iconfont" />
       <recent name="D:\phpStudy\admin\public\static\css" />
-      <recent name="D:\phpStudy\admin" />
       <recent name="D:\phpStudy\admin\public\static\js" />
       <recent name="D:\phpStudy\admin\public\static\admin\images" />
     </key>
@@ -813,15 +813,15 @@
       <workItem from="1503477173707" duration="1701000" />
       <workItem from="1503532203903" duration="2054000" />
       <workItem from="1503642526424" duration="6752000" />
-      <workItem from="1503706270139" duration="27956000" />
+      <workItem from="1503706270139" duration="28263000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218901000" />
+    <option name="totallyTimeSpent" value="219208000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15572916" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -992,14 +992,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/log/4.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1311,6 +1303,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="16" column="71" lean-forward="false" selection-start-line="16" selection-start-column="71" selection-end-line="16" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
