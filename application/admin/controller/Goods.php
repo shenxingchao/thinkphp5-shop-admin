@@ -491,4 +491,19 @@ class Goods extends Base{
     public function goods_attr_lst(){
         return $this->fetch();
     }
+
+    public function goods_attr_add(){
+        //读取所有商品类型
+        $type_info = Db::name('goods_type')->select();
+        $this->assign('type_info',$type_info);
+        return $this->fetch();
+    }
+
+    public function goods_attr_edit(){
+
+    }
+
+    public function goods_attr_delete(){
+
+    }
 }

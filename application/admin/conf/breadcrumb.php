@@ -75,6 +75,18 @@ return [
             'action_name'=>'属性列表',
         ],
         [
+            'control'=>'goods',
+            'action'=>'goods_attr_add',
+            'control_name'=>'商品',
+            'action_name'=>'添加属性',
+        ],
+        [
+            'control'=>'goods',
+            'action'=>'goods_attr_edit',
+            'control_name'=>'商品',
+            'action_name'=>'编辑属性',
+        ],
+        [
             'control'=>'system',
             'action'=>'setting',
             'control_name'=>'系统',
