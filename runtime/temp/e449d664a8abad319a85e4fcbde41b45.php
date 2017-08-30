@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\goods\goods_attr_add.html";i:1504058135;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503728480;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\phpStudy\admin/application/admin\view\goods\goods_attr_edit.html";i:1504076341;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503728480;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,12 +42,12 @@
         margin-top: 10px;
     }
 </style>
-<form class="form-horizontal col-sm-8 col-sm-offset-2" action="/admin/goods/goods_attr_add" method="post" enctype="multipart/form-data">
+<form class="form-horizontal col-sm-8 col-sm-offset-2" action="/admin/goods/goods_attr_edit" method="post" enctype="multipart/form-data">
     <div class="box-body">
         <div class="form-group">
             <label for="attr_name" class="col-sm-2 control-label">属性名称</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="attr_name" id="attr_name" placeholder="属性名称">
+                <input type="text" class="form-control" value="<?php echo $attr_info['attr_name']; ?>" name="attr_name" id="attr_name" placeholder="属性名称">
             </div>
             <div class="col-sm-1 red">*</div>
         </div>
@@ -57,7 +57,7 @@
                 <select name="type_id" id="type_id" class="form-control">
                     <option value="">请选择</option>
                     <?php if(is_array($type_info) || $type_info instanceof \think\Collection || $type_info instanceof \think\Paginator): $i = 0; $__LIST__ = $type_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
-                    <option value="<?php echo $data['id']; ?>"><?php echo $data['type_name']; ?></option>
+                    <option value="<?php echo $data['id']; ?>" <?php if($attr_info['type_id'] == $data['id']): ?>selected="selected"<?php endif; ?>><?php echo $data['type_name']; ?></option>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                 </select>
             </div>
@@ -66,8 +66,8 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">属性值录入方式</label>
             <div class="col-sm-6">
-                <label class="control-label"><input class="input_type" type="radio" name="input_type" value="1"><span class="input_type_span">从添加的值中选择</span></label>&nbsp;&nbsp;
-                <label class="control-label"><input class="input_type" type="radio" name="input_type" value="2"><span class="input_type_span">从文本框手动输入</span></label>
+                <label class="control-label"><input class="input_type" type="radio" name="input_type" value="1" <?php if($attr_info['input_type'] == 1): ?>checked="checked"<?php endif; ?>><span class="input_type_span">从添加的值中选择</span></label>&nbsp;&nbsp;
+                <label class="control-label"><input class="input_type" type="radio" name="input_type" value="2" <?php if($attr_info['input_type'] == 2): ?>checked="checked"<?php endif; ?>><span class="input_type_span">从文本框手动输入</span></label>
             </div>
             <div class="col-sm-1 red">*</div>
         </div>
@@ -76,6 +76,10 @@
             <div class="col-sm-6">
                 <button type="button" class="add_value btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button>
                 <div class="value_list">
+                    <?php if(is_array($attr_info['attr_value']) || $attr_info['attr_value'] instanceof \think\Collection || $attr_info['attr_value'] instanceof \think\Paginator): $i = 0; $__LIST__ = $attr_info['attr_value'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
+                        <p class="col-sm-10 col-xs-10"><input class="form-control" type="text" name="item[]" value="<?php echo $data; ?>"></p>
+                        <p class="col-sm-2 col-xs-2"><button class="delete_value btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button></p>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
                 </div>
             </div>
         </div>
@@ -84,6 +88,7 @@
                 <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
             </div>
             <div class="col-sm-3">
+                <input type="hidden" value="<?php echo $attr_info['id']; ?>" name="id">
                 <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
             </div>
         </div>
@@ -101,6 +106,10 @@
 </html>
 <script type="text/javascript">
     $(function () {
+        if($('input[name="input_type"]:checked').val() == '1'){
+            //从添加的值中选择
+            $('#setting_value').show();
+        }
         $('.input_type').on('click',function () {
             if($(this).val() == '1'){
                 //从添加的值中选择

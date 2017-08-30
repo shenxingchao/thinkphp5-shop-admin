@@ -1,0 +1,6 @@
+1$1504077191$编辑商品属性尺寸$127.0.0.1$/admin/goods/goods_attr_edit
+1$1504077201$编辑商品属性尺寸$127.0.0.1$/admin/goods/goods_attr_edit
+1$1504077213$编辑商品属性颜色$127.0.0.1$/admin/goods/goods_attr_edit
+1$1504077265$添加商品属性测试删除$127.0.0.1$/admin/goods/goods_attr_add
+1$1504079565$添加商品分类aaa$127.0.0.1$/admin/goods/goods_cat_add
+1$1504079579$添加商品分类bbb$127.0.0.1$/admin/goods/goods_cat_add

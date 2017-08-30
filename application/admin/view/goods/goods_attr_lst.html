@@ -11,16 +11,31 @@
             <thead>
             <tr>
                 <th></th>
-                <th data-sortable="true">1</th>
-                <th data-sortable="true">2</th>
-                <th data-sortable="true">3</th>
+                <th data-sortable="true">id</th>
+                <th data-sortable="true">属性名</th>
+                <th data-sortable="true">类型</th>
+                <th data-sortable="true">录入方式</th>
                 <th >操作</th>
             </tr>
             </thead>
             <tbody>
+                {volist name='list' id='data'}
+                <tr>
+                    <td><input type="checkbox"  attr-id="{$data.id}"></td>
+                    <td>{$data.id}</td>
+                    <td>{$data.attr_name}</td>
+                    <td>{$data.type_name}</td>
+                    <td>{if $data.input_type eq 1}从添加的值中选择{/if}{if $data.input_type eq 2}从文本框手动输入{/if}</td>
+                    <td>
+                        <a href="/admin/goods/goods_attr_edit/id/{$data.id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                        <a href="/admin/goods/goods_attr_delete/id/{$data.id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
+                    </td>
+                </tr>
+                {/volist}
             </tbody>
         </table>
         <div class="fixed-table-pagination" align="center">
+            {$list->render()}
         </div>
     </div>
 </section>

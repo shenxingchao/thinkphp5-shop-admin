@@ -21,9 +21,7 @@ class Goods extends Base{
         //获取所有分类
         $cat_info = Db::name('goods_cat')->select();
         $cat_info = getTree($cat_info);
-        $this->assign('cat_info',$cat_info);
-        $tree = make_tree($cat_info);
-        $this->assign('tree',$tree);
+        $this->assign('list',$cat_info);
         return $this->fetch('goods_cat_lst');
     }
 
@@ -472,6 +470,13 @@ class Goods extends Base{
         //查找该类型下属性和规格是为空，为空才能删除
         $request = Request::instance();
         if ($request->param('id')){
+            $where_attr = [
+                'type_id'=>intval($request->param('id')),
+            ];
+            $count = Db::name('goods_attr')->where($where_attr)->count();
+            if($count > 0){
+                $this->error('该类型下还有属性，不能删除');
+            }
             $where = [
                 'id'=>intval($request->param('id')),
             ];
@@ -488,22 +493,134 @@ class Goods extends Base{
         }
     }
 
+    /**
+     * 商品属性列表
+     * @return mixed
+     */
     public function goods_attr_lst(){
+        $request = Request::instance();
+        $pagesize = Setting('admin_pagesize')?Setting('admin_pagesize'):8;
+        if($request->param('type_id')){
+            $type_id = $request->param('type_id');
+            $list = Db::name('goods_attr a')
+                ->join('goods_type t','a.type_id=t.id','left')
+                ->where('a.type_id = '.$type_id)
+                ->field('a.*,t.type_name')
+                ->paginate($pagesize,false,['path'=>'/admin/goods/goods_attr_lst']);
+        }else{
+            $list = Db::name('goods_attr a')
+                ->join('goods_type t','a.type_id=t.id','left')
+                ->field('a.*,t.type_name')
+                ->paginate($pagesize,false,['path'=>'/admin/goods/goods_attr_lst']);
+        }
+        $this->assign('list',$list);
         return $this->fetch();
     }
 
+
+    /**
+     * 添加商品属性
+     * @return mixed
+     */
     public function goods_attr_add(){
+        $request= Request::instance();
+        if ($request->isPost()){
+            $post = $request->param();
+            //0.处理可选值
+            if($post['input_type'] == 1){
+                $attr_value = serialize(array_filter($post['item']));
+            }
+            //1.组装数据
+            $insert = [
+                'attr_name'   =>$post['attr_name'],
+                'type_id'     =>$post['type_id'],
+                'input_type'  =>$post['input_type'],
+                'attr_value'  =>isset($attr_value)?$attr_value:'',
+            ];
+            //2.添加
+            $res = Db::name('goods_attr')->insert($insert);
+            //3.返回
+            if($res){
+                adminLog("添加商品属性".$insert['attr_name']);
+                $this->success('添加成功','/admin/goods/goods_attr_lst');
+            }
+            else
+                $this->error('添加失败');
+        }
         //读取所有商品类型
         $type_info = Db::name('goods_type')->select();
         $this->assign('type_info',$type_info);
         return $this->fetch();
     }
 
+    /**
+     * 编辑属性
+     * @return mixed
+     */
     public function goods_attr_edit(){
+        $request= Request::instance();
+        if ($request->isPost()){
+            $post = $request->param();
+            $where = [
+                'id'=>intval($request->param('id')),
+            ];
+            //0.处理可选值
+            if($post['input_type'] == 1){
+                $attr_value = serialize(array_filter($post['item']));
+            }
+            //1.组装数据
+            $update = [
+                'attr_name'   =>$post['attr_name'],
+                'type_id'     =>$post['type_id'],
+                'input_type'  =>$post['input_type'],
+                'attr_value'  =>isset($attr_value)?$attr_value:'',
+            ];
+            //2.添加
+            $res = Db::name('goods_attr')->where($where)->update($update);
+            //3.返回
+            if($res){
+                adminLog("编辑商品属性".$update['attr_name']);
+                $this->success('编辑成功','/admin/goods/goods_attr_lst');
+            }
+            else
+                $this->error('编辑失败');
+        }
+        else if($request->isGet()){
+            $where = [
+                'id'=>intval($request->param('id'))
+            ];
+            $attr_info = Db::name('goods_attr')->where($where)->find();
+            if(empty($attr_info))
+                $this->error('属性不存在');
+            $attr_info['attr_value'] = unserialize($attr_info['attr_value']);
+            $this->assign('attr_info',$attr_info);
+            //读取所有商品类型
+            $type_info = Db::name('goods_type')->select();
+            $this->assign('type_info',$type_info);
 
+            return $this->fetch();
+        }
     }
 
+    /**
+     * 删除属性
+     */
     public function goods_attr_delete(){
-
+        $request = Request::instance();
+        if ($request->param('id')){
+            $where = [
+                'id'=>intval($request->param('id')),
+            ];
+            $res = Db::name('goods_attr')->where($where)->delete();
+            if($res){
+                $this->success('删除成功', '/admin/goods/goods_attr_lst');
+            }
+            else{
+                $this->error('删除失败');
+            }
+        }
+        else{
+            $this->error('属性不存在');
+        }
     }
 }

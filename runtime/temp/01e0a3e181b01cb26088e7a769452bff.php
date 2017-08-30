@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:65:"D:\phpStudy\admin/application/admin\view\goods\goods_cat_lst.html";i:1503726193;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503728480;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:65:"D:\phpStudy\admin/application/admin\view\goods\goods_cat_lst.html";i:1504083218;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503728480;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,51 +30,48 @@
         <li class="active"><?php echo $action; ?></li>
     </ol>
 </section>
-<link href="__SUP__/content/plugins/jstree/dist/themes/default/style.min.css?713" rel="stylesheet" />
 <style type="text/css">
     #tree{
         font-size: 18px;
     }
+    .cat_hide{
+        display: none;
+    }
 </style>
 <section class="content">
     <div id="toolbar" class="btn-group col-sm-12">
-        <button id="btn_add" type="button" class="btn btn-default">
+        <button id="btn_add" type="button" class="btn btn-primary">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
         </button>
-        <button id="btn_edit" type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改
-        </button>
-        <button id="btn_delete" type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
-        </button>
     </div>
-    <div id="tree" class="col-sm-12">
-        <ul><!--输出4级-->
-            <?php if(is_array($tree) || $tree instanceof \think\Collection || $tree instanceof \think\Paginator): $i = 0; $__LIST__ = $tree;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
-                <li cat-name="<?php echo $data['cat_name']; ?>" parent-id="<?php echo $data['parent_id']; ?>" cat-id="<?php echo $data['cat_id']; ?>" ><?php echo $data['cat_name']; if(isset($data['sub_cat'])){ ?>
-                        <ul>
-                            <?php if(is_array($data['sub_cat']) || $data['sub_cat'] instanceof \think\Collection || $data['sub_cat'] instanceof \think\Paginator): $i = 0; $__LIST__ = $data['sub_cat'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$datas): $mod = ($i % 2 );++$i;?>
-                                <li cat-name="<?php echo $datas['cat_name']; ?>" parent-id="<?php echo $datas['parent_id']; ?>" cat-id="<?php echo $datas['cat_id']; ?>"><?php echo $datas['cat_name']; if(isset($datas['sub_cat'])){ ?>
-                                            <ul>
-                                                <?php if(is_array($datas['sub_cat']) || $datas['sub_cat'] instanceof \think\Collection || $datas['sub_cat'] instanceof \think\Paginator): $i = 0; $__LIST__ = $datas['sub_cat'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$datass): $mod = ($i % 2 );++$i;?>
-                                                    <li cat-name="<?php echo $datass['cat_name']; ?>" parent-id="<?php echo $datass['parent_id']; ?>" cat-id="<?php echo $datass['cat_id']; ?>"><?php echo $datass['cat_name']; if(isset($datass['sub_cat'])){ ?>
-                                                        <ul>
-                                                            <?php if(is_array($datass['sub_cat']) || $datass['sub_cat'] instanceof \think\Collection || $datass['sub_cat'] instanceof \think\Paginator): $i = 0; $__LIST__ = $datass['sub_cat'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$datasss): $mod = ($i % 2 );++$i;?>
-                                                            <li cat-name="<?php echo $datasss['cat_name']; ?>" parent-id="<?php echo $datasss['parent_id']; ?>" cat-id="<?php echo $datasss['cat_id']; ?>"><?php echo $datasss['cat_name']; ?></li>
-                                                            <?php endforeach; endif; else: echo "" ;endif; ?>
-                                                        </ul>
-                                                        <?php } ?>
-                                                    </li>
-                                                <?php endforeach; endif; else: echo "" ;endif; ?>
-                                            </ul>
-                                    <?php } ?>
-                                </li>
-                            <?php endforeach; endif; else: echo "" ;endif; ?>
-                        </ul>
-                    <?php } ?>
-                </li>
+    <div class="table-scrollable">
+        <table class="table-hover" data-toggle="table" >
+            <thead>
+            <tr>
+                <th></th>
+                <th data-sortable="true">id</th>
+                <th data-sortable="true">分类名</th>
+                <th data-sortable="true">parent_id</th>
+                <th data-sortable="true">是否显示</th>
+                <th >操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
+            <tr class="parent_<?php echo $data['parent_id']; if($data['level'] > 0): ?> cat_hide<?php endif; ?>">
+                <td><button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button></td>
+                <td><?php echo $data['cat_id']; ?></td>
+                <td><?php echo $data['cat_name']; ?></td>
+                <td><?php echo $data['parent_id']; ?></td>
+                <td>---<?php echo $data['level']; ?></td>
+                <td>
+                    <a href="/admin/goods/goods_cat_edit/id/<?php echo $data['cat_id']; ?>" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                    <a href="/admin/goods/goods_cat_delete/id/<?php echo $data['cat_id']; ?>" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
+                </td>
+            </tr>
             <?php endforeach; endif; else: echo "" ;endif; ?>
-        </ul>
+            </tbody>
+        </table>
     </div>
 </section>
 <script src="__SUP__/content/ui/global/jQuery/jquery.min.js"></script>
@@ -87,106 +84,9 @@
 <script src="__JS__/global.js"></script>
 </body>
 </html>
-<script src="__SUP__/content/plugins/jstree/dist/jstree.min.js"></script>
 <script type="text/javascript">
 $(function () {
-    $('#tree').jstree({
-        "core": {
-            "themes": {
-                "responsive": false
-            }
-        },
-        "types": {
-            "default": {
-                "icon": "fa fa-folder icon-state-warning icon-lg"
-            },
-        },
-        "plugins": ["types"]
-    });
-    $('#btn_add').on('click',function () {
-        var d = dialog({
-            title: '添加分类',
-            content: '<form class="form-horizontal" action="/admin/goods/goods_cat_add" method="post">' +
-                        '<div class="form-group">' +
-                            '<label for="cat_name" class="col-sm-4 control-label">分类名</label>' +
-                                '<div class="col-sm-8">' +
-                                    '<input type="text" class="form-control" name="cat_name" id="cat_name" placeholder="分类名">' +
-                                '</div>' +
-                        '</div>' +
-                        '<div class="form-group">' +
-                            '<label for="parent_id" class="col-sm-4 control-label">上级分类</label>' +
-                            '<div class="col-sm-8" >' +
-                                '<select name="parent_id"  id="parent_id" class="form-control">' +
-                                    '<option value="0">顶级分类</option>' +
-            '<?php if(is_array($cat_info) || $cat_info instanceof \think\Collection || $cat_info instanceof \think\Paginator): $i = 0; $__LIST__ = $cat_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?><option value="<?php echo $data['cat_id']; ?>"><?php echo str_repeat("&nbsp;",5*$data["level"]); ?><?php echo $data['cat_name']; ?></option><?php endforeach; endif; else: echo "" ;endif; ?>' +
-                                '</select>' +
-                            '</div>' +
-                        '</div>' +
-                        '<div class="col-sm-8 col-sm-push-4">' +
-                            '<button type="button" class="btn btn-primary add_btn">添加分类</button>' +
-                        '</div>' +
-                    '</form>'
-        });
-        d.show();
-    });
-    $('body').on('click','.add_btn',function () {
-        //添加分类验证
-        if($('#cat_name').val() == ""){
-            alert("分类名不能为空");
-            return false;
-        }
-        else{
-            $(this).attr('type','submit');
-        }
-    });
-    $('#btn_edit').on('click',function () {
-        if($('.jstree-clicked').length){
-            var cat_name = $('.jstree-clicked').parent('li').attr('cat-name');
-            var parent_id = $('.jstree-clicked').parent('li').attr('parent-id');
-            var cat_id = $('.jstree-clicked').parent('li').attr('cat-id');
 
-            var html = '<form class="form-horizontal" action="/admin/goods/goods_cat_edit" method="post">' +
-                            '<div class="form-group">' +
-                                '<label for="cat_name" class="col-sm-4 control-label">分类名</label>' +
-                                '<div class="col-sm-8">' +
-                                    '<input type="text" class="form-control" value="'+ cat_name +'" name="cat_name" id="cat_name" placeholder="分类名">' +
-                                '</div>' +
-                            '</div>' +
-                            '<div class="form-group">' +
-                                '<label for="parent_id" class="col-sm-4 control-label">上级分类</label>' +
-                                '<div class="col-sm-8" >' +
-                                    '<select name="parent_id"  id="parent_id" class="form-control">' +
-                                        '<option value="0">顶级分类</option>' +
-                                        '<?php if(is_array($cat_info) || $cat_info instanceof \think\Collection || $cat_info instanceof \think\Paginator): $i = 0; $__LIST__ = $cat_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?><option value="<?php echo $data['cat_id']; ?>"  ';
-                if(parseInt(parent_id) == parseInt('<?php echo $data['cat_id']; ?>')){
-                    html+=' selected="selected"';
-                }
-                html+=' ><?php echo str_repeat("&nbsp;",5*$data["level"]); ?><?php echo $data['cat_name']; ?></option><?php endforeach; endif; else: echo "" ;endif; ?>' +
-                                    '</select>' +
-                                '</div>' +
-                            '</div>' +
-                            '<div class="col-sm-8 col-sm-push-4">' +
-                                '<input  type="hidden" value="'+ cat_id +'" name="cat_id">' +
-                                '<button type="button" class="btn btn-primary edit_btn">确认修改</button>' +
-                            '</div>' +
-                        '</form>';
-            var d = dialog({
-                title: '修改分类',
-                content: html,
-            });
-            d.show();
-        }
-    });
-    $('body').on('click','.edit_btn',function () {
-        //编辑分类验证
-        if($('#cat_name').val() == ""){
-            alert("分类名不能为空");
-            return false;
-        }
-        else{
-            $(this).attr('type','submit');
-        }
-    });
     $('#btn_delete').on('click',function () {
         if($('.jstree-clicked').length){
             if(confirm('确定要删除吗')){
