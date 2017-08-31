@@ -16,16 +16,18 @@
  * @param  arr  $data      data
  * @param  int  $parent_id pid
  * @param  int $level     level
+ * @param  string $parent_path     level
  * @return arr             result
  */
-function getTree($data,$parent_id=0,$level=0){
+function getTree($data,$parent_id=0,$level=0,$parent_path = 'parent_path'){
     static $tree = array();
     foreach($data as $key=>$value){
         if($value['parent_id'] == $parent_id){
             $value['level'] = $level;
+            $value['parent_path'] = $parent_path."_".$value['cat_id'];//记录分类路径
             $tree[] = $value;
             unset($data['key']);
-            getTree($data,$value['cat_id'],$level+1);
+            getTree($data,$value['cat_id'],$level+1,$value['parent_path']);
         }
     }
     return $tree;

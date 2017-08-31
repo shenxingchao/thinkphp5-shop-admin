@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-08-26 16:56:27
+Date: 2017-08-31 16:38:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `sys_admin_log` (
   `log_ip` varchar(12) NOT NULL COMMENT 'ip',
   `log_url` varchar(255) NOT NULL COMMENT 'url',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_admin_log
@@ -53,6 +53,35 @@ INSERT INTO `sys_admin_log` VALUES ('18', '1', '1503735111', '添加商品类型
 INSERT INTO `sys_admin_log` VALUES ('19', '1', '1503736003', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
 INSERT INTO `sys_admin_log` VALUES ('20', '1', '1503736114', '编辑商品类型水果1', '127.0.0.1', '/admin/goods/goods_type_edit\r\n');
 INSERT INTO `sys_admin_log` VALUES ('21', '1', '1503736122', '编辑商品类型水果', '127.0.0.1', '/admin/goods/goods_type_edit');
+INSERT INTO `sys_admin_log` VALUES ('22', '1', '1503736241', '添加商品类型手机', '127.0.0.1', '/admin/goods/goods_type_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('23', '1', '1503879173', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('24', '1', '1503975238', '登录', '127.0.0.1', '/admin/user/login.html');
+INSERT INTO `sys_admin_log` VALUES ('25', '1', '1503993465', '登录', '127.0.0.1', '/admin/user/login.html');
+INSERT INTO `sys_admin_log` VALUES ('26', '1', '1504051821', '登录', '127.0.0.1', '/admin/user/login.html');
+INSERT INTO `sys_admin_log` VALUES ('27', '1', '1504059358', '添加商品属性分辨率', '127.0.0.1', '/admin/goods/goods_attr_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('28', '1', '1504059566', '添加商品属性尺寸', '127.0.0.1', '/admin/goods/goods_attr_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('29', '1', '1504060223', '添加商品属性颜色', '127.0.0.1', '/admin/goods/goods_attr_add');
+INSERT INTO `sys_admin_log` VALUES ('30', '1', '1504077191', '编辑商品属性尺寸', '127.0.0.1', '/admin/goods/goods_attr_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('31', '1', '1504077201', '编辑商品属性尺寸', '127.0.0.1', '/admin/goods/goods_attr_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('32', '1', '1504077213', '编辑商品属性颜色', '127.0.0.1', '/admin/goods/goods_attr_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('33', '1', '1504077265', '添加商品属性测试删除', '127.0.0.1', '/admin/goods/goods_attr_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('34', '1', '1504079565', '添加商品分类aaa', '127.0.0.1', '/admin/goods/goods_cat_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('35', '1', '1504079579', '添加商品分类bbb', '127.0.0.1', '/admin/goods/goods_cat_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('36', '1', '1504140730', '登录', '127.0.0.1', '/admin/user/login.html');
+INSERT INTO `sys_admin_log` VALUES ('37', '1', '1504157982', '添加商品分类要被删除的', '127.0.0.1', '/admin/goods/goods_cat_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('38', '1', '1504158704', '编辑商品分类要被删除的啊', '127.0.0.1', '/admin/goods/goods_cat_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('39', '1', '1504158713', '编辑商品分类要被删除的啊', '127.0.0.1', '/admin/goods/goods_cat_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('40', '1', '1504158716', '编辑商品分类要被删除的', '127.0.0.1', '/admin/goods/goods_cat_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('41', '1', '1504158782', '编辑商品分类要被删除的啊', '127.0.0.1', '/admin/goods/goods_cat_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('42', '1', '1504158798', '编辑商品分类要被删除的啊', '127.0.0.1', '/admin/goods/goods_cat_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('43', '1', '1504159455', '编辑商品测试商品001', '127.0.0.1', '/admin/goods/goods_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('44', '1', '1504159477', '编辑商品测试商品001', '127.0.0.1', '/admin/goods/goods_edit');
+INSERT INTO `sys_admin_log` VALUES ('45', '1', '1504161840', '添加商品11111', '127.0.0.1', '/admin/goods/goods_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('46', '1', '1504162868', '编辑商品11111', '127.0.0.1', '/admin/goods/goods_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('47', '1', '1504162872', '编辑商品11111', '127.0.0.1', '/admin/goods/goods_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('48', '1', '1504162876', '编辑商品测试商品001', '127.0.0.1', '/admin/goods/goods_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('49', '1', '1504162970', '添加商品测试少时诵诗书', '127.0.0.1', '/admin/goods/goods_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('50', '1', '1504163153', '登录', '10.3.9.50', '/admin/user/login.html');
 
 -- ----------------------------
 -- Table structure for sys_admin_role
@@ -68,7 +97,7 @@ CREATE TABLE `sys_admin_role` (
 -- ----------------------------
 -- Records of sys_admin_role
 -- ----------------------------
-INSERT INTO `sys_admin_role` VALUES ('6', '超级管理员', '1,2,3,4,5,6,7,21,22,26,27,28,29,30,35,36,8,9,10,11,12,13,14,15,31,32,33,34,37,38,39,40,41,16,17,25,19,20');
+INSERT INTO `sys_admin_role` VALUES ('6', '超级管理员', '1,2,3,4,5,6,7,21,22,26,27,28,29,30,35,36,8,9,10,11,12,13,14,15,31,32,33,34,37,38,39,40,41,42,43,44,16,17,25,19,20');
 INSERT INTO `sys_admin_role` VALUES ('4', '商品管理员', '8,9,10,11,12,13,14,15,31,32,33,34,16,17,25,19');
 INSERT INTO `sys_admin_role` VALUES ('5', '系统管理员', '16,17,25,19,20');
 INSERT INTO `sys_admin_role` VALUES ('7', '访客', '1,3,5,35,8,12,31,16,17,25,19,20');
@@ -91,7 +120,7 @@ CREATE TABLE `sys_admin_user` (
 -- ----------------------------
 -- Records of sys_admin_user
 -- ----------------------------
-INSERT INTO `sys_admin_user` VALUES ('1', 'admin', '96e79218965eb72c92a549dd5a330112', '1503718502', '1503736003', '127.0.0.1', '6');
+INSERT INTO `sys_admin_user` VALUES ('1', 'admin', '96e79218965eb72c92a549dd5a330112', '1503718502', '1504167144', '127.0.0.1', '6');
 INSERT INTO `sys_admin_user` VALUES ('2', 'admin2', '96e79218965eb72c92a549dd5a330112', '1503718517', '1503718601', '127.0.0.1', '4');
 INSERT INTO `sys_admin_user` VALUES ('3', 'admin3', '96e79218965eb72c92a549dd5a330112', '1503718526', '1503718625', '127.0.0.1', '5');
 INSERT INTO `sys_admin_user` VALUES ('4', 'admin4', '96e79218965eb72c92a549dd5a330112', '1503722691', '0', '', '4');
@@ -105,29 +134,52 @@ CREATE TABLE `sys_goods` (
   `goods_name` varchar(30) NOT NULL COMMENT '商品名称',
   `goods_price` decimal(10,2) unsigned NOT NULL,
   `cat_id` mediumint(8) unsigned NOT NULL COMMENT '所属分类Id',
-  `brand_id` mediumint(8) unsigned NOT NULL COMMENT '品牌id',
+  `brand_id` mediumint(8) unsigned NOT NULL DEFAULT '0' COMMENT '品牌id',
   `goods_number` mediumint(8) unsigned NOT NULL DEFAULT '0' COMMENT '库存数',
   `goods_img` varchar(255) NOT NULL COMMENT '商品原图路径',
   `goods_thumb_img` varchar(255) NOT NULL COMMENT '商品缩略图',
   `goods_detail` text NOT NULL COMMENT '商品详情',
+  `is_on_sale` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '1上架  0 不上架',
   PRIMARY KEY (`goods_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_goods
 -- ----------------------------
-INSERT INTO `sys_goods` VALUES ('2', '333', '333.00', '11', '0', '0', '/public/upload/goods/20170731\\b920cfd0a06689d23851df2fd5d9df78.png', '/public/upload/goods/20170731\\b920cfd0a06689d23851df2fd5d9df78_thumb.png', '&lt;p&gt;444&lt;/p&gt;');
-INSERT INTO `sys_goods` VALUES ('3', '444', '555.00', '3', '0', '0', '/public/upload/goods/20170731\\3ed778495203fb951946bae391fd8073.png', '/public/upload/goods/20170731\\3ed778495203fb951946bae391fd8073_thumb.png', '&lt;p&gt;666&lt;/p&gt;');
-INSERT INTO `sys_goods` VALUES ('4', '555', '666.00', '15', '0', '777', '/public/upload/goods/20170731\\3e9ff62bcf04b74bbcc88d4fa69bb9ee.png', '/public/upload/goods/20170731\\3e9ff62bcf04b74bbcc88d4fa69bb9ee_thumb.png', '');
-INSERT INTO `sys_goods` VALUES ('5', '333', '444.00', '3', '0', '535', '/public/upload/goods/20170731\\77456a68f1626f3a4b0a95142c357a52.jpg', '/public/upload/goods/20170731\\77456a68f1626f3a4b0a95142c357a52_thumb.jpg', '&lt;p&gt;5555&lt;/p&gt;');
-INSERT INTO `sys_goods` VALUES ('6', '333', '4444.00', '13', '0', '535', '/public/upload/goods/20170731\\c6d0499d4e10659ee2a9a25435a5a644.jpg', '/public/upload/goods/20170731\\c6d0499d4e10659ee2a9a25435a5a644_thumb.jpg', '&lt;p&gt;555&lt;/p&gt;');
-INSERT INTO `sys_goods` VALUES ('7', 'fffa', '222.00', '3', '0', '535', '/public/upload/goods/20170731\\4779640d45510330751ed6d74dd27fdb.jpg', '/public/upload/goods/20170731\\4779640d45510330751ed6d74dd27fdb_thumb.jpg', '&lt;p&gt;333&lt;br/&gt;&lt;/p&gt;');
-INSERT INTO `sys_goods` VALUES ('8', '333', '444.00', '21', '0', '333', '/public/upload/goods/20170731\\2a99553212a1b2cbacb9f8b9e68aa7f9.png', '/public/upload/goods/20170731\\2a99553212a1b2cbacb9f8b9e68aa7f9_thumb.png', '&lt;p&gt;5555&lt;br/&gt;&lt;/p&gt;');
-INSERT INTO `sys_goods` VALUES ('9', '331', '333.00', '28', '0', '535', '/public/upload/goods/20170731\\489f9621ed565667eef6d40a611f6fa8.png', '/public/upload/goods/20170731\\489f9621ed565667eef6d40a611f6fa8_thumb.png', '&lt;p&gt;333&lt;/p&gt;');
-INSERT INTO `sys_goods` VALUES ('10', '441', '333.00', '22', '0', '535', '/public/upload/goods/20170731\\d0f64ffbeca9bff68d4f79e2fa966f8b.png', '/public/upload/goods/20170731\\d0f64ffbeca9bff68d4f79e2fa966f8b_thumb.png', '&lt;p&gt;444&lt;/p&gt;');
-INSERT INTO `sys_goods` VALUES ('11', 'fsfd', '3.00', '22', '0', '535', '/public/upload/goods/20170731\\7ce70f2e7bf7f01d1b31a497d5fb9e9c.png', '/public/upload/goods/20170731\\7ce70f2e7bf7f01d1b31a497d5fb9e9c_thumb.png', '&lt;p&gt;dd&lt;/p&gt;');
-INSERT INTO `sys_goods` VALUES ('12', '是大大大为', '11.00', '28', '1', '534', '/public/upload/goods/20170812\\d7482788f4aefbc319357e7fc48cc04c.png', '/public/upload/goods/20170812\\d7482788f4aefbc319357e7fc48cc04c_thumb.png', '');
-INSERT INTO `sys_goods` VALUES ('13', '测试商品001', '99.00', '26', '5', '534', '/public/upload/goods/20170826\\ada3bf9ec7da2566affdf2355c251e35.png', '/public/upload/goods/20170826\\ada3bf9ec7da2566affdf2355c251e35_thumb.png', '&lt;p&gt;&lt;img src=&quot;http://img.baidu.com/hi/jx2/j_0003.gif&quot;/&gt;&lt;img src=&quot;http://img.baidu.com/hi/jx2/j_0004.gif&quot;/&gt;狗锅锅鼓&lt;/p&gt;');
+INSERT INTO `sys_goods` VALUES ('2', '333', '333.00', '11', '0', '0', '/public/upload/goods/20170731\\b920cfd0a06689d23851df2fd5d9df78.png', '/public/upload/goods/20170731\\b920cfd0a06689d23851df2fd5d9df78_thumb.png', '&lt;p&gt;444&lt;/p&gt;', '0');
+INSERT INTO `sys_goods` VALUES ('3', '444', '555.00', '3', '0', '0', '/public/upload/goods/20170731\\3ed778495203fb951946bae391fd8073.png', '/public/upload/goods/20170731\\3ed778495203fb951946bae391fd8073_thumb.png', '&lt;p&gt;666&lt;/p&gt;', '0');
+INSERT INTO `sys_goods` VALUES ('4', '555', '666.00', '15', '0', '777', '/public/upload/goods/20170731\\3e9ff62bcf04b74bbcc88d4fa69bb9ee.png', '/public/upload/goods/20170731\\3e9ff62bcf04b74bbcc88d4fa69bb9ee_thumb.png', '', '0');
+INSERT INTO `sys_goods` VALUES ('5', '333', '444.00', '3', '0', '535', '/public/upload/goods/20170731\\77456a68f1626f3a4b0a95142c357a52.jpg', '/public/upload/goods/20170731\\77456a68f1626f3a4b0a95142c357a52_thumb.jpg', '&lt;p&gt;5555&lt;/p&gt;', '0');
+INSERT INTO `sys_goods` VALUES ('6', '333', '4444.00', '13', '0', '535', '/public/upload/goods/20170731\\c6d0499d4e10659ee2a9a25435a5a644.jpg', '/public/upload/goods/20170731\\c6d0499d4e10659ee2a9a25435a5a644_thumb.jpg', '&lt;p&gt;555&lt;/p&gt;', '0');
+INSERT INTO `sys_goods` VALUES ('7', 'fffa', '222.00', '3', '0', '535', '/public/upload/goods/20170731\\4779640d45510330751ed6d74dd27fdb.jpg', '/public/upload/goods/20170731\\4779640d45510330751ed6d74dd27fdb_thumb.jpg', '&lt;p&gt;333&lt;br/&gt;&lt;/p&gt;', '0');
+INSERT INTO `sys_goods` VALUES ('8', '333', '444.00', '21', '0', '333', '/public/upload/goods/20170731\\2a99553212a1b2cbacb9f8b9e68aa7f9.png', '/public/upload/goods/20170731\\2a99553212a1b2cbacb9f8b9e68aa7f9_thumb.png', '&lt;p&gt;5555&lt;br/&gt;&lt;/p&gt;', '0');
+INSERT INTO `sys_goods` VALUES ('9', '331', '333.00', '28', '0', '535', '/public/upload/goods/20170731\\489f9621ed565667eef6d40a611f6fa8.png', '/public/upload/goods/20170731\\489f9621ed565667eef6d40a611f6fa8_thumb.png', '&lt;p&gt;333&lt;/p&gt;', '0');
+INSERT INTO `sys_goods` VALUES ('10', '441', '333.00', '22', '0', '535', '/public/upload/goods/20170731\\d0f64ffbeca9bff68d4f79e2fa966f8b.png', '/public/upload/goods/20170731\\d0f64ffbeca9bff68d4f79e2fa966f8b_thumb.png', '&lt;p&gt;444&lt;/p&gt;', '0');
+INSERT INTO `sys_goods` VALUES ('11', 'fsfd', '3.00', '22', '0', '535', '/public/upload/goods/20170731\\7ce70f2e7bf7f01d1b31a497d5fb9e9c.png', '/public/upload/goods/20170731\\7ce70f2e7bf7f01d1b31a497d5fb9e9c_thumb.png', '&lt;p&gt;dd&lt;/p&gt;', '0');
+INSERT INTO `sys_goods` VALUES ('12', '是大大大为', '11.00', '28', '1', '534', '/public/upload/goods/20170812\\d7482788f4aefbc319357e7fc48cc04c.png', '/public/upload/goods/20170812\\d7482788f4aefbc319357e7fc48cc04c_thumb.png', '', '0');
+INSERT INTO `sys_goods` VALUES ('13', '测试商品001', '99.00', '18', '5', '534', '/public/upload/goods/20170826\\ada3bf9ec7da2566affdf2355c251e35.png', '/public/upload/goods/20170826\\ada3bf9ec7da2566affdf2355c251e35_thumb.png', '&lt;p&gt;&lt;img src=&quot;http://img.baidu.com/hi/jx2/j_0003.gif&quot;/&gt;&lt;img src=&quot;http://img.baidu.com/hi/jx2/j_0004.gif&quot;/&gt;狗锅锅鼓&lt;/p&gt;', '1');
+INSERT INTO `sys_goods` VALUES ('14', '11111', '222.00', '31', '0', '534', '/public/upload/goods/20170831\\5b371ee9be8d825f645a713936cd442b.png', '/public/upload/goods/20170831\\5b371ee9be8d825f645a713936cd442b_thumb.png', '', '1');
+INSERT INTO `sys_goods` VALUES ('15', '测试少时诵诗书', '12.00', '31', '4', '13', '/public/upload/goods/20170831\\010c49faa05288d1632513439fb9c91a.png', '/public/upload/goods/20170831\\010c49faa05288d1632513439fb9c91a_thumb.png', '&lt;p&gt;222&lt;/p&gt;', '0');
+
+-- ----------------------------
+-- Table structure for sys_goods_attr
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_goods_attr`;
+CREATE TABLE `sys_goods_attr` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `attr_name` varchar(30) NOT NULL COMMENT '属性名',
+  `type_id` int(11) unsigned NOT NULL COMMENT '类型id',
+  `input_type` tinyint(1) unsigned NOT NULL COMMENT '录入方式 1 设置选择值 2文本框手工录入',
+  `attr_value` text NOT NULL COMMENT '属性值',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_goods_attr
+-- ----------------------------
+INSERT INTO `sys_goods_attr` VALUES ('1', '分辨率', '4', '2', '');
+INSERT INTO `sys_goods_attr` VALUES ('2', '尺寸', '4', '1', 'a:4:{i:0;s:7:\"320*480\";i:1;s:7:\"480*640\";i:2;s:7:\"640*790\";i:3;s:7:\"790*860\";}');
+INSERT INTO `sys_goods_attr` VALUES ('3', '颜色', '1', '1', 'a:5:{i:0;s:6:\"红色\";i:1;s:6:\"蓝色\";i:2;s:6:\"绿色\";i:3;s:6:\"白色\";i:4;s:6:\"黑色\";}');
 
 -- ----------------------------
 -- Table structure for sys_goods_brand
@@ -159,7 +211,7 @@ CREATE TABLE `sys_goods_cat` (
   `cat_name` varchar(30) NOT NULL COMMENT '商品名称',
   `parent_id` int(8) unsigned NOT NULL COMMENT '父id',
   PRIMARY KEY (`cat_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_goods_cat
@@ -191,6 +243,7 @@ INSERT INTO `sys_goods_cat` VALUES ('26', '卫生用品', '8');
 INSERT INTO `sys_goods_cat` VALUES ('27', '桌子', '5');
 INSERT INTO `sys_goods_cat` VALUES ('28', '海尔冰箱', '20');
 INSERT INTO `sys_goods_cat` VALUES ('31', '水晶葡萄', '12');
+INSERT INTO `sys_goods_cat` VALUES ('32', 'aaa', '18');
 
 -- ----------------------------
 -- Table structure for sys_goods_type
@@ -207,7 +260,6 @@ CREATE TABLE `sys_goods_type` (
 -- ----------------------------
 INSERT INTO `sys_goods_type` VALUES ('1', '水果');
 INSERT INTO `sys_goods_type` VALUES ('4', '手机');
-INSERT INTO `sys_goods_type` VALUES ('3', '电器');
 
 -- ----------------------------
 -- Table structure for sys_privilege_src
@@ -219,7 +271,7 @@ CREATE TABLE `sys_privilege_src` (
   `controller_name` varchar(255) NOT NULL COMMENT '控制器名',
   `action_name` varchar(255) NOT NULL COMMENT '方法名',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_privilege_src
@@ -262,6 +314,9 @@ INSERT INTO `sys_privilege_src` VALUES ('38', '类型列表', 'Goods', 'goods_ty
 INSERT INTO `sys_privilege_src` VALUES ('39', '添加类型', 'Goods', 'goods_type_add');
 INSERT INTO `sys_privilege_src` VALUES ('40', '编辑商品类型', 'Goods', 'goods_type_edit');
 INSERT INTO `sys_privilege_src` VALUES ('41', '删除商品类型', 'Goods', 'goods_type_delete');
+INSERT INTO `sys_privilege_src` VALUES ('42', '添加属性', 'Goods', 'goods_attr_add');
+INSERT INTO `sys_privilege_src` VALUES ('43', '编辑属性', 'Goods', 'goods_attr_edit');
+INSERT INTO `sys_privilege_src` VALUES ('44', '删除属性', 'Goods', 'goods_attr_delete');
 
 -- ----------------------------
 -- Table structure for sys_setting

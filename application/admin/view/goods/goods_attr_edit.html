@@ -59,7 +59,7 @@
             </div>
             <div class="col-sm-3">
                 <input type="hidden" value="{$attr_info.id}" name="id">
-                <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
+                <button type="button" class="col-sm-12 col-xs-12 btn btn-info edit_btn">提交</button>
             </div>
         </div>
     </div>
@@ -92,7 +92,7 @@
             $(this).parent().remove();
         });
 
-        $('.add_btn').on('click',function () {
+        $('.edit_btn').on('click',function () {
             //1.提交前验证
             if($('#attr_name').val() == ""){
                 showMsg('属性名称不能为空','attr_name',1000);

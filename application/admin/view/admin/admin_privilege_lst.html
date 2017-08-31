@@ -6,41 +6,39 @@
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
         </button>
     </div>
-    <div class="table-scrollable">
-        <table class="table-hover" data-toggle="table" >
-            <thead>
+    <table class="table table-bordered table-hover" >
+        <thead>
+        <tr>
+            <th data-sortable="true">分组</th>
+            <th data-sortable="true">菜单名</th>
+            <th data-sortable="true">控制器名</th>
+            <th data-sortable="true">方法名</th>
+            <th >操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="privilege_lst" id="data"}
             <tr>
-                <th data-sortable="true">分组</th>
-                <th data-sortable="true">菜单名</th>
-                <th data-sortable="true">控制器名</th>
-                <th data-sortable="true">方法名</th>
-                <th >操作</th>
+                <td>{$key}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
-            </thead>
-            <tbody>
-            {volist name="privilege_lst" id="data"}
-                <tr>
-                    <td>{$key}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                {volist name="data" id="sub_data"}
-                <tr>
-                    <td></td>
-                    <td>{$sub_data.privilege_name}</td>
-                    <td>{$sub_data.controller_name}</td>
-                    <td>{$sub_data.action_name}</td>
-                    <td> <a href="/admin/admin/admin_privilege_edit/id/{$sub_data.id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
-                        <a href="/admin/admin/admin_privilege_delete/id/{$sub_data.id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a></td>
-                </tr>
-                {/volist}
+            {volist name="data" id="sub_data"}
+            <tr>
+                <td></td>
+                <td>{$sub_data.privilege_name}</td>
+                <td>{$sub_data.controller_name}</td>
+                <td>{$sub_data.action_name}</td>
+                <td> <a href="/admin/admin/admin_privilege_edit/id/{$sub_data.id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                    <a href="/admin/admin/admin_privilege_delete/id/{$sub_data.id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a></td>
+            </tr>
             {/volist}
-            </tbody>
-        </table>
-        <div class="fixed-table-pagination" align="center">
-        </div>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="fixed-table-pagination" align="center">
     </div>
 </section>
 

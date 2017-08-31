@@ -15,7 +15,7 @@
             </div>
             <div class="col-sm-3">
                 <input type="hidden" value="{$type_info.id}" name="id">
-                <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
+                <button type="button" class="col-sm-12 col-xs-12 btn btn-info edit_btn">提交</button>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
 {include file="public/footer" /}
 <script type="text/javascript">
     $(function () {
-        $('.add_btn').on('click',function () {
+        $('.edit_btn').on('click',function () {
             //1.提交前验证
             if($('#type_name').val() == ""){
                 showMsg('商品类型名称不能为空','type_name',1000);

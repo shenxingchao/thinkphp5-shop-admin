@@ -14,47 +14,57 @@
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
         </button>
     </div>
-    <div class="table-scrollable">
-        <table class="table-hover" data-toggle="table" >
-            <thead>
-            <tr>
-                <th></th>
-                <th data-sortable="true">id</th>
-                <th data-sortable="true">分类名</th>
-                <th data-sortable="true">parent_id</th>
-                <th data-sortable="true">是否显示</th>
-                <th >操作</th>
-            </tr>
-            </thead>
-            <tbody>
-            {volist name='list' id='data'}
-            <tr class="parent_{$data.parent_id} {if condition="$data.level gt 0"} cat_hide{/if}">
-                <td><button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button></td>
-                <td>{$data.cat_id}</td>
-                <td>{$data.cat_name}</td>
-                <td>{$data.parent_id}</td>
-                <td>---{$data.level}</td>
-                <td>
-                    <a href="/admin/goods/goods_cat_edit/id/{$data.cat_id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
-                    <a href="/admin/goods/goods_cat_delete/id/{$data.cat_id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
-                </td>
-            </tr>
-            {/volist}
-            </tbody>
-        </table>
-    </div>
+    <table class="table table-bordered table-hover" >
+        <thead>
+        <tr>
+            <th></th>
+            <th data-sortable="true">分类名</th>
+            <th data-sortable="true">id</th>
+            <th data-sortable="true">parent_id</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name='list' id='data'}
+        <tr  class="parent_{$data.parent_id} {if condition="$data.level gt 0"} cat_hide{/if}" data-parent-path="{$data.parent_path}">
+            <td>{php}echo str_repeat("&nbsp;&nbsp;",5*$data["level"]);{/php}<button class="btn btn-primary open_btn" attr-parent-path="{$data.parent_path}" attr-parent-id="{$data.cat_id}"><i class="glyphicon glyphicon-plus"></i></button></td>
+            <td>{$data.cat_name}</td>
+            <td>{$data.cat_id}</td>
+            <td>{$data.level}</td>
+            <td>
+                <a href="/admin/goods/goods_cat_edit/id/{$data.cat_id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                <a href="/admin/goods/goods_cat_delete/id/{$data.cat_id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
+            </td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
 </section>
 {include file="public/footer" /}
 <script type="text/javascript">
 $(function () {
-
-    $('#btn_delete').on('click',function () {
-        if($('.jstree-clicked').length){
-            if(confirm('确定要删除吗')){
-                var cat_id = $('.jstree-clicked').parent('li').attr('cat-id');
-                window.location.href ='/admin/goods/goods_cat_delete/cat_id/'+cat_id;
-            }
+    $('.open_btn').on('click',function () {
+        var parent_id = $(this).attr('attr-parent-id');
+        if($(this).children('i').hasClass('glyphicon-minus')){
+            //包含parent 路径的全部隐藏 并将其按钮置为+
+            var parent_path = $(this).attr('attr-parent-path');
+            $("tr[data-parent-path^='"+ parent_path +"_']").hide();
+            //$('.parent_'+parent_id).hide();
+            $("button[attr-parent-path^='"+ parent_path +"']").children('i').removeClass('glyphicon-minus');
+            $("button[attr-parent-path^='"+ parent_path +"']").children('i').addClass('glyphicon-plus');
+        }else{
+            $('.parent_'+parent_id).show();
+            $(this).children('i').removeClass('glyphicon-plus');
+            $(this).children('i').addClass('glyphicon-minus');
         }
+    });
+
+    $('#btn_add').on('click',function () {
+        window.location.href = '/admin/goods/goods_cat_add';
+    });
+
+    $('.btn_delete').on('click',function () {
+        return confirm('确定要删除吗?');
     });
 });
 </script>

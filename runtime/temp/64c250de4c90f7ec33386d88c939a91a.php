@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\phpStudy\admin/application/admin\view\goods\goods_type_edit.html";i:1503736101;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503728480;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\phpStudy\admin/application/admin\view\goods\goods_type_edit.html";i:1504158989;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167331;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>title</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="__SUP__/content/ui/global/bootstrap/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="__SUP__/content/ui/global/bootstrap/css/bootstrap.min.css">-->
+    <link href="https://cdn.bootcss.com/bootswatch/3.3.7/readable/bootstrap.min.css" rel="stylesheet">
     <link href="__SUP__/content/ui/global/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/AdminLTE.css">
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/skins/_all-skins.css">
     <link href="__SUP__/content/min/css/supershopui.common.min.css" rel="stylesheet" />
-    <link href="__SUP__/content/plugins/bootstrap-table/bootstrap-table.css" rel="stylesheet" />
     <link rel="stylesheet" href="__ADMIN__/css/style.css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -45,7 +45,7 @@
             </div>
             <div class="col-sm-3">
                 <input type="hidden" value="<?php echo $type_info['id']; ?>" name="id">
-                <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
+                <button type="button" class="col-sm-12 col-xs-12 btn btn-info edit_btn">提交</button>
             </div>
         </div>
     </div>
@@ -53,8 +53,6 @@
 <script src="__SUP__/content/ui/global/jQuery/jquery.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="__SUP__/content/ui/global/bootstrap/js/bootstrap.min.js"></script>
-<script src="__SUP__/content/plugins/bootstrap-table/bootstrap-table.js"></script>
-<script src="__SUP__/content/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
 <script src="__SUP__/content/min/js/supershopui.common.js"></script>
 <script src="__JS__/dialog.js"></script>
 <script src="__JS__/global.js"></script>
@@ -62,7 +60,7 @@
 </html>
 <script type="text/javascript">
     $(function () {
-        $('.add_btn').on('click',function () {
+        $('.edit_btn').on('click',function () {
             //1.提交前验证
             if($('#type_name').val() == ""){
                 showMsg('商品类型名称不能为空','type_name',1000);

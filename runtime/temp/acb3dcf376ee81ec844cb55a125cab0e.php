@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:68:"D:\phpStudy\admin/application/admin\view\goods\goods_brand_edit.html";i:1502505257;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167285;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:65:"D:\phpStudy\admin/application/admin\view\goods\goods_cat_add.html";i:1504157913;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504165350;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165263;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>title</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!--<link rel="stylesheet" href="__SUP__/content/ui/global/bootstrap/css/bootstrap.min.css">-->
-    <link href="https://cdn.bootcss.com/bootswatch/4.0.0-alpha.6/cosmo/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="__SUP__/content/ui/global/bootstrap/css/bootstrap.min.css">
     <link href="__SUP__/content/ui/global/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/AdminLTE.css">
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/skins/_all-skins.css">
     <link href="__SUP__/content/min/css/supershopui.common.min.css" rel="stylesheet" />
+    <!--<link href="__SUP__/content/plugins/bootstrap-table/bootstrap-table.css" rel="stylesheet" />-->
     <link rel="stylesheet" href="__ADMIN__/css/style.css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -30,19 +30,24 @@
         <li class="active"><?php echo $action; ?></li>
     </ol>
 </section>
-<form class="form-horizontal col-sm-8 col-sm-offset-2" action="/admin/goods/goods_brand_edit" method="post" enctype="multipart/form-data">
+<form class="form-horizontal col-sm-8 col-sm-offset-2" action="/admin/goods/goods_cat_add" method="post" enctype="multipart/form-data">
     <div class="box-body">
         <div class="form-group">
-            <label for="brand_name" class="col-sm-2 control-label">品牌名称</label>
+            <label for="cat_name" class="col-sm-2 control-label">分类名</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="brand_name" id="brand_name" placeholder="品牌名称" value="<?php echo $brand_info['brand_name']; ?>">
+                <input type="text" class="form-control" name="cat_name" id="cat_name" placeholder="分类名">
             </div>
             <div class="col-sm-1 red">*</div>
         </div>
         <div class="form-group">
-            <label for="brand_img" class="col-sm-2 control-label">品牌图片</label>
+            <label for="parent_id" class="col-sm-2 control-label">上级分类</label>
             <div class="col-sm-6">
-                <input type="file" class="form-control" name="brand_img" id="brand_img" onchange="change_file_name(this)">
+                <select name="parent_id" id="parent_id" class="form-control">
+                    <option value="0">顶级分类</option>
+                    <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
+                        <option value="<?php echo $data['cat_id']; ?>"><?php echo str_repeat("&nbsp;",5*$data["level"]); ?><?php echo $data['cat_name']; ?></option>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </select>
             </div>
             <div class="col-sm-1 red">*</div>
         </div>
@@ -51,7 +56,6 @@
                 <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
             </div>
             <div class="col-sm-3">
-                <input type="hidden" value="<?php echo $brand_info['id']; ?>" name="id">
                 <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
             </div>
         </div>
@@ -60,6 +64,8 @@
 <script src="__SUP__/content/ui/global/jQuery/jquery.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="__SUP__/content/ui/global/bootstrap/js/bootstrap.min.js"></script>
+<!--<script src="__SUP__/content/plugins/bootstrap-table/bootstrap-table.js"></script>
+<script src="__SUP__/content/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>-->
 <script src="__SUP__/content/min/js/supershopui.common.js"></script>
 <script src="__JS__/dialog.js"></script>
 <script src="__JS__/global.js"></script>
@@ -69,8 +75,8 @@
     $(function () {
         $('.add_btn').on('click',function () {
             //1.提交前验证
-            if($('#brand_name').val() == ""){
-                showMsg('品牌名称不能为空','brand_name',1000);
+            if($('#cat_name').val() == ""){
+                showMsg('分类名称不能为空','cat_name',1000);
                 return false;
             }
             else{

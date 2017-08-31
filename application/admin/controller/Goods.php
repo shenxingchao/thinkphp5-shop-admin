@@ -30,15 +30,21 @@ class Goods extends Base{
      */
     public function goods_cat_add(){
         $request = Request::instance();
-        $insert['cat_name'] = $request->param('cat_name');
-        $insert['parent_id'] = $request->param('parent_id');
-        $res = Db::name('goods_cat')->insert($insert);
-        if($res){
-            adminLog('添加商品分类'.$insert['cat_name']);
-            $this->success('添加成功');
+        if($request->isPost()){
+            $insert['cat_name'] = $request->param('cat_name');
+            $insert['parent_id'] = $request->param('parent_id');
+            $res = Db::name('goods_cat')->insert($insert);
+            if($res){
+                adminLog('添加商品分类'.$insert['cat_name']);
+                $this->success('添加成功','/admin/goods/goods_cat_lst');
+            }
+            else
+                $this->error("添加失败");
         }
-        else
-            $this->error("添加失败");
+        $cat_info = Db::name('goods_cat')->select();
+        $cat_info = getTree($cat_info);
+        $this->assign('list',$cat_info);
+        return $this->fetch();
     }
 
     /**
@@ -46,18 +52,32 @@ class Goods extends Base{
      */
     public function goods_cat_edit(){
         $request = Request::instance();
-        $where = array(
-            'cat_id'=>$request->param('cat_id')
-        );
-        $update['cat_name'] = $request->param('cat_name');
-        $update['parent_id'] = $request->param('parent_id');
-        $res = Db::name('goods_cat')->where($where)->update($update);
-        if($res){
-            adminLog('编辑商品分类'.$update['cat_name']);
-            $this->success('更改成功');
+        if($request->isPost()) {
+            $where = array(
+                'cat_id' => $request->param('id')
+            );
+            $update['cat_name'] = $request->param('cat_name');
+            $update['parent_id'] = $request->param('parent_id');
+            $res = Db::name('goods_cat')->where($where)->update($update);
+            if ($res) {
+                adminLog('编辑商品分类' . $update['cat_name']);
+                $this->success('更改成功','/admin/goods/goods_cat_lst');
+            } else
+                $this->error("更改失败");
         }
-        else
-            $this->error("更改失败");
+        else if($request->isGet()){
+            $where = [
+                'cat_id'=>intval($request->param('id'))
+            ];
+            $cat_info = Db::name('goods_cat')->where($where)->find();
+            if(empty($cat_info))
+                $this->error('分类不存在');
+            $this->assign('cat_info',$cat_info);
+            $cat_info = Db::name('goods_cat')->select();
+            $cat_info = getTree($cat_info);
+            $this->assign('list',$cat_info);
+            return $this->fetch();
+        }
     }
 
     /**
@@ -66,15 +86,18 @@ class Goods extends Base{
     public function goods_cat_delete(){
         $request = Request::instance();
         $where = array(
-            'cat_id'=>$request->param('cat_id')
+            'cat_id'=>$request->param('id')
         );
         //查找该分类下是否还有分类，若有则不能删除 若有商品也不能删除 未做
-        $sub_cat = Db::name('goods_cat')->where(array('parent_id'=>$request->param('cat_id')))->find();
+        $sub_cat = Db::name('goods_cat')->where(array('parent_id'=>$request->param('id')))->find();
         if($sub_cat)
             $this->error("该分类下还有分类,不能删除");
+        $goods_count = Db::name('goods')->where(array('cat_id'=>$request->param('id')))->count();
+        if($goods_count > 0)
+            $this->error("该分类下还有产品,不能删除");
         $res = Db::name('goods_cat')->where($where)->delete();
         if($res)
-            $this->success('删除成功');
+            $this->success('删除成功','/admin/goods/goods_cat_lst');
         else
             $this->error("删除失败");
     }
@@ -119,6 +142,7 @@ class Goods extends Base{
                         'cat_id'=>$request->param('cat_id'),
                         'brand_id'=>$request->param('brand_id')!=''?$request->param('brand_id'):0,
                         'goods_number'=>$request->param('goods_number')?$request->param('goods_number'):(Setting('goods_number')?Setting('goods_number'):0),
+                        'is_on_sale'=>$request->param('is_on_sale')?1:0,
                         'goods_img'=>$file_path,
                         'goods_thumb_img'=>$file_thumb_path,
                         'goods_detail'=>htmlspecialchars($request->param('goods_detail')),
@@ -194,6 +218,7 @@ class Goods extends Base{
                 'cat_id' => $request->param('cat_id'),
                 'brand_id'=>$request->param('brand_id')!=''?$request->param('brand_id'):0,
                 'goods_number'=>$request->param('goods_number')?$request->param('goods_number'):(Setting('goods_number')?Setting('goods_number'):0),
+                'is_on_sale'=>$request->param('is_on_sale')?1:0,
                 'goods_img' => isset($file_path)?$file_path:$file_path_old,
                 'goods_thumb_img' => isset($file_thumb_path)?$file_thumb_path:$file_thumb_path_old,
                 'goods_detail' => htmlspecialchars($request->param('goods_detail')),

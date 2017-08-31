@@ -16,6 +16,18 @@ return [
         ],
         [
             'control'=>'goods',
+            'action'=>'goods_cat_add',
+            'control_name'=>'商品',
+            'action_name'=>'添加分类',
+        ],
+        [
+            'control'=>'goods',
+            'action'=>'goods_cat_edit',
+            'control_name'=>'商品',
+            'action_name'=>'编辑分类',
+        ],
+        [
+            'control'=>'goods',
             'action'=>'goods_lst',
             'control_name'=>'商品',
             'action_name'=>'商品列表',

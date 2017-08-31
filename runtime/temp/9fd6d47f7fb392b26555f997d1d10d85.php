@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"D:\phpStudy\admin/application/admin\view\goods\goods_edit.html";i:1503390335;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503728480;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"D:\phpStudy\admin/application/admin\view\goods\goods_edit.html";i:1504162936;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504165655;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/AdminLTE.css">
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/skins/_all-skins.css">
     <link href="__SUP__/content/min/css/supershopui.common.min.css" rel="stylesheet" />
-    <link href="__SUP__/content/plugins/bootstrap-table/bootstrap-table.css" rel="stylesheet" />
     <link rel="stylesheet" href="__ADMIN__/css/style.css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -30,67 +29,109 @@
         <li class="active"><?php echo $action; ?></li>
     </ol>
 </section>
+<link href="__SUP__/content/ui/global/bootstrap-switch/css/bootstrap-switch.css" rel="stylesheet" />
 <form class="form-horizontal col-sm-8 col-sm-offset-2" action="/admin/goods/goods_edit" method="post" enctype="multipart/form-data">
-    <div class="box-body">
-        <div class="form-group">
-            <label for="goods_name" class="col-sm-2 control-label">商品名称</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" name="goods_name" id="goods_name" value="<?php echo $goods_info['goods_name']; ?>" placeholder="商品名称">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="goods_price" class="col-sm-2 control-label">商品价格</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" name="goods_price" id="goods_price" value="<?php echo $goods_info['goods_price']; ?>" placeholder="商品价格">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="cat_id" class="col-sm-2 control-label">选择分类</label>
-            <div class="col-sm-6">
-                <select name="cat_id" id="cat_id" class="form-control">
-                    <?php if(is_array($cat_info) || $cat_info instanceof \think\Collection || $cat_info instanceof \think\Paginator): $i = 0; $__LIST__ = $cat_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
-                    <option value="<?php echo $data['cat_id']; ?>" <?php if($goods_info['cat_id'] == $data['cat_id']): ?>selected="selected"<?php endif; ?>><?php echo str_repeat("&nbsp;",5*$data["level"]); ?><?php echo $data['cat_name']; ?></option>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="brand_id" class="col-sm-2 control-label">选择品牌</label>
-            <div class="col-sm-6">
-                <select name="brand_id" id="brand_id" class="form-control">
-                    <option value="">请选择</option>
-                    <?php if(is_array($brand_info) || $brand_info instanceof \think\Collection || $brand_info instanceof \think\Paginator): $i = 0; $__LIST__ = $brand_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
-                    <option value="<?php echo $data['id']; ?>" <?php if($goods_info['brand_id'] == $data['id']): ?>selected="selected"<?php endif; ?>><?php echo $data['brand_name']; ?></option>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="goods_img" class="col-sm-2 control-label">商品图片</label>
-            <div class="col-sm-6">
-                <input type="file" class="form-control" name="goods_img" id="goods_img">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="goods_number" class="col-sm-2 control-label">库存</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" name="goods_number" id="goods_number" value="<?php echo $goods_info['goods_number']; ?>">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="goods_detail" class="col-sm-2 control-label">商品详情</label>
-            <div class="col-sm-10">
-                <div class="goods_detail" id="goods_detail" name="goods_detail">
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">商品信息</a></li>
+            <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">商品相册</a></li>
+            <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">商品类型</a></li>
+        </ul>
+        <div class="tab-content col-sm-12 col-xs-12">
+            <div class="tab-pane active" id="tab_1">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="goods_name" class="col-sm-2 control-label">商品名称</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="goods_name" id="goods_name" value="<?php echo $goods_info['goods_name']; ?>" placeholder="商品名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="goods_price" class="col-sm-2 control-label">商品价格</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="goods_price" id="goods_price" value="<?php echo $goods_info['goods_price']; ?>" placeholder="商品价格">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cat_id" class="col-sm-2 control-label">选择分类</label>
+                        <div class="col-sm-6">
+                            <select name="cat_id" id="cat_id" class="form-control">
+                                <?php if(is_array($cat_info) || $cat_info instanceof \think\Collection || $cat_info instanceof \think\Paginator): $i = 0; $__LIST__ = $cat_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
+                                <option value="<?php echo $data['cat_id']; ?>" <?php if($goods_info['cat_id'] == $data['cat_id']): ?>selected="selected"<?php endif; ?>><?php echo str_repeat("&nbsp;",5*$data["level"]); ?><?php echo $data['cat_name']; ?></option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="brand_id" class="col-sm-2 control-label">选择品牌</label>
+                        <div class="col-sm-6">
+                            <select name="brand_id" id="brand_id" class="form-control">
+                                <option value="">请选择</option>
+                                <?php if(is_array($brand_info) || $brand_info instanceof \think\Collection || $brand_info instanceof \think\Paginator): $i = 0; $__LIST__ = $brand_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
+                                <option value="<?php echo $data['id']; ?>" <?php if($goods_info['brand_id'] == $data['id']): ?>selected="selected"<?php endif; ?>><?php echo $data['brand_name']; ?></option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="goods_img" class="col-sm-2 control-label">商品图片</label>
+                        <div class="col-sm-6">
+                            <input type="file" class="form-control" name="goods_img" id="goods_img">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="goods_number" class="col-sm-2 control-label">库存</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="goods_number" id="goods_number" value="<?php echo $goods_info['goods_number']; ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="is_on_sale" class="col-sm-2 control-label">上架</label>
+                        <div class="col-sm-6">
+                            <input type="checkbox" id="is_on_sale" name="is_on_sale" value="1" <?php if($goods_info['is_on_sale'] == 1): ?>checked<?php endif; ?> class="make-switch switch-large" data-label-icon="fa fa-fullscreen" data-on-text="<i class='fa fa-check'></i>" data-off-text="<i class='fa fa-times'></i>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="goods_detail" class="col-sm-2 control-label">商品详情</label>
+                        <div class="col-sm-10">
+                            <div class="goods_detail" id="goods_detail" name="goods_detail">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 col-sm-offset-2">
+                            <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="hidden" value="<?php echo $goods_info['goods_id']; ?>" name="goods_id">
+                            <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-3 col-sm-offset-2">
-                <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
+            <div class="tab-pane" id="tab_2">
+                <div class="box-body">
+                    <div class="form-group">
+                        <div class="col-sm-3 col-sm-offset-2">
+                            <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
+                        </div>
+                        <div class="col-sm-3">
+                            <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-3">
-                <input type="hidden" value="<?php echo $goods_info['goods_id']; ?>" name="goods_id">
-                <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
+            <div class="tab-pane" id="tab_3">
+                <div class="box-body">
+                    <div class="form-group">
+                        <div class="col-sm-3 col-sm-offset-2">
+                            <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
+                        </div>
+                        <div class="col-sm-3">
+                            <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -98,13 +139,12 @@
 <script src="__SUP__/content/ui/global/jQuery/jquery.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="__SUP__/content/ui/global/bootstrap/js/bootstrap.min.js"></script>
-<script src="__SUP__/content/plugins/bootstrap-table/bootstrap-table.js"></script>
-<script src="__SUP__/content/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
 <script src="__SUP__/content/min/js/supershopui.common.js"></script>
 <script src="__JS__/dialog.js"></script>
 <script src="__JS__/global.js"></script>
 </body>
 </html>
+<script src="__SUP__/content/ui/global/bootstrap-switch/js/bootstrap-switch.js"></script>
 <script type="text/javascript" charset="utf-8" src="__STA__/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="__STA__/ueditor/ueditor.all.min.js"> </script>
 <script type="text/javascript">

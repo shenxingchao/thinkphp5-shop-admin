@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\goods\goods_attr_lst.html";i:1504074293;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503728480;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\goods\goods_attr_lst.html";i:1504165757;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167412;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/AdminLTE.css">
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/skins/_all-skins.css">
     <link href="__SUP__/content/min/css/supershopui.common.min.css" rel="stylesheet" />
-    <link href="__SUP__/content/plugins/bootstrap-table/bootstrap-table.css" rel="stylesheet" />
     <link rel="stylesheet" href="__ADMIN__/css/style.css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -36,45 +35,41 @@
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
         </button>
     </div>
-    <div class="table-scrollable">
-        <table class="table-hover" data-toggle="table" >
-            <thead>
+    <table class="table table-bordered table-hover" >
+        <thead>
+        <tr>
+            <th></th>
+            <th data-sortable="true">id</th>
+            <th data-sortable="true">属性名</th>
+            <th data-sortable="true">类型</th>
+            <th data-sortable="true">录入方式</th>
+            <th >操作</th>
+        </tr>
+        </thead>
+        <tbody>
+            <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
             <tr>
-                <th></th>
-                <th data-sortable="true">id</th>
-                <th data-sortable="true">属性名</th>
-                <th data-sortable="true">类型</th>
-                <th data-sortable="true">录入方式</th>
-                <th >操作</th>
+                <td><input type="checkbox"  attr-id="<?php echo $data['id']; ?>"></td>
+                <td><?php echo $data['id']; ?></td>
+                <td><?php echo $data['attr_name']; ?></td>
+                <td><?php echo $data['type_name']; ?></td>
+                <td><?php if($data['input_type'] == 1): ?>从添加的值中选择<?php endif; if($data['input_type'] == 2): ?>从文本框手动输入<?php endif; ?></td>
+                <td>
+                    <a href="/admin/goods/goods_attr_edit/id/<?php echo $data['id']; ?>" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                    <a href="/admin/goods/goods_attr_delete/id/<?php echo $data['id']; ?>" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
+                </td>
             </tr>
-            </thead>
-            <tbody>
-                <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
-                <tr>
-                    <td><input type="checkbox"  attr-id="<?php echo $data['id']; ?>"></td>
-                    <td><?php echo $data['id']; ?></td>
-                    <td><?php echo $data['attr_name']; ?></td>
-                    <td><?php echo $data['type_name']; ?></td>
-                    <td><?php if($data['input_type'] == 1): ?>从添加的值中选择<?php endif; if($data['input_type'] == 2): ?>从文本框手动输入<?php endif; ?></td>
-                    <td>
-                        <a href="/admin/goods/goods_attr_edit/id/<?php echo $data['id']; ?>" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
-                        <a href="/admin/goods/goods_attr_delete/id/<?php echo $data['id']; ?>" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
-                    </td>
-                </tr>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-            </tbody>
-        </table>
-        <div class="fixed-table-pagination" align="center">
-            <?php echo $list->render(); ?>
-        </div>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+        </tbody>
+    </table>
+    <div class="fixed-table-pagination" align="center">
+        <?php echo $list->render(); ?>
     </div>
 </section>
 
 <script src="__SUP__/content/ui/global/jQuery/jquery.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="__SUP__/content/ui/global/bootstrap/js/bootstrap.min.js"></script>
-<script src="__SUP__/content/plugins/bootstrap-table/bootstrap-table.js"></script>
-<script src="__SUP__/content/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
 <script src="__SUP__/content/min/js/supershopui.common.js"></script>
 <script src="__JS__/dialog.js"></script>
 <script src="__JS__/global.js"></script>

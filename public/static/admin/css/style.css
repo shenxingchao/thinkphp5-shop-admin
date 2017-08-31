@@ -1,3 +1,14 @@
 #toolbar{margin-bottom: 15px;}
-.table-scrollable td{vertical-align: middle !important;}
 .red{color: red;font-size: 14px;font-weight: bold;}
+.green{color: #00be00;font-size: 14px;font-weight: bold;}
+.table td{vertical-align: middle !important;}
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th{
+    border:1px solid #d8d8d8 !important;
+}
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td{
+    border-color: #ebebeb;
+}

@@ -6,35 +6,33 @@
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
         </button>
     </div>
-    <div class="table-scrollable">
-        <table class="table-hover" data-toggle="table" >
-            <thead>
-            <tr>
-                <th></th>
-                <th data-sortable="true">id</th>
-                <th data-sortable="true">类型名</th>
-                <th data-sortable="true">关联信息</th>
-                <th >操作</th>
-            </tr>
-            </thead>
-            <tbody>
-            {volist name='list' id='data'}
-            <tr>
-                <td><input type="checkbox"  attr-id="{$data.id}"></td>
-                <td>{$data.id}</td>
-                <td>{$data.type_name}</td>
-                <td><a href="/admin/goods/goods_attr_lst/type_id/{$data.id}">属性列表</a> 规格列表</td>
-                <td>
-                    <a href="/admin/goods/goods_type_edit/id/{$data.id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
-                    <a href="/admin/goods/goods_type_delete/id/{$data.id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
-                </td>
-            </tr>
-            {/volist}
-            </tbody>
-        </table>
-        <div class="fixed-table-pagination" align="center">
-            {$list->render()}
-        </div>
+    <table class="table table-bordered table-hover" >
+        <thead>
+        <tr>
+            <th></th>
+            <th data-sortable="true">id</th>
+            <th data-sortable="true">类型名</th>
+            <th data-sortable="true">关联信息</th>
+            <th >操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name='list' id='data'}
+        <tr>
+            <td><input type="checkbox"  attr-id="{$data.id}"></td>
+            <td>{$data.id}</td>
+            <td>{$data.type_name}</td>
+            <td><a href="/admin/goods/goods_attr_lst/type_id/{$data.id}">属性列表</a> 规格列表</td>
+            <td>
+                <a href="/admin/goods/goods_type_edit/id/{$data.id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                <a href="/admin/goods/goods_type_delete/id/{$data.id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
+            </td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="fixed-table-pagination" align="center">
+        {$list->render()}
     </div>
 </section>
 

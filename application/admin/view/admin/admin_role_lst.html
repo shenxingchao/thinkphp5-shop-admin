@@ -11,36 +11,34 @@
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
         </button>
     </div>
-    <div class="table-scrollable">
-        <table class="table-hover" data-toggle="table" >
-            <thead>
+    <table class="table table-bordered table-hover" >
+        <thead>
+        <tr>
+            <th data-sortable="true">id</th>
+            <th data-sortable="true">角色名</th>
+            <th data-sortable="true">权限</th>
+            <th >操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="admin_role" id="data"}
             <tr>
-                <th data-sortable="true">id</th>
-                <th data-sortable="true">角色名</th>
-                <th data-sortable="true">权限</th>
-                <th >操作</th>
+                <td>{$data.id}</td>
+                <td>{$data.role_name}</td>
+                <td class="privilege_name">
+                    {volist name="data.privilege_names" id="sub_data"}
+                        {$sub_data.privilege_name}&nbsp;&nbsp;
+                    {/volist}
+                </td>
+                <td>
+                    <a href="/admin/admin/admin_role_edit/id/{$data.id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                    <a href="/admin/admin/admin_role_delete/id/{$data.id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
+                </td>
             </tr>
-            </thead>
-            <tbody>
-            {volist name="admin_role" id="data"}
-                <tr>
-                    <td>{$data.id}</td>
-                    <td>{$data.role_name}</td>
-                    <td class="privilege_name">
-                        {volist name="data.privilege_names" id="sub_data"}
-                            {$sub_data.privilege_name}&nbsp;&nbsp;
-                        {/volist}
-                    </td>
-                    <td>
-                        <a href="/admin/admin/admin_role_edit/id/{$data.id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
-                        <a href="/admin/admin/admin_role_delete/id/{$data.id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
-                    </td>
-                </tr>
-            {/volist}
-            </tbody>
-        </table>
-        <div class="fixed-table-pagination" align="center">
-        </div>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="fixed-table-pagination" align="center">
     </div>
 </section>
 
