@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-08-31 16:38:50
+Date: 2017-09-05 16:50:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `sys_admin_log` (
   `log_ip` varchar(12) NOT NULL COMMENT 'ip',
   `log_url` varchar(255) NOT NULL COMMENT 'url',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_admin_log
@@ -82,6 +82,26 @@ INSERT INTO `sys_admin_log` VALUES ('47', '1', '1504162872', '编辑商品11111'
 INSERT INTO `sys_admin_log` VALUES ('48', '1', '1504162876', '编辑商品测试商品001', '127.0.0.1', '/admin/goods/goods_edit\r\n');
 INSERT INTO `sys_admin_log` VALUES ('49', '1', '1504162970', '添加商品测试少时诵诗书', '127.0.0.1', '/admin/goods/goods_add\r\n');
 INSERT INTO `sys_admin_log` VALUES ('50', '1', '1504163153', '登录', '10.3.9.50', '/admin/user/login.html');
+INSERT INTO `sys_admin_log` VALUES ('51', '1', '1504167144', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('52', '1', '1504573175', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('53', '1', '1504574704', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('54', '1', '1504575772', '添加商品类型', '127.0.0.1', '/admin/goods/goods_type_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('55', '1', '1504585456', '添加角色系统管理员', '127.0.0.1', '/admin/admin/admin_role_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('56', '1', '1504585495', '添加角色商品管理员', '127.0.0.1', '/admin/admin/admin_role_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('57', '1', '1504585524', '添加角色超级管理员', '127.0.0.1', '/admin/admin/admin_role_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('58', '1', '1504585543', '添加角色访客', '127.0.0.1', '/admin/admin/admin_role_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('59', '1', '1504585855', '管理员编辑admin', '127.0.0.1', '/admin/admin/admin_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('60', '1', '1504585870', '管理员编辑admin2', '127.0.0.1', '/admin/admin/admin_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('61', '1', '1504585875', '管理员编辑admin3', '127.0.0.1', '/admin/admin/admin_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('62', '1', '1504586027', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('63', '1', '1504586288', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('64', '1', '1504586529', '登录', '127.0.0.1', '/admin/user/login.html');
+INSERT INTO `sys_admin_log` VALUES ('65', '2', '1504574692', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('66', '2', '1504586259', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('67', '2', '1504586469', '登录', '127.0.0.1', '/admin/user/login.html');
+INSERT INTO `sys_admin_log` VALUES ('68', '3', '1504586485', '登录', '127.0.0.1', '/admin/user/login.html');
+INSERT INTO `sys_admin_log` VALUES ('69', '4', '1504586507', '登录', '127.0.0.1', '/admin/user/login.html');
+INSERT INTO `sys_admin_log` VALUES ('70', '1', '1504601325', '登录', '127.0.0.1', '/admin/user/login.html');
 
 -- ----------------------------
 -- Table structure for sys_admin_role
@@ -92,15 +112,15 @@ CREATE TABLE `sys_admin_role` (
   `role_name` varchar(255) NOT NULL COMMENT '角色id',
   `privilege_id` varchar(255) NOT NULL COMMENT '权限id字符串',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_admin_role
 -- ----------------------------
-INSERT INTO `sys_admin_role` VALUES ('6', '超级管理员', '1,2,3,4,5,6,7,21,22,26,27,28,29,30,35,36,8,9,10,11,12,13,14,15,31,32,33,34,37,38,39,40,41,42,43,44,16,17,25,19,20');
-INSERT INTO `sys_admin_role` VALUES ('4', '商品管理员', '8,9,10,11,12,13,14,15,31,32,33,34,16,17,25,19');
-INSERT INTO `sys_admin_role` VALUES ('5', '系统管理员', '16,17,25,19,20');
-INSERT INTO `sys_admin_role` VALUES ('7', '访客', '1,3,5,35,8,12,31,16,17,25,19,20');
+INSERT INTO `sys_admin_role` VALUES ('1', '系统管理员', '16,13');
+INSERT INTO `sys_admin_role` VALUES ('2', '商品管理员', '1,3,4,5,6,13');
+INSERT INTO `sys_admin_role` VALUES ('3', '超级管理员', '16,1,3,4,5,6,8,9,10,11,12,13,14');
+INSERT INTO `sys_admin_role` VALUES ('4', '访客', '13');
 
 -- ----------------------------
 -- Table structure for sys_admin_user
@@ -120,10 +140,10 @@ CREATE TABLE `sys_admin_user` (
 -- ----------------------------
 -- Records of sys_admin_user
 -- ----------------------------
-INSERT INTO `sys_admin_user` VALUES ('1', 'admin', '96e79218965eb72c92a549dd5a330112', '1503718502', '1504167144', '127.0.0.1', '6');
-INSERT INTO `sys_admin_user` VALUES ('2', 'admin2', '96e79218965eb72c92a549dd5a330112', '1503718517', '1503718601', '127.0.0.1', '4');
-INSERT INTO `sys_admin_user` VALUES ('3', 'admin3', '96e79218965eb72c92a549dd5a330112', '1503718526', '1503718625', '127.0.0.1', '5');
-INSERT INTO `sys_admin_user` VALUES ('4', 'admin4', '96e79218965eb72c92a549dd5a330112', '1503722691', '0', '', '4');
+INSERT INTO `sys_admin_user` VALUES ('1', 'admin', '96e79218965eb72c92a549dd5a330112', '1503718502', '1504601325', '127.0.0.1', '3');
+INSERT INTO `sys_admin_user` VALUES ('2', 'admin2', '96e79218965eb72c92a549dd5a330112', '1503718517', '1504586469', '127.0.0.1', '2');
+INSERT INTO `sys_admin_user` VALUES ('3', 'admin3', '96e79218965eb72c92a549dd5a330112', '1503718526', '1504586485', '127.0.0.1', '1');
+INSERT INTO `sys_admin_user` VALUES ('4', 'admin4', '96e79218965eb72c92a549dd5a330112', '1503722691', '1504586507', '127.0.0.1', '4');
 
 -- ----------------------------
 -- Table structure for sys_goods
@@ -253,7 +273,7 @@ CREATE TABLE `sys_goods_type` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
   `type_name` varchar(50) NOT NULL COMMENT '类型名称',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_goods_type
@@ -262,61 +282,51 @@ INSERT INTO `sys_goods_type` VALUES ('1', '水果');
 INSERT INTO `sys_goods_type` VALUES ('4', '手机');
 
 -- ----------------------------
+-- Table structure for sys_privilege_group
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_privilege_group`;
+CREATE TABLE `sys_privilege_group` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `group_name` varchar(50) NOT NULL COMMENT '分组名称',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_privilege_group
+-- ----------------------------
+INSERT INTO `sys_privilege_group` VALUES ('1', '系统');
+INSERT INTO `sys_privilege_group` VALUES ('2', '商品');
+INSERT INTO `sys_privilege_group` VALUES ('3', '管理员');
+INSERT INTO `sys_privilege_group` VALUES ('4', '其他分组');
+
+-- ----------------------------
 -- Table structure for sys_privilege_src
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_privilege_src`;
 CREATE TABLE `sys_privilege_src` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
   `privilege_name` varchar(255) NOT NULL COMMENT '权限名称',
-  `controller_name` varchar(255) NOT NULL COMMENT '控制器名',
-  `action_name` varchar(255) NOT NULL COMMENT '方法名',
+  `group_id` smallint(5) unsigned NOT NULL COMMENT '权限分组id',
+  `privilege_code` text NOT NULL COMMENT '权限码',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_privilege_src
 -- ----------------------------
-INSERT INTO `sys_privilege_src` VALUES ('1', '管理员列表', 'Admin', 'admin_lst');
-INSERT INTO `sys_privilege_src` VALUES ('2', '添加管理员', 'Admin', 'admin_add');
-INSERT INTO `sys_privilege_src` VALUES ('3', '角色列表', 'Admin', 'admin_role_lst');
-INSERT INTO `sys_privilege_src` VALUES ('4', '添加角色', 'Admin', 'admin_role_add');
-INSERT INTO `sys_privilege_src` VALUES ('5', '权限列表', 'Admin', 'admin_privilege_lst');
-INSERT INTO `sys_privilege_src` VALUES ('6', '添加权限', 'Admin', 'admin_privilege_add');
-INSERT INTO `sys_privilege_src` VALUES ('7', '读取权限', 'Admin', 'ajax_get_action');
-INSERT INTO `sys_privilege_src` VALUES ('8', '商品分类列表', 'Goods', 'goods_cat_lst');
-INSERT INTO `sys_privilege_src` VALUES ('9', '添加商品分类', 'Goods', 'goods_cat_add');
-INSERT INTO `sys_privilege_src` VALUES ('10', '商品分类编辑', 'Goods', 'goods_cat_edit');
-INSERT INTO `sys_privilege_src` VALUES ('11', '删除商品分类', 'Goods', 'goods_cat_delete');
-INSERT INTO `sys_privilege_src` VALUES ('12', '商品列表', 'Goods', 'goods_lst');
-INSERT INTO `sys_privilege_src` VALUES ('13', '添加商品', 'Goods', 'goods_add');
-INSERT INTO `sys_privilege_src` VALUES ('14', '编辑商品', 'Goods', 'goods_edit');
-INSERT INTO `sys_privilege_src` VALUES ('15', '删除商品', 'Goods', 'goods_delete');
-INSERT INTO `sys_privilege_src` VALUES ('16', '首页', 'Index', 'index');
-INSERT INTO `sys_privilege_src` VALUES ('17', '菜单', 'Index', 'menu');
-INSERT INTO `sys_privilege_src` VALUES ('25', 'sup-ui', 'Index', 'sup');
-INSERT INTO `sys_privilege_src` VALUES ('19', '欢迎页', 'Index', 'welcome');
-INSERT INTO `sys_privilege_src` VALUES ('20', '系统设置', 'System', 'setting');
-INSERT INTO `sys_privilege_src` VALUES ('21', '权限编辑', 'Admin', 'admin_privilege_edit');
-INSERT INTO `sys_privilege_src` VALUES ('22', '删除权限', 'Admin', 'admin_privilege_delete');
-INSERT INTO `sys_privilege_src` VALUES ('26', '角色编辑', 'Admin', 'admin_role_edit');
-INSERT INTO `sys_privilege_src` VALUES ('27', '管理员编辑', 'Admin', 'admin_edit');
-INSERT INTO `sys_privilege_src` VALUES ('28', '删除管理员', 'Admin', 'admin_delete');
-INSERT INTO `sys_privilege_src` VALUES ('29', '删除角色', 'Admin', 'admin_role_delete');
-INSERT INTO `sys_privilege_src` VALUES ('30', '权限存在ajax', 'Admin', 'privilege_exist');
-INSERT INTO `sys_privilege_src` VALUES ('31', '品牌列表', 'Goods', 'goods_brand_lst');
-INSERT INTO `sys_privilege_src` VALUES ('32', '添加品牌', 'Goods', 'goods_brand_add');
-INSERT INTO `sys_privilege_src` VALUES ('33', '编辑品牌', 'Goods', 'goods_brand_edit');
-INSERT INTO `sys_privilege_src` VALUES ('34', '删除品牌', 'Goods', 'goods_brand_delete');
-INSERT INTO `sys_privilege_src` VALUES ('35', '管理员日志', 'Admin', 'admin_log_lst');
-INSERT INTO `sys_privilege_src` VALUES ('36', '管理员日志更新', 'Admin', 'admin_log_update');
-INSERT INTO `sys_privilege_src` VALUES ('37', '属性列表', 'Goods', 'goods_attr_lst');
-INSERT INTO `sys_privilege_src` VALUES ('38', '类型列表', 'Goods', 'goods_type_lst');
-INSERT INTO `sys_privilege_src` VALUES ('39', '添加类型', 'Goods', 'goods_type_add');
-INSERT INTO `sys_privilege_src` VALUES ('40', '编辑商品类型', 'Goods', 'goods_type_edit');
-INSERT INTO `sys_privilege_src` VALUES ('41', '删除商品类型', 'Goods', 'goods_type_delete');
-INSERT INTO `sys_privilege_src` VALUES ('42', '添加属性', 'Goods', 'goods_attr_add');
-INSERT INTO `sys_privilege_src` VALUES ('43', '编辑属性', 'Goods', 'goods_attr_edit');
-INSERT INTO `sys_privilege_src` VALUES ('44', '删除属性', 'Goods', 'goods_attr_delete');
+INSERT INTO `sys_privilege_src` VALUES ('1', '商品列表', '2', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:9:\"goods_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:9:\"goods_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:10:\"goods_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:12:\"goods_delete\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('3', '商品分类', '2', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:13:\"goods_cat_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:13:\"goods_cat_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:14:\"goods_cat_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:16:\"goods_cat_delete\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('4', '商品类型', '2', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:14:\"goods_type_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:14:\"goods_type_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:15:\"goods_type_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:17:\"goods_type_delete\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('5', '商品品牌', '2', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:15:\"goods_brand_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:15:\"goods_brand_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:16:\"goods_brand_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:18:\"goods_brand_delete\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('6', '商品属性', '2', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:14:\"goods_attr_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:14:\"goods_attr_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:15:\"goods_attr_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:17:\"goods_attr_delete\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('16', '系统设置', '1', 'a:1:{i:0;a:2:{s:15:\"controller_name\";s:6:\"System\";s:11:\"action_name\";s:7:\"setting\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('8', '管理员管理', '3', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:9:\"admin_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:9:\"admin_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:10:\"admin_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:12:\"admin_delete\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('9', '角色管理', '3', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:14:\"admin_role_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:14:\"admin_role_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:15:\"admin_role_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:17:\"admin_role_delete\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('10', '权限管理', '3', 'a:5:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:19:\"admin_privilege_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:19:\"admin_privilege_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:15:\"ajax_get_action\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:20:\"admin_privilege_edit\";}i:4;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:22:\"admin_privilege_delete\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('11', '管理员日志', '3', 'a:2:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:13:\"admin_log_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:16:\"admin_log_update\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('12', '权限分组', '3', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:25:\"admin_privilege_group_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:25:\"admin_privilege_group_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:26:\"admin_privilege_group_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:28:\"admin_privilege_group_delete\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('13', '首页', '4', 'a:3:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Index\";s:11:\"action_name\";s:5:\"index\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Index\";s:11:\"action_name\";s:4:\"menu\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Index\";s:11:\"action_name\";s:7:\"welcome\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('14', 'superui', '4', 'a:1:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Index\";s:11:\"action_name\";s:3:\"sup\";}}');
 
 -- ----------------------------
 -- Table structure for sys_setting
