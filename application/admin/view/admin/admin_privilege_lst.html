@@ -11,8 +11,7 @@
         <tr>
             <th data-sortable="true">分组</th>
             <th data-sortable="true">菜单名</th>
-            <th data-sortable="true">控制器名</th>
-            <th data-sortable="true">方法名</th>
+            <th data-sortable="true">权限码</th>
             <th >操作</th>
         </tr>
         </thead>
@@ -29,8 +28,12 @@
             <tr>
                 <td></td>
                 <td>{$sub_data.privilege_name}</td>
-                <td>{$sub_data.controller_name}</td>
-                <td>{$sub_data.action_name}</td>
+                <td>
+                    {volist name="sub_data.privilege_code" id="code_data"}
+                        {$code_data.controller_name}
+                        {$code_data.action_name} @
+                    {/volist}
+                </td>
                 <td> <a href="/admin/admin/admin_privilege_edit/id/{$sub_data.id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
                     <a href="/admin/admin/admin_privilege_delete/id/{$sub_data.id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a></td>
             </tr>

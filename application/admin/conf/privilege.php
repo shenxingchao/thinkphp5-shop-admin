@@ -99,6 +99,14 @@ return [
                     'targetType'=>'iframe-tab',
                     'icon'=>'<i class="iconfont">&#xe633;</i>'
                 ],
+                 [
+                    'id'=>'100025',
+                    'text'=>'权限分组',
+                    'url'=>'/admin/admin/admin_privilege_group_lst',
+                    'targetType'=>'iframe-tab',
+                    'icon'=>'<i class="iconfont">&#xe646;</i>'
+                ],
+
             ],
         ],
         [

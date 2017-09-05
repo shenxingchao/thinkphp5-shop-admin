@@ -53,12 +53,18 @@ class Base extends  Controller{
         $privilege_src = session('privilege_src');
         $flag = false;
         $url = strtolower($url);
+
         foreach ($privilege_src as $key=>$value){
-            $match = strtolower($value['controller_name']."/".$value['action_name']);
-            if(strpos($url,$match)!==false){
-                $flag = true;
-                break;
+            $value['privilege_code'] = unserialize($value['privilege_code'] );
+            foreach ($value['privilege_code'] as $k=>$v){
+                $match = strtolower($v['controller_name']."/".$v['action_name']);
+                if(strpos($url,$match)!==false){
+                    $flag = true;
+                    break;
+                }
             }
+            if($flag)
+                break;
         }
         if(!$flag)
             $this->error("您没有此操作权限",'');

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\admin\admin_role_add.html";i:1502070508;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1503728480;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1503390357;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\admin\admin_role_add.html";i:1502070508;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167412;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/AdminLTE.css">
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/skins/_all-skins.css">
     <link href="__SUP__/content/min/css/supershopui.common.min.css" rel="stylesheet" />
-    <link href="__SUP__/content/plugins/bootstrap-table/bootstrap-table.css" rel="stylesheet" />
     <link rel="stylesheet" href="__ADMIN__/css/style.css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -81,8 +80,6 @@
 <script src="__SUP__/content/ui/global/jQuery/jquery.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="__SUP__/content/ui/global/bootstrap/js/bootstrap.min.js"></script>
-<script src="__SUP__/content/plugins/bootstrap-table/bootstrap-table.js"></script>
-<script src="__SUP__/content/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
 <script src="__SUP__/content/min/js/supershopui.common.js"></script>
 <script src="__JS__/dialog.js"></script>
 <script src="__JS__/global.js"></script>

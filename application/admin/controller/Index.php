@@ -21,12 +21,15 @@ class Index extends Base
         //读取菜单文件
         Config::load(APP_PATH.'/admin/conf/privilege.php');
         $menu = Config::get('privilege');
-        //权限判断 显示菜单 接着做
+        //权限判断 显示菜单
         $privilege_src = session('privilege_src');
         $allow_menu = [];
         foreach ($privilege_src as $key=>$value){
-            $con_act = strtolower('/admin/'.$value['controller_name']."/".$value['action_name']);
-            array_push($allow_menu,$con_act);
+            $value['privilege_code'] = unserialize($value['privilege_code'] );
+            foreach ($value['privilege_code'] as $k=>$v){
+                $con_act = strtolower('/admin/'.$v['controller_name']."/".$v['action_name']);
+                array_push($allow_menu,$con_act);
+            }
         }
         foreach ($menu as $key=>$value){
             foreach ($value['children'] as $k=>$v){

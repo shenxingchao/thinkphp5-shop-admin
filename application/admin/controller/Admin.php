@@ -149,13 +149,19 @@ class Admin extends Base{
         $privilege_lst = Db::name('privilege_src')->select();
         if(empty($privilege_lst))
             $this->error('请先添加权限资源');
-        //按控制器分组输出
+        //读取所有权限资源
+        $privilege_lst = Db::name('privilege_src s')
+            ->join('privilege_group g','s.group_id = g.id')
+            ->field('s.*,g.group_name')
+            ->select();
+        //按权限分组 分组输出
         $privilege_lst_new = [];
         foreach ($privilege_lst as $key=>$value){
-            if(!array_key_exists($value['controller_name'],$privilege_lst_new))
-                $privilege_lst_new[$value['controller_name']] = [];
+            if(!array_key_exists($value['group_name'],$privilege_lst_new))
+                $privilege_lst_new[$value['group_name']] = [];
             foreach ($privilege_lst_new as $k=>$val){
-                if($value['controller_name'] == $k){
+                if($value['group_name'] == $k){
+                    $value['privilege_code'] = unserialize($value['privilege_code']);
                     array_push($privilege_lst_new[$k],$value);
                     break;
                 }
@@ -191,13 +197,19 @@ class Admin extends Base{
         $privilege_lst = Db::name('privilege_src')->select();
         if(empty($privilege_lst))
             $this->error('请先添加权限资源');
-        //按控制器分组输出
+        //读取所有权限资源
+        $privilege_lst = Db::name('privilege_src s')
+            ->join('privilege_group g','s.group_id = g.id')
+            ->field('s.*,g.group_name')
+            ->select();
+        //按权限分组 分组输出
         $privilege_lst_new = [];
         foreach ($privilege_lst as $key=>$value){
-            if(!array_key_exists($value['controller_name'],$privilege_lst_new))
-                $privilege_lst_new[$value['controller_name']] = [];
+            if(!array_key_exists($value['group_name'],$privilege_lst_new))
+                $privilege_lst_new[$value['group_name']] = [];
             foreach ($privilege_lst_new as $k=>$val){
-                if($value['controller_name'] == $k){
+                if($value['group_name'] == $k){
+                    $value['privilege_code'] = unserialize($value['privilege_code']);
                     array_push($privilege_lst_new[$k],$value);
                     break;
                 }
@@ -243,14 +255,18 @@ class Admin extends Base{
      */
     public function admin_privilege_lst(){
         //读取所有权限资源
-        $privilege_lst = Db::name('privilege_src')->select();
-        //按控制器分组输出
+        $privilege_lst = Db::name('privilege_src s')
+                    ->join('privilege_group g','s.group_id = g.id')
+                    ->field('s.*,g.group_name')
+                    ->select();
+        //按权限分组 分组输出
         $privilege_lst_new = [];
         foreach ($privilege_lst as $key=>$value){
-            if(!array_key_exists($value['controller_name'],$privilege_lst_new))
-                $privilege_lst_new[$value['controller_name']] = [];
+            if(!array_key_exists($value['group_name'],$privilege_lst_new))
+                $privilege_lst_new[$value['group_name']] = [];
             foreach ($privilege_lst_new as $k=>$val){
-                if($value['controller_name'] == $k){
+                if($value['group_name'] == $k){
+                    $value['privilege_code'] = unserialize($value['privilege_code']);
                     array_push($privilege_lst_new[$k],$value);
                     break;
                 }
@@ -268,23 +284,24 @@ class Admin extends Base{
         $request = Request::instance();
         if($request->isPost()){
             $post = $request->param();
-            foreach ($post['privilege_name'] as $key=>$value){
-                $insert = array(
-                    'privilege_name'=>$value,
-                    'controller_name'=>$post['controller_name'][$key],
-                    'action_name'=>$post['action_name'][$key]
-                );
-                $where = array(
-                    'controller_name'=>$post['controller_name'][$key],
-                    'action_name'=>$post['action_name'][$key]
-                );
-                $find = Db::name('privilege_src')->where($where)->find();
-                if($find)
-                  continue;
-                Db::name('privilege_src')->insert($insert);
+            $privilege_code = array();
+            foreach ($post['controller_name'] as $key=>$value){
+                $privilege_code[$key]['controller_name']=$post['controller_name'][$key];
+                $privilege_code[$key]['action_name']=$post['action_name'][$key];
             }
+            $insert = [
+                'privilege_name'=>$post['privilege_name'],
+                'group_id'      =>$post['group_id'],
+                'privilege_code'=>serialize($privilege_code),
+            ];
+            Db::name('privilege_src')->insert($insert);
             $this->success("提交成功",'/admin/admin/admin_privilege_lst');
         }
+        //读取权限分组
+        $privilege_group = Db::name('privilege_group')->select();
+        if(!$privilege_group)
+            $this->error("请先添加权限分组",'/admin/admin/admin_privilege_lst');
+        $this->assign('privilege_group',$privilege_group);
         //读取所有控制器
         $controllerPath = APP_PATH.'admin/controller';
         $controller_name = array();
@@ -320,17 +337,42 @@ class Admin extends Base{
         $request = Request::instance();
         $id = $request->param('id');
         if($request->isPost()){
+            $post = $request->param();
+            $privilege_code = array();
+            foreach ($post['controller_name'] as $key=>$value){
+                $privilege_code[$key]['controller_name']=$post['controller_name'][$key];
+                $privilege_code[$key]['action_name']=$post['action_name'][$key];
+            }
             $update = [
                 'id'=>$id,
-                'privilege_name'=>$request->param('privilege_name'),
+                'privilege_name'=>$post['privilege_name'],
+                'group_id'      =>$post['group_id'],
+                'privilege_code'=>serialize($privilege_code),
             ];
             $res = Db::name('privilege_src')->update($update);
             if(!$res)
                 $this->error("保存失败");
             $this->success("保存成功",'/admin/admin/admin_privilege_lst');
         }
+        //读取权限分组
+        $privilege_group = Db::name('privilege_group')->select();
+        if(!$privilege_group)
+            $this->error("请先添加权限分组",'/admin/admin/admin_privilege_lst');
+        $this->assign('privilege_group',$privilege_group);
+        //读取所有控制器
+        $controllerPath = APP_PATH.'admin/controller';
+        $controller_name = array();
+        $dirRes   = opendir($controllerPath);
+        while($file = readdir($dirRes)) {
+            if(!in_array($file,array('.','..')))
+            {
+                $controller_name[] = basename($file,'.php');
+            }
+        }
+        $this->assign('controller_name',$controller_name);
 
         $privilege = Db::name('privilege_src')->where(['id'=>$id])->find();
+        $privilege['privilege_code'] = unserialize($privilege['privilege_code']);
         $this->assign('privilege',$privilege);
         return $this->fetch();
     }
@@ -364,23 +406,6 @@ class Admin extends Base{
         else{
             $this->error('权限资源不存在');
         }
-    }
-
-    /**
-     * 判断权限资源是否添加
-     */
-    public function privilege_exist(){
-        $request = Request::instance();
-        $post = $request->param();
-        $where = [
-            'controller_name'=>$post['controller_name'],
-            'action_name'=>$post['action_name']
-        ];
-        $res = Db::name('privilege_src')->where($where)->find();
-        if($res)
-            return ['code'=>0,'msg'=>'权限资源已添加'];
-        else
-            return ['code'=>1,'msg'=>''];
     }
 
     /**
@@ -443,6 +468,101 @@ class Admin extends Base{
             echo "<div style='width: 50%;text-align: left;margin: 2px auto;'>导入成功 <a href='/admin/admin/admin_log_lst'>
             <button style='width: 80px;height: 30px;line-height: 30px;background: #3792bf;color: #fff;border: none;cursor: pointer;border-radius: 4px;'>返回</button>
             </a></div>";
+        }
+    }
+
+
+    /**
+     * 权限分组列表
+     * @return mixed
+     */
+    public function admin_privilege_group_lst(){
+        $pagesize = Setting('admin_pagesize')?Setting('admin_pagesize'):8;
+        $list = Db::name('privilege_group')->paginate($pagesize,false,['path'=>'/admin/admin/admin_privilege_group_lst']);
+        $this->assign('list',$list);
+        return $this->fetch();
+    }
+
+    /**
+     * 添加权限分组
+     * @return mixed
+     */
+    public function admin_privilege_group_add(){
+        $request = Request::instance();
+        if($request->isPost()){
+            $post = $request->param();
+            $where = [
+                'group_name'=>trim($post['group_name']),
+            ];
+            $find = Db::name('privilege_group')->where($where)->find();
+            if($find)
+                $this->error("权限分组已存在");
+            $insert = [
+                'group_name'=>trim($post['group_name']),
+            ];
+            $res = Db::name('privilege_group')->insert($insert);
+            if(!$res)
+                $this->error("添加失败");
+            $this->success("添加成功",'/admin/admin/admin_privilege_group_lst');
+        }
+
+        return $this->fetch();
+    }
+
+    /**
+     * 编辑权限分组
+     * @return mixed
+     */
+    public function admin_privilege_group_edit(){
+        $request= Request::instance();
+        if ($request->isPost()){
+            $where = [
+                'id'=>intval($request->param('id')),
+            ];
+            //1.组装数据
+            $update = [
+                'group_name'=>$request->param('group_name'),
+            ];
+            //2.更新
+            $res = Db::name('privilege_group')->where($where)->update($update);
+            //3.返回
+            if($res){
+                $this->success('编辑成功','/admin/admin/admin_privilege_group_lst');
+            }
+            else
+                $this->error('编辑失败');
+        }
+        else if($request->isGet()){
+            $where = [
+                'id'=>intval($request->param('id'))
+            ];
+            $group_info = Db::name('privilege_group')->where($where)->find();
+            if(empty($group_info))
+                $this->error('分组不存在');
+            $this->assign('group_info',$group_info);
+            return $this->fetch();
+        }
+    }
+
+    /**
+     * 删除权限分组
+     */
+    public function admin_privilege_group_delete(){
+        $request = Request::instance();
+        if ($request->param('id')){
+            $where = [
+                'id'=>intval($request->param('id')),
+            ];
+            $res = Db::name('privilege_group')->where($where)->delete();
+            if($res){
+                $this->success('删除成功', '/admin/admin/admin_privilege_group_lst');
+            }
+            else{
+                $this->error('删除失败');
+            }
+        }
+        else{
+            $this->error('分组不存在');
         }
     }
 }

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\goods\goods_cat_edit.html";i:1504159046;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167412;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:78:"D:\phpStudy\admin/application/admin\view\admin\admin_privilege_group_edit.html";i:1504576888;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167412;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,24 +29,12 @@
         <li class="active"><?php echo $action; ?></li>
     </ol>
 </section>
-<form class="form-horizontal col-sm-8 col-sm-offset-2" action="/admin/goods/goods_cat_edit" method="post" enctype="multipart/form-data">
+<form class="form-horizontal col-sm-8 col-sm-offset-2" action="/admin/admin/admin_privilege_group_edit" method="post" enctype="multipart/form-data">
     <div class="box-body">
         <div class="form-group">
-            <label for="cat_name" class="col-sm-2 control-label">分类名</label>
+            <label for="group_name" class="col-sm-2 control-label">权限分组名称</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="cat_name" id="cat_name" placeholder="分类名" value="<?php echo $cat_info['cat_name']; ?>">
-            </div>
-            <div class="col-sm-1 red">*</div>
-        </div>
-        <div class="form-group">
-            <label for="parent_id" class="col-sm-2 control-label">上级分类</label>
-            <div class="col-sm-6">
-                <select name="parent_id" id="parent_id" class="form-control">
-                    <option value="0">顶级分类</option>
-                    <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
-                    <option  <?php if($cat_info['parent_id'] == $data['cat_id']): ?>selected="selected"<?php endif; ?> value="<?php echo $data['cat_id']; ?>"><?php echo str_repeat("&nbsp;",5*$data["level"]); ?><?php echo $data['cat_name']; ?></option>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                </select>
+                <input type="text" class="form-control" name="group_name" id="group_name" value="<?php echo $group_info['group_name']; ?>" placeholder="权限分组名称">
             </div>
             <div class="col-sm-1 red">*</div>
         </div>
@@ -55,7 +43,7 @@
                 <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
             </div>
             <div class="col-sm-3">
-                <input type="hidden" name="id" value="<?php echo $cat_info['cat_id']; ?>">
+                <input type="hidden" name="id" value="<?php echo $group_info['id']; ?>">
                 <button type="button" class="col-sm-12 col-xs-12 btn btn-info edit_btn">提交</button>
             </div>
         </div>
@@ -73,8 +61,8 @@
     $(function () {
         $('.edit_btn').on('click',function () {
             //1.提交前验证
-            if($('#cat_name').val() == ""){
-                showMsg('分类名称不能为空','cat_name',1000);
+            if($('#group_name').val() == ""){
+                showMsg('权限分组名称不能为空','group_name',1000);
                 return false;
             }
             else{

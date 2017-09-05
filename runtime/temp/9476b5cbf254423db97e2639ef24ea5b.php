@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"D:\phpStudy\admin/application/admin\view\goods\goods_brand_lst.html";i:1504165687;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167412;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:77:"D:\phpStudy\admin/application/admin\view\admin\admin_privilege_group_lst.html";i:1504576668;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167412;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +29,8 @@
         <li class="active"><?php echo $action; ?></li>
     </ol>
 </section>
+<style type="text/css">
+</style>
 <section class="content">
     <div id="toolbar" class="btn-group col-sm-12">
         <button id="btn_add" type="button" class="btn btn-primary">
@@ -38,24 +40,24 @@
     <table class="table table-bordered table-hover" >
         <thead>
         <tr>
-            <th data-sortable="true">品牌id</th>
-            <th data-sortable="true">品牌名称</th>
-            <th data-sortable="true">品牌图片</th>
-            <th >操作</th>
+            <th></th>
+            <th>id</th>
+            <th>分组名称</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody>
-            <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
-            <tr>
-                <td><?php echo $data['id']; ?></td>
-                <td><?php echo $data['brand_name']; ?></td>
-                <td><img src="<?php echo $data['brand_img']; ?>" width="100" height="50"></td>
-                <td>
-                    <a href="/admin/goods/goods_brand_edit/id/<?php echo $data['id']; ?>" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
-                    <a href="/admin/goods/goods_brand_delete/id/<?php echo $data['id']; ?>" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
-                </td>
-            </tr>
-            <?php endforeach; endif; else: echo "" ;endif; ?>
+        <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
+        <tr>
+            <td><input type="checkbox"  attr-id="<?php echo $data['id']; ?>"></td>
+            <td><?php echo $data['id']; ?></td>
+            <td><?php echo $data['group_name']; ?></td>
+            <td>
+                <a href="/admin/admin/admin_privilege_group_edit/id/<?php echo $data['id']; ?>" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                <a href="/admin/admin/admin_privilege_group_delete/id/<?php echo $data['id']; ?>" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
+            </td>
+        </tr>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
         </tbody>
     </table>
     <div class="fixed-table-pagination" align="center">
@@ -74,7 +76,7 @@
 <script type="text/javascript">
     $(function () {
         $('#btn_add').on('click',function () {
-            window.location.href = '/admin/goods/goods_brand_add';
+            window.location.href = '/admin/admin/admin_privilege_group_add';
         });
         $('.btn_delete').on('click',function () {
             return confirm('确定要删除吗?');

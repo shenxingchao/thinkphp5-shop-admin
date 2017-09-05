@@ -164,6 +164,23 @@ return [
             'control_name'=>'管理员',
             'action_name'=>'管理员日志 '
         ],
-
+        [
+            'control'=>'admin',
+            'action'=>'admin_privilege_group_lst',
+            'control_name'=>'管理员',
+            'action_name'=>'权限分组列表 '
+        ],
+        [
+            'control'=>'admin',
+            'action'=>'admin_privilege_group_add',
+            'control_name'=>'管理员',
+            'action_name'=>'添加权限分组 '
+        ],
+        [
+            'control'=>'admin',
+            'action'=>'admin_privilege_group_edit',
+            'control_name'=>'管理员',
+            'action_name'=>'编辑权限分组 '
+        ],
     ]
 ];

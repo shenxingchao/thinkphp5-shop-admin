@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:71:"D:\phpStudy\admin/application/admin\view\admin\admin_privilege_lst.html";i:1504165858;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504165655;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:71:"D:\phpStudy\admin/application/admin\view\admin\admin_privilege_lst.html";i:1504583288;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167412;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,8 +40,7 @@
         <tr>
             <th data-sortable="true">分组</th>
             <th data-sortable="true">菜单名</th>
-            <th data-sortable="true">控制器名</th>
-            <th data-sortable="true">方法名</th>
+            <th data-sortable="true">权限码</th>
             <th >操作</th>
         </tr>
         </thead>
@@ -58,8 +57,12 @@
             <tr>
                 <td></td>
                 <td><?php echo $sub_data['privilege_name']; ?></td>
-                <td><?php echo $sub_data['controller_name']; ?></td>
-                <td><?php echo $sub_data['action_name']; ?></td>
+                <td>
+                    <?php if(is_array($sub_data['privilege_code']) || $sub_data['privilege_code'] instanceof \think\Collection || $sub_data['privilege_code'] instanceof \think\Paginator): $i = 0; $__LIST__ = $sub_data['privilege_code'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$code_data): $mod = ($i % 2 );++$i;?>
+                        <?php echo $code_data['controller_name']; ?>
+                        <?php echo $code_data['action_name']; ?> @
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </td>
                 <td> <a href="/admin/admin/admin_privilege_edit/id/<?php echo $sub_data['id']; ?>" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
                     <a href="/admin/admin/admin_privilege_delete/id/<?php echo $sub_data['id']; ?>" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a></td>
             </tr>

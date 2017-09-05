@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:59:"D:\phpStudy\admin/application/admin\view\index\welcome.html";i:1502499276;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167331;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:59:"D:\phpStudy\admin/application/admin\view\index\welcome.html";i:1502499276;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167412;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>title</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!--<link rel="stylesheet" href="__SUP__/content/ui/global/bootstrap/css/bootstrap.min.css">-->
-    <link href="https://cdn.bootcss.com/bootswatch/3.3.7/readable/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="__SUP__/content/ui/global/bootstrap/css/bootstrap.min.css">
     <link href="__SUP__/content/ui/global/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/AdminLTE.css">
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/skins/_all-skins.css">

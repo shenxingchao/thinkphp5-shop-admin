@@ -420,7 +420,6 @@ class Goods extends Base{
      * @return mixed
      */
     public function goods_type_lst(){
-        //1.获取品牌信息，分页输出
         $pagesize = Setting('admin_pagesize')?Setting('admin_pagesize'):8;
         $list = Db::name('goods_type')->paginate($pagesize,false,['path'=>'/admin/goods/goods_type_lst']);
         $this->assign('list',$list);
@@ -465,7 +464,7 @@ class Goods extends Base{
             $update = [
                 'type_name'=>$request->param('type_name'),
             ];
-            //2.添加
+            //2.更新
             $res = Db::name('goods_type')->where($where)->update($update);
             //3.返回
             if($res){
@@ -479,7 +478,6 @@ class Goods extends Base{
             $where = [
                 'id'=>intval($request->param('id'))
             ];
-            //1.获取当前品牌信息
             $type_info = Db::name('goods_type')->where($where)->find();
             if(empty($type_info))
                 $this->error('类型不存在');
