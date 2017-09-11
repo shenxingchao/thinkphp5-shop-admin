@@ -646,4 +646,8 @@ class Goods extends Base{
             $this->error('属性不存在');
         }
     }
+
+    public function goods_spec_lst(){
+        return $this->fetch();
+    }
 }

@@ -99,6 +99,12 @@ return [
             'action_name'=>'编辑属性',
         ],
         [
+            'control'=>'goods',
+            'action'=>'goods_spec_lst',
+            'control_name'=>'商品',
+            'action_name'=>'规格列表',
+        ],
+        [
             'control'=>'system',
             'action'=>'setting',
             'control_name'=>'系统',

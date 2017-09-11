@@ -63,6 +63,13 @@ return [
                     'targetType'=>'iframe-tab',
                     'icon'=>'<i class="iconfont">&#xe605;</i>'
                 ],
+                [
+                    'id'=>'100016',
+                    'text'=>'规格列表',
+                    'url'=>'/admin/goods/goods_spec_lst',
+                    'targetType'=>'iframe-tab',
+                    'icon'=>'<i class="iconfont">&#xe734;</i>'
+                ],
 
             ],
         ],
