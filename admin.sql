@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-09-05 16:50:59
+Date: 2017-09-12 13:46:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `sys_admin_log` (
   `log_ip` varchar(12) NOT NULL COMMENT 'ip',
   `log_url` varchar(255) NOT NULL COMMENT 'url',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_admin_log
@@ -102,6 +102,7 @@ INSERT INTO `sys_admin_log` VALUES ('67', '2', '1504586469', '登录', '127.0.0.
 INSERT INTO `sys_admin_log` VALUES ('68', '3', '1504586485', '登录', '127.0.0.1', '/admin/user/login.html');
 INSERT INTO `sys_admin_log` VALUES ('69', '4', '1504586507', '登录', '127.0.0.1', '/admin/user/login.html');
 INSERT INTO `sys_admin_log` VALUES ('70', '1', '1504601325', '登录', '127.0.0.1', '/admin/user/login.html');
+INSERT INTO `sys_admin_log` VALUES ('71', '1', '1504682007', '登录', '127.0.0.1', '/admin/user/login');
 
 -- ----------------------------
 -- Table structure for sys_admin_role
@@ -118,8 +119,8 @@ CREATE TABLE `sys_admin_role` (
 -- Records of sys_admin_role
 -- ----------------------------
 INSERT INTO `sys_admin_role` VALUES ('1', '系统管理员', '16,13');
-INSERT INTO `sys_admin_role` VALUES ('2', '商品管理员', '1,3,4,5,6,13');
-INSERT INTO `sys_admin_role` VALUES ('3', '超级管理员', '16,1,3,4,5,6,8,9,10,11,12,13,14');
+INSERT INTO `sys_admin_role` VALUES ('2', '商品管理员', '1,3,4,5,6,17,13');
+INSERT INTO `sys_admin_role` VALUES ('3', '超级管理员', '16,1,3,4,5,6,17,8,9,10,11,12,13,14');
 INSERT INTO `sys_admin_role` VALUES ('4', '访客', '13');
 
 -- ----------------------------
@@ -140,7 +141,7 @@ CREATE TABLE `sys_admin_user` (
 -- ----------------------------
 -- Records of sys_admin_user
 -- ----------------------------
-INSERT INTO `sys_admin_user` VALUES ('1', 'admin', '96e79218965eb72c92a549dd5a330112', '1503718502', '1504601325', '127.0.0.1', '3');
+INSERT INTO `sys_admin_user` VALUES ('1', 'admin', '96e79218965eb72c92a549dd5a330112', '1503718502', '1504688307', '127.0.0.1', '3');
 INSERT INTO `sys_admin_user` VALUES ('2', 'admin2', '96e79218965eb72c92a549dd5a330112', '1503718517', '1504586469', '127.0.0.1', '2');
 INSERT INTO `sys_admin_user` VALUES ('3', 'admin3', '96e79218965eb72c92a549dd5a330112', '1503718526', '1504586485', '127.0.0.1', '1');
 INSERT INTO `sys_admin_user` VALUES ('4', 'admin4', '96e79218965eb72c92a549dd5a330112', '1503722691', '1504586507', '127.0.0.1', '4');
@@ -309,7 +310,7 @@ CREATE TABLE `sys_privilege_src` (
   `group_id` smallint(5) unsigned NOT NULL COMMENT '权限分组id',
   `privilege_code` text NOT NULL COMMENT '权限码',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_privilege_src
@@ -327,6 +328,7 @@ INSERT INTO `sys_privilege_src` VALUES ('11', '管理员日志', '3', 'a:2:{i:0;
 INSERT INTO `sys_privilege_src` VALUES ('12', '权限分组', '3', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:25:\"admin_privilege_group_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:25:\"admin_privilege_group_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:26:\"admin_privilege_group_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:28:\"admin_privilege_group_delete\";}}');
 INSERT INTO `sys_privilege_src` VALUES ('13', '首页', '4', 'a:3:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Index\";s:11:\"action_name\";s:5:\"index\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Index\";s:11:\"action_name\";s:4:\"menu\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Index\";s:11:\"action_name\";s:7:\"welcome\";}}');
 INSERT INTO `sys_privilege_src` VALUES ('14', 'superui', '4', 'a:1:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Index\";s:11:\"action_name\";s:3:\"sup\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('17', '商品规格', '2', 'a:1:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:14:\"goods_spec_lst\";}}');
 
 -- ----------------------------
 -- Table structure for sys_setting
