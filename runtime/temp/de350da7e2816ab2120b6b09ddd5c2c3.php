@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:56:"D:\phpStudy\admin/application/admin\view\user\login.html";i:1505198392;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:56:"D:\phpStudy\admin/application/admin\view\user\login.html";i:1505199844;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/AdminLTE.css">
     <link rel="stylesheet" href="__SUP__/content/adminlte/dist/css/skins/_all-skins.css">
     <link href="__SUP__/content/min/css/supershopui.common.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="__CSS__/style.css">
     <style type="text/css">
         section{
             padding-bottom: 10px;/*解决阴影被挡住的问题*/

@@ -647,7 +647,72 @@ class Goods extends Base{
         }
     }
 
+    /**
+     * 规格列表
+     * @return mixed
+     */
     public function goods_spec_lst(){
+        $request = Request::instance();
+        $pagesize = Setting('admin_pagesize')?Setting('admin_pagesize'):8;
+        if($request->param('type_id')){
+            $type_id = $request->param('type_id');
+            $list = Db::name('goods_spec s')
+                ->join('goods_type t','s.type_id=t.id','left')
+                ->join('goods_spec_item i','s.id=i.spec_id','left')
+                ->where('a.type_id = '.$type_id)
+                ->field('s.*,t.type_name,i.spec_item')
+                ->paginate($pagesize,false,['path'=>'/admin/goods/goods_spec_lst']);
+        }else{
+            $list = Db::name('goods_spec s')
+                ->join('goods_type t','s.type_id=t.id','left')
+                ->field('s.*,t.type_name')
+                ->paginate($pagesize,false,['path'=>'/admin/goods/goods_spec_lst']);
+        }
+
+        foreach ($list as $key=>$value){
+            $spec_item = Db::name('goods_spec_item')->where(['spec_id'=>$value['id']])->select();
+            $spec_item = getValById($spec_item,'id','spec_item');
+            print_r($spec_item);exit;
+            //$list[$key]['spec_item'] = implode(',',$spec_item);
+            exit;
+        }
+        $this->assign('list',$list);print_r($list);exit;
+        return $this->fetch();
+    }
+
+    /**
+     * 添加商品规格
+     * @return mixed
+     */
+    public function goods_spec_add(){
+        $request= Request::instance();
+        if ($request->isPost()){
+            $post = $request->param();
+            //0.组装数据
+            $insert = [
+                'spec_name'   =>$post['spec_name'],
+                'type_id'     =>$post['type_id'],
+            ];
+            $spec_id = Db::name('goods_spec')->insertGetId($insert);
+            //1.处理可选值
+            if($spec_id){
+                $attr_value = array_filter($post['item']);
+                foreach ($attr_value as $key=>$value){
+                    $insert_item = [
+                        'spec_id'=>$spec_id,
+                        'spec_item'=>$value,
+                    ];
+                    Db::name('goods_spec_item')->insert($insert_item);
+                }
+                adminLog("添加商品规格".$insert['spec_name']);
+                $this->success('添加成功','/admin/goods/goods_spec_lst');
+            }
+            else
+                $this->error('添加失败');
+        }
+        //读取所有商品类型
+        $type_info = Db::name('goods_type')->select();
+        $this->assign('type_info',$type_info);
         return $this->fetch();
     }
 }

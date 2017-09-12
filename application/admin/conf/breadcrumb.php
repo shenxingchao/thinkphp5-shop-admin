@@ -105,6 +105,12 @@ return [
             'action_name'=>'规格列表',
         ],
         [
+            'control'=>'goods',
+            'action'=>'goods_spec_add',
+            'control_name'=>'商品',
+            'action_name'=>'添加规格',
+        ],
+        [
             'control'=>'system',
             'action'=>'setting',
             'control_name'=>'系统',

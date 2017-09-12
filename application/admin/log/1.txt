@@ -4,3 +4,8 @@
 1$1504684639$登录$127.0.0.1$/admin/user/login.html
 1$1504688307$登录$127.0.0.1$/admin/user/login.html
 1$1505195454$登录$127.0.0.1$/admin/user/login.html
+1$1505200224$登录$127.0.0.1$/admin/user/login.html
+1$1505200809$登录$127.0.0.1$/admin/user/login.html
+1$1505202555$添加商品规格尺寸$127.0.0.1$/admin/goods/goods_spec_add
+1$1505202708$添加商品规格尺寸$127.0.0.1$/admin/goods/goods_spec_add
+1$1505203204$添加商品规格颜色$127.0.0.1$/admin/goods/goods_spec_add

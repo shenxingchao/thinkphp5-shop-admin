@@ -112,3 +112,19 @@ function adminLog($log_info){
         fwrite($file,$content);
     fclose($file);
 }
+
+/**
+ * @param $arr
+ * @param $key_name
+ * @param $key_name2
+ * @return array
+ * 将数据库中查出的列表以指定的 id 作为数组的键名 数组指定列为元素 的一个数组
+ */
+function getValById($arr, $key_name,$key_name2)
+{
+    $new_arr = array();
+    foreach($arr as $key => $val){
+        $new_arr[$val[$key_name]] = $val[$key_name2];
+    }
+    return $new_arr;
+}
