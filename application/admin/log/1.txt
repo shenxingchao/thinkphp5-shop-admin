@@ -3,3 +3,4 @@
 1$1504684122$登录$127.0.0.1$/admin/user/login.html
 1$1504684639$登录$127.0.0.1$/admin/user/login.html
 1$1504688307$登录$127.0.0.1$/admin/user/login.html
+1$1505195454$登录$127.0.0.1$/admin/user/login.html
