@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\goods\goods_spec_lst.html";i:1505203176;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167412;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\goods\goods_spec_lst.html";i:1505270589;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167412;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,14 +43,27 @@
             <th>规格名称</th>
             <th>类型</th>
             <th>规格项</th>
-            <th >操作</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;endforeach; endif; else: echo "" ;endif; ?>
+        <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?>
+            <tr>
+                <td><input type="checkbox"  attr-id="<?php echo $data['id']; ?>"></td>
+                <td><?php echo $data['id']; ?></td>
+                <td><?php echo $data['spec_name']; ?></td>
+                <td><?php echo $data['type_name']; ?></td>
+                <td><?php echo $data['spec_item']; ?></td>
+                <td>
+                    <a href="/admin/goods/goods_spec_edit/id/<?php echo $data['id']; ?>" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                    <a href="/admin/goods/goods_spec_delete/id/<?php echo $data['id']; ?>" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
+                </td>
+            </tr>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
         </tbody>
     </table>
     <div class="fixed-table-pagination" align="center">
+        <?php echo $list->render(); ?>
     </div>
 </section>
 

@@ -14,16 +14,27 @@
             <th>规格名称</th>
             <th>类型</th>
             <th>规格项</th>
-            <th >操作</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody>
         {volist name='list' id='data'}
-
+            <tr>
+                <td><input type="checkbox"  attr-id="{$data.id}"></td>
+                <td>{$data.id}</td>
+                <td>{$data.spec_name}</td>
+                <td>{$data.type_name}</td>
+                <td>{$data.spec_item}</td>
+                <td>
+                    <a href="/admin/goods/goods_spec_edit/id/{$data.id}" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
+                    <a href="/admin/goods/goods_spec_delete/id/{$data.id}" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>
+                </td>
+            </tr>
         {/volist}
         </tbody>
     </table>
     <div class="fixed-table-pagination" align="center">
+        {$list->render()}
     </div>
 </section>
 

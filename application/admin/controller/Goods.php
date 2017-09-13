@@ -167,11 +167,15 @@ class Goods extends Base{
         //获取所有分类 显示模板
         $cat_info = Db::name('goods_cat')->select();
         $cat_info = getTree($cat_info);
+        if(empty($cat_info))
+            $this->error("请先添加分类");
         $this->assign('cat_info',$cat_info);
         //获取所有品牌
         $brand_info = Db::name('goods_brand')->select();
         $this->assign('brand_info',$brand_info);
-
+        //获取所有类型
+        $type_info = Db::name('goods_type')->select();
+        $this->assign('type_info',$type_info);
         return $this->fetch('goods_add');
     }
 
@@ -658,9 +662,8 @@ class Goods extends Base{
             $type_id = $request->param('type_id');
             $list = Db::name('goods_spec s')
                 ->join('goods_type t','s.type_id=t.id','left')
-                ->join('goods_spec_item i','s.id=i.spec_id','left')
-                ->where('a.type_id = '.$type_id)
-                ->field('s.*,t.type_name,i.spec_item')
+                ->where('s.type_id = '.$type_id)
+                ->field('s.*,t.type_name')
                 ->paginate($pagesize,false,['path'=>'/admin/goods/goods_spec_lst']);
         }else{
             $list = Db::name('goods_spec s')
@@ -668,15 +671,13 @@ class Goods extends Base{
                 ->field('s.*,t.type_name')
                 ->paginate($pagesize,false,['path'=>'/admin/goods/goods_spec_lst']);
         }
-
         foreach ($list as $key=>$value){
             $spec_item = Db::name('goods_spec_item')->where(['spec_id'=>$value['id']])->select();
             $spec_item = getValById($spec_item,'id','spec_item');
-            print_r($spec_item);exit;
-            //$list[$key]['spec_item'] = implode(',',$spec_item);
-            exit;
+            $value['spec_item'] = implode(',',$spec_item);
+            $list->offsetSet($key,$value);
         }
-        $this->assign('list',$list);print_r($list);exit;
+        $this->assign('list',$list);
         return $this->fetch();
     }
 
@@ -694,10 +695,10 @@ class Goods extends Base{
                 'type_id'     =>$post['type_id'],
             ];
             $spec_id = Db::name('goods_spec')->insertGetId($insert);
-            //1.处理可选值
+            //1.处理规格项
             if($spec_id){
-                $attr_value = array_filter($post['item']);
-                foreach ($attr_value as $key=>$value){
+                $spec_value = array_filter($post['item']);
+                foreach ($spec_value as $key=>$value){
                     $insert_item = [
                         'spec_id'=>$spec_id,
                         'spec_item'=>$value,
@@ -714,5 +715,85 @@ class Goods extends Base{
         $type_info = Db::name('goods_type')->select();
         $this->assign('type_info',$type_info);
         return $this->fetch();
+    }
+
+    /**
+     * 编辑商品规格
+     * @return mixed
+     */
+    public function goods_spec_edit(){
+        $request= Request::instance();
+        if ($request->isPost()){
+            $post = $request->param();
+            $where = [
+                'id'=>intval($request->param('id')),
+            ];
+            //1.组装数据
+            $update = [
+                'spec_name'   =>$post['spec_name'],
+                'type_id'     =>$post['type_id'],
+            ];
+            //2.更新
+            Db::name('goods_spec')->where($where)->update($update);
+            $old_spec_item = Db::name('goods_spec_item')->where(['spec_id'=>$post['id']])->column('id,spec_item','id');
+            $spec_value = array_filter($post['item']);
+            //新旧对比 如果不存在则添加
+            foreach ($spec_value as $key=>$value){
+                if(!in_array($value,$old_spec_item)){
+                    $insert_item = [
+                        'spec_id'=>$post['id'],
+                        'spec_item'=>$value,
+                    ];
+                    Db::name('goods_spec_item')->insert($insert_item);
+                }
+            }
+            //旧新对比 如果不存在则删除
+            foreach ($old_spec_item as $key=>$value){
+                if(!in_array($value,$spec_value)){
+                    Db::name('goods_spec_item')->where(['id'=>$key])->delete();
+                }
+            }
+            adminLog("编辑商品规格".$update['spec_name']);
+            $this->success('编辑成功','/admin/goods/goods_spec_lst');
+
+        }
+        else if($request->isGet()){
+            $where = [
+                'id'=>intval($request->param('id'))
+            ];
+            $spec_info = Db::name('goods_spec')->where($where)->find();
+            if(empty($spec_info))
+                $this->error('规格不存在');
+            $this->assign('spec_info',$spec_info);
+            $spec_item = Db::name('goods_spec_item')->where(['spec_id'=>$spec_info['id']])->select();
+            $this->assign('spec_item',$spec_item);
+            //读取所有商品类型
+            $type_info = Db::name('goods_type')->select();
+            $this->assign('type_info',$type_info);
+            return $this->fetch();
+        }
+    }
+
+    /**
+     * 删除商品规格
+     */
+    public function goods_spec_delete(){
+        $request = Request::instance();
+        if ($request->param('id')){
+            $where = [
+                'id'=>intval($request->param('id')),
+            ];
+            $res = Db::name('goods_spec')->where($where)->delete();
+            if($res){
+                Db::name('goods_spec_item')->where(['spec_id'=>intval($request->param('id'))])->delete();
+                $this->success('删除成功', '/admin/goods/goods_spec_lst');
+            }
+            else{
+                $this->error('删除失败');
+            }
+        }
+        else{
+            $this->error('规格不存在');
+        }
     }
 }

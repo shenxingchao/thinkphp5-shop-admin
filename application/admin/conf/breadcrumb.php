@@ -111,6 +111,12 @@ return [
             'action_name'=>'添加规格',
         ],
         [
+            'control'=>'goods',
+            'action'=>'goods_spec_edit',
+            'control_name'=>'商品',
+            'action_name'=>'编辑规格',
+        ],
+        [
             'control'=>'system',
             'action'=>'setting',
             'control_name'=>'系统',

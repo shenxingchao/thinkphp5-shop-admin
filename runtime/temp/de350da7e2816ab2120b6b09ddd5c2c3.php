@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:56:"D:\phpStudy\admin/application/admin\view\user\login.html";i:1505199844;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:56:"D:\phpStudy\admin/application/admin\view\user\login.html";i:1505290365;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,10 +22,11 @@
             background: linear-gradient(180deg,#307eb5, #368dcb,#62a9dc, #a7d5f7); /* 标准的语法 */
         }
         form{
-            margin-top: 100px;
+            margin: 100px auto 0;
             background: #ffffff;
             padding: 60px 0;
             box-shadow: 2px 2px 6px #368dcb;
+            overflow: hidden;
         }
         .form-group,.login_title,.username,.password,.login_btn{
             height: 45px;
@@ -90,6 +91,7 @@
     $(function () {
        //验证用户名密码
         $('.login_btn input').click(function () {
+            var obj = $(this);
             var username = $.trim($('#username').val());
             var password = $.trim($('#password').val());
             if(username == ''){
@@ -101,7 +103,7 @@
                 return false;
             }
             else{
-                $(this).attr('type','submit');
+                obj.attr('type','submit');
             }
         });
     });

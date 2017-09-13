@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\goods\goods_type_lst.html";i:1504165712;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167412;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"D:\phpStudy\admin/application/admin\view\goods\goods_type_lst.html";i:1505291850;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167412;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +51,7 @@
             <td><input type="checkbox"  attr-id="<?php echo $data['id']; ?>"></td>
             <td><?php echo $data['id']; ?></td>
             <td><?php echo $data['type_name']; ?></td>
-            <td><a href="/admin/goods/goods_attr_lst/type_id/<?php echo $data['id']; ?>">属性列表</a> 规格列表</td>
+            <td><a href="/admin/goods/goods_attr_lst/type_id/<?php echo $data['id']; ?>">属性列表</a> <a href="/admin/goods/goods_spec_lst/type_id/<?php echo $data['id']; ?>">规格列表</a></td>
             <td>
                 <a href="/admin/goods/goods_type_edit/id/<?php echo $data['id']; ?>" class="btn btn-icon-only purple"><i class="fa fa-edit"></i></a>
                 <a href="/admin/goods/goods_type_delete/id/<?php echo $data['id']; ?>" class="btn btn-icon-only red btn_delete"> <i class="fa fa-times"></i></a>

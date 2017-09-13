@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-09-12 13:46:14
+Date: 2017-09-13 16:52:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `sys_admin_log` (
   `log_ip` varchar(12) NOT NULL COMMENT 'ip',
   `log_url` varchar(255) NOT NULL COMMENT 'url',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_admin_log
@@ -103,6 +103,27 @@ INSERT INTO `sys_admin_log` VALUES ('68', '3', '1504586485', '登录', '127.0.0.
 INSERT INTO `sys_admin_log` VALUES ('69', '4', '1504586507', '登录', '127.0.0.1', '/admin/user/login.html');
 INSERT INTO `sys_admin_log` VALUES ('70', '1', '1504601325', '登录', '127.0.0.1', '/admin/user/login.html');
 INSERT INTO `sys_admin_log` VALUES ('71', '1', '1504682007', '登录', '127.0.0.1', '/admin/user/login');
+INSERT INTO `sys_admin_log` VALUES ('72', '1', '1504683397', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('73', '1', '1504684038', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('74', '1', '1504684122', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('75', '1', '1504684639', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('76', '1', '1504688307', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('77', '1', '1505195454', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('78', '1', '1505200224', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('79', '1', '1505200809', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('80', '1', '1505202555', '添加商品规格尺寸', '127.0.0.1', '/admin/goods/goods_spec_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('81', '1', '1505202708', '添加商品规格尺寸', '127.0.0.1', '/admin/goods/goods_spec_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('82', '1', '1505203204', '添加商品规格颜色', '127.0.0.1', '/admin/goods/goods_spec_add\r\n');
+INSERT INTO `sys_admin_log` VALUES ('83', '1', '1505261312', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('84', '1', '1505270749', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('85', '1', '1505280096', '编辑商品规格尺寸', '127.0.0.1', '/admin/goods/goods_spec_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('86', '1', '1505280140', '编辑商品规格风格', '127.0.0.1', '/admin/goods/goods_spec_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('87', '1', '1505280210', '编辑商品规格机身内存', '127.0.0.1', '/admin/goods/goods_spec_edit\r\n');
+INSERT INTO `sys_admin_log` VALUES ('88', '1', '1505280496', '添加商品规格测试删除', '127.0.0.1', '/admin/goods/goods_spec_add');
+INSERT INTO `sys_admin_log` VALUES ('89', '1', '1505288059', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('90', '1', '1505288690', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('91', '1', '1505290374', '登录', '127.0.0.1', '/admin/user/login.html\r\n');
+INSERT INTO `sys_admin_log` VALUES ('92', '1', '1505290707', '登录', '127.0.0.1', '/admin/user/login.html');
 
 -- ----------------------------
 -- Table structure for sys_admin_role
@@ -141,7 +162,7 @@ CREATE TABLE `sys_admin_user` (
 -- ----------------------------
 -- Records of sys_admin_user
 -- ----------------------------
-INSERT INTO `sys_admin_user` VALUES ('1', 'admin', '96e79218965eb72c92a549dd5a330112', '1503718502', '1504688307', '127.0.0.1', '3');
+INSERT INTO `sys_admin_user` VALUES ('1', 'admin', '96e79218965eb72c92a549dd5a330112', '1503718502', '1505290707', '127.0.0.1', '3');
 INSERT INTO `sys_admin_user` VALUES ('2', 'admin2', '96e79218965eb72c92a549dd5a330112', '1503718517', '1504586469', '127.0.0.1', '2');
 INSERT INTO `sys_admin_user` VALUES ('3', 'admin3', '96e79218965eb72c92a549dd5a330112', '1503718526', '1504586485', '127.0.0.1', '1');
 INSERT INTO `sys_admin_user` VALUES ('4', 'admin4', '96e79218965eb72c92a549dd5a330112', '1503722691', '1504586507', '127.0.0.1', '4');
@@ -267,6 +288,45 @@ INSERT INTO `sys_goods_cat` VALUES ('31', '水晶葡萄', '12');
 INSERT INTO `sys_goods_cat` VALUES ('32', 'aaa', '18');
 
 -- ----------------------------
+-- Table structure for sys_goods_spec
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_goods_spec`;
+CREATE TABLE `sys_goods_spec` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `spec_name` varchar(50) NOT NULL COMMENT '规格名称',
+  `type_id` smallint(5) unsigned NOT NULL COMMENT '类型id',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_goods_spec
+-- ----------------------------
+INSERT INTO `sys_goods_spec` VALUES ('1', '风格', '4');
+INSERT INTO `sys_goods_spec` VALUES ('2', '机身内存', '4');
+
+-- ----------------------------
+-- Table structure for sys_goods_spec_item
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_goods_spec_item`;
+CREATE TABLE `sys_goods_spec_item` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `spec_id` int(11) unsigned NOT NULL COMMENT '规格id',
+  `spec_item` varchar(50) NOT NULL COMMENT '规格项值',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_goods_spec_item
+-- ----------------------------
+INSERT INTO `sys_goods_spec_item` VALUES ('17', '2', '8T');
+INSERT INTO `sys_goods_spec_item` VALUES ('16', '2', '1G');
+INSERT INTO `sys_goods_spec_item` VALUES ('15', '2', '256M');
+INSERT INTO `sys_goods_spec_item` VALUES ('14', '2', '128M');
+INSERT INTO `sys_goods_spec_item` VALUES ('11', '1', '极致酷炫');
+INSERT INTO `sys_goods_spec_item` VALUES ('12', '1', '优雅高尚');
+INSERT INTO `sys_goods_spec_item` VALUES ('13', '1', '经典永恒');
+
+-- ----------------------------
 -- Table structure for sys_goods_type
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_goods_type`;
@@ -328,7 +388,7 @@ INSERT INTO `sys_privilege_src` VALUES ('11', '管理员日志', '3', 'a:2:{i:0;
 INSERT INTO `sys_privilege_src` VALUES ('12', '权限分组', '3', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:25:\"admin_privilege_group_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:25:\"admin_privilege_group_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:26:\"admin_privilege_group_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Admin\";s:11:\"action_name\";s:28:\"admin_privilege_group_delete\";}}');
 INSERT INTO `sys_privilege_src` VALUES ('13', '首页', '4', 'a:3:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Index\";s:11:\"action_name\";s:5:\"index\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Index\";s:11:\"action_name\";s:4:\"menu\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Index\";s:11:\"action_name\";s:7:\"welcome\";}}');
 INSERT INTO `sys_privilege_src` VALUES ('14', 'superui', '4', 'a:1:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Index\";s:11:\"action_name\";s:3:\"sup\";}}');
-INSERT INTO `sys_privilege_src` VALUES ('17', '商品规格', '2', 'a:1:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:14:\"goods_spec_lst\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('17', '商品规格', '2', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:14:\"goods_spec_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:14:\"goods_spec_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:15:\"goods_spec_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:17:\"goods_spec_delete\";}}');
 
 -- ----------------------------
 -- Table structure for sys_setting

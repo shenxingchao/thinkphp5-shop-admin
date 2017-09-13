@@ -98,6 +98,17 @@
             <div class="tab-pane" id="tab_3">
                 <div class="box-body">
                     <div class="form-group">
+                        <label for="brand_id" class="col-sm-2 control-label">选择类型</label>
+                        <div class="col-sm-6">
+                            <select name="type_id" id="type_id" class="form-control">
+                                <option value="">请选择</option>
+                                {volist name="type_info" id="data"}
+                                <option value="{$data.id}">{$data.type_name}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-sm-3 col-sm-offset-2">
                             <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
                         </div>
