@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-09-13 16:52:31
+Date: 2017-09-27 16:48:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -162,7 +162,7 @@ CREATE TABLE `sys_admin_user` (
 -- ----------------------------
 -- Records of sys_admin_user
 -- ----------------------------
-INSERT INTO `sys_admin_user` VALUES ('1', 'admin', '96e79218965eb72c92a549dd5a330112', '1503718502', '1505290707', '127.0.0.1', '3');
+INSERT INTO `sys_admin_user` VALUES ('1', 'admin', '96e79218965eb72c92a549dd5a330112', '1503718502', '1506493467', '127.0.0.1', '3');
 INSERT INTO `sys_admin_user` VALUES ('2', 'admin2', '96e79218965eb72c92a549dd5a330112', '1503718517', '1504586469', '127.0.0.1', '2');
 INSERT INTO `sys_admin_user` VALUES ('3', 'admin3', '96e79218965eb72c92a549dd5a330112', '1503718526', '1504586485', '127.0.0.1', '1');
 INSERT INTO `sys_admin_user` VALUES ('4', 'admin4', '96e79218965eb72c92a549dd5a330112', '1503722691', '1504586507', '127.0.0.1', '4');
@@ -375,7 +375,7 @@ CREATE TABLE `sys_privilege_src` (
 -- ----------------------------
 -- Records of sys_privilege_src
 -- ----------------------------
-INSERT INTO `sys_privilege_src` VALUES ('1', '商品列表', '2', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:9:\"goods_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:9:\"goods_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:10:\"goods_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:12:\"goods_delete\";}}');
+INSERT INTO `sys_privilege_src` VALUES ('1', '商品列表', '2', 'a:5:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:9:\"goods_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:9:\"goods_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:10:\"goods_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:12:\"goods_delete\";}i:4;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:11:\"getSpecAttr\";}}');
 INSERT INTO `sys_privilege_src` VALUES ('3', '商品分类', '2', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:13:\"goods_cat_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:13:\"goods_cat_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:14:\"goods_cat_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:16:\"goods_cat_delete\";}}');
 INSERT INTO `sys_privilege_src` VALUES ('4', '商品类型', '2', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:14:\"goods_type_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:14:\"goods_type_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:15:\"goods_type_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:17:\"goods_type_delete\";}}');
 INSERT INTO `sys_privilege_src` VALUES ('5', '商品品牌', '2', 'a:4:{i:0;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:15:\"goods_brand_lst\";}i:1;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:15:\"goods_brand_add\";}i:2;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:16:\"goods_brand_edit\";}i:3;a:2:{s:15:\"controller_name\";s:5:\"Goods\";s:11:\"action_name\";s:18:\"goods_brand_delete\";}}');
