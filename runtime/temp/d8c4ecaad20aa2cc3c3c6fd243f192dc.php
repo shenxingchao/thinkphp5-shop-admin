@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"D:\phpStudy\admin/application/admin\view\goods\goods_add.html";i:1505291664;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167412;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"D:\phpStudy\admin/application/admin\view\goods\goods_add.html";i:1505373606;s:59:"D:\phpStudy\admin/application/admin\view\public\header.html";i:1504167412;s:57:"D:\phpStudy\admin/application/admin\view\public\menu.html";i:1499759447;s:59:"D:\phpStudy\admin/application/admin\view\public\footer.html";i:1504165666;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,9 +116,6 @@
                 <div class="box-body">
                     <div class="form-group">
                         <div class="col-sm-3 col-sm-offset-2">
-                            <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
-                        </div>
-                        <div class="col-sm-3">
                             <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
                         </div>
                     </div>
@@ -139,11 +136,12 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-3 col-sm-offset-2">
-                            <button type="reset" class="col-sm-12 col-xs-12 btn btn-default">重置</button>
-                        </div>
-                        <div class="col-sm-3">
                             <button type="button" class="col-sm-12 col-xs-12 btn btn-info add_btn">提交</button>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-8">1</div>
+                        <div class="col-sm-4">2</div>
                     </div>
                 </div>
             </div>
@@ -181,6 +179,24 @@
             }
             else{
                 $(this).attr('type','submit');
+            }
+        });
+        
+        $('#type_id').on('change',function () {
+            var type_id = $(this).val();
+            if( type_id!=""){
+                $.ajax({
+                    url:'/admin/Goods/getSpecAttr',//获取对应类型的规格和属性
+                    type:'post',
+                    dataType:'json',
+                    data:'type_id='+type_id,
+                    success:function (data) {
+
+                    }
+                });
+            }
+            else{
+
             }
         });
     });

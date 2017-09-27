@@ -796,4 +796,28 @@ class Goods extends Base{
             $this->error('规格不存在');
         }
     }
+
+    /**
+     * ajax 获取指定类型的规格和属性
+     * @return array
+     */
+    public function getSpecAttr(){
+        $request = Request::instance();
+        if($request->isPost()){
+            $post = $request->param();
+            $where = [
+                'type_id'=>intval($post['type_id']),
+            ];
+            $spec = Db::name('goods_spec')->where($where)->select();
+            foreach ($spec as $key=>$value){
+                $spec_item = Db::name('goods_spec_item')->where(['spec_id'=>$value['id']])->select();
+                $spec[$key]['spec_item'] = $spec_item;
+            }
+            $attr = Db::name('goods_attr')->where($where)->select();
+            foreach ($attr as $key=>$value){
+                $attr[$key]['attr_value'] = unserialize($value['attr_value']);
+            }
+            return ['spec'=>$spec,'attr'=>$attr];
+        }
+    }
 }
