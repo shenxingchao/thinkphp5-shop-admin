@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:56:"D:\phpStudy\admin/application/admin\view\user\login.html";i:1505290365;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:56:"D:\phpStudy\admin/application/admin\view\user\login.html";i:1507365305;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,16 +16,13 @@
             padding-bottom: 10px;/*解决阴影被挡住的问题*/
         }
         body{
-            background: -webkit-linear-gradient(180deg, #307eb5, #368dcb,#62a9dc, #a7d5f7); /* Safari 5.1 - 6.0 */
-            background: -o-linear-gradient(180deg,#307eb5, #368dcb,#62a9dc, #a7d5f7); /* Opera 11.1 - 12.0 */
-            background: -moz-linear-gradient(180deg,#307eb5, #368dcb,#62a9dc, #a7d5f7); /* Firefox 3.6 - 15 */
-            background: linear-gradient(180deg,#307eb5, #368dcb,#62a9dc, #a7d5f7); /* 标准的语法 */
+            background: url("__ADMIN__/images/login_bg.png") repeat-y;
         }
         form{
             margin: 100px auto 0;
-            background: #ffffff;
+            background: rgba(36, 36, 36, 0.46);
             padding: 60px 0;
-            box-shadow: 2px 2px 6px #368dcb;
+            box-shadow: 2px 2px 6px #333333;
             overflow: hidden;
         }
         .form-group,.login_title,.username,.password,.login_btn{
@@ -37,7 +34,7 @@
             line-height: 45px;
         }
         .login_title{
-            color: #333333;
+            color: #f1f1f1;
             font-size: 1.6em;
             font-weight: bold;
         }
@@ -65,13 +62,13 @@
             <div class="form-group col-sm-12 col-xs-12">
                 <div class="col-sm-12 col-xs-12 username input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="用户名 admin">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="用户名">
                 </div>
             </div>
             <div class="form-group col-sm-12 col-xs-12">
                 <div class="col-sm-12 col-xs-12 password input-group">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <input type="password" class="form-control" name="password" id="password"  placeholder="密码 111111">
+                    <input type="password" class="form-control" name="password" id="password"  placeholder="密码">
                 </div>
             </div>
             <div class="form-group col-sm-12 col-xs-12">
